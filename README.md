@@ -28,6 +28,6 @@ Functions we used:
  - main() - main loop, where we get data, update it in infinite loop and process BLE events;
 ___
 ## References
-[ADS1299 Datasheet](http://www.ti.com/lit/ds/symlink/ads1299.pdf)
-[PSoC SPI Master Datasheet](https://www.cypress.com/file/185446/download)
-[PSoC Bluetooth Low Energy Datasheet](https://www.cypress.com/file/408651/download)
+[ADS1299 Datasheet](http://www.ti.com/lit/ds/symlink/ads1299.pdf) |
+ [PSoC SPI Master Datasheet](https://www.cypress.com/file/185446/download) |
+ [PSoC Bluetooth Low Energy Datasheet](https://www.cypress.com/file/408651/download)
