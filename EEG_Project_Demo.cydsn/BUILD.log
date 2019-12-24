@@ -1,152 +1,44 @@
---------------- Build Started: 12/19/2019 19:21:49 Project: EEG_Project_Demo, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 12/25/2019 00:06:38 Project: EEG_Project_Demo, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
+In file included from ./ads1299.h:50:0,
+                 from main.c:16:
+./ads1299_spi_adapt.h:32:21: warning: 'spi_is_tx_ready' used but never defined
+ static inline uint8 spi_is_tx_ready(volatile uint8_t *spi);
+                     ^
+./ads1299_spi_adapt.h:33:21: warning: 'spi_is_tx_empty' used but never defined
+ static inline uint8 spi_is_tx_empty(volatile uint8_t *spi);
+                     ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ads1299.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ads1299.c -o .\CortexM0\ARM_GCC_541\Debug\ads1299.o
-In file included from ads1299.c:42:0:
-ads1299.h:607:1: warning: parameter names (without types) in function declaration
- ads1299_error_t ads1299_device_init(uint8_t, uint8_t);
+In file included from ads1299.h:50:0,
+                 from ads1299.c:42:
+ads1299_spi_adapt.h:32:21: warning: 'spi_is_tx_ready' used but never defined
+ static inline uint8 spi_is_tx_ready(volatile uint8_t *spi);
+                     ^
+ads1299_spi_adapt.h:33:21: warning: 'spi_is_tx_empty' used but never defined
+ static inline uint8 spi_is_tx_empty(volatile uint8_t *spi);
+                     ^
+ads1299.c: In function 'ads1299_device_init':
+ads1299.c:140:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
  ^
-ads1299.h:622:55: error: expected ')' before '*' token
- ads1299_error_t ads1299_rreg(uint8_t, uint8_t, uint8_t*);
-                                                       ^
-ads1299.h:637:1: warning: parameter names (without types) in function declaration
- ads1299_error_t ads1299_wreg(uint8_t, uint8_t, uint8_t);
+ads1299.c: In function 'ads1299_rreg':
+ads1299.c:172:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
  ^
-ads1299.h:650:49: error: expected ')' before 'volatile'
- ads1299_error_t ads1299_rdata32_packet(uint8_t, volatile uint32_t, bboard_data32bit_packet_t*);
-                                                 ^
-ads1299.h:664:50: error: expected ')' before 'volatile'
- ads1299_error_t ads1299_rdata32_generic(uint8_t, volatile uint32_t, volatile uint32_t, volatile int32_t[][MAX_EEG_CHANNELS]);
-                                                  ^
-ads1299.h:678:49: error: expected ')' before 'volatile'
- ads1299_error_t ads1299_rdata24_packet(uint8_t, volatile uint32_t, bboard_data24bit_packet_t*);
-                                                 ^
-ads1299.h:693:50: error: expected ')' before 'volatile'
- ads1299_error_t ads1299_rdata24_generic(uint8_t, volatile uint32_t, volatile uint8_t[], volatile uint8_t[][MAX_EEG_CHANNELS][3]);
-                                                  ^
-ads1299.h:707:55: error: unknown type name 'uint8_t'
- static inline ads1299_error_t ads1299_send_byte_no_cs(uint8_t opcode)
-                                                       ^
-ads1299.h:727:49: error: unknown type name 'uint8_t'
- static inline ads1299_error_t ads1299_send_byte(uint8_t chip_select, uint8_t opcode)
-                                                 ^
-ads1299.h:727:70: error: unknown type name 'uint8_t'
- static inline ads1299_error_t ads1299_send_byte(uint8_t chip_select, uint8_t opcode)
-                                                                      ^
-ads1299.h:752:47: error: unknown type name 'uint8_t'
- static inline ads1299_error_t ads1299_standby(uint8_t chip_select)
-                                               ^
-ads1299.h:773:44: error: unknown type name 'uint8_t'
- static inline ads1299_error_t ads1299_wake(uint8_t chip_select)
-                                            ^
-ads1299.h:835:61: error: unknown type name 'uint8_t'
- static inline ads1299_error_t ads1299_soft_start_conversion(uint8_t chip_select)
-                                                             ^
-ads1299.h:858:60: error: unknown type name 'uint8_t'
- static inline ads1299_error_t ads1299_soft_stop_conversion(uint8_t chip_select)
-                                                            ^
-ads1299.h:880:52: error: unknown type name 'uint8_t'
- static inline ads1299_error_t ads1299_start_rdatac(uint8_t chip_select)
-                                                    ^
-ads1299.h:899:51: error: unknown type name 'uint8_t'
- static inline ads1299_error_t ads1299_stop_rdatac(uint8_t chip_select)
-                                                   ^
-ads1299.h: In function 'ads1299_powerdn':
-ads1299.h:912:2: warning: implicit declaration of function 'gpio_clr_gpio_pin' [-Wimplicit-function-declaration]
-  gpio_clr_gpio_pin(ADS1299_PIN_PWDN);
-  ^
-ads1299.h:912:20: error: 'ADS1299_PIN_PWDN' undeclared (first use in this function)
-  gpio_clr_gpio_pin(ADS1299_PIN_PWDN);
-                    ^
-ads1299.h:912:20: note: each undeclared identifier is reported only once for each function it appears in
-ads1299.h: In function 'ads1299_powerup':
-ads1299.h:921:2: warning: implicit declaration of function 'gpio_set_gpio_pin' [-Wimplicit-function-declaration]
-  gpio_set_gpio_pin(ADS1299_PIN_PWDN);
-  ^
-ads1299.h:921:20: error: 'ADS1299_PIN_PWDN' undeclared (first use in this function)
-  gpio_set_gpio_pin(ADS1299_PIN_PWDN);
-                    ^
-ads1299.h: In function 'ads1299_hard_reset':
-ads1299.h:930:20: error: 'ADS1299_PIN_RESET' undeclared (first use in this function)
-  gpio_clr_gpio_pin(ADS1299_PIN_RESET);
-                    ^
-ads1299.h:931:2: warning: implicit declaration of function 'delay_us' [-Wimplicit-function-declaration]
-  delay_us(1);
-  ^
-ads1299.h: At top level:
-ads1299.h:938:51: error: unknown type name 'uint8_t'
- static inline ads1299_error_t ads1299_soft_reset (uint8_t chip_select)
-                                                   ^
-ads1299.c:50:37: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_device_init(uint8_t chip_select, uint8_t init_regs)
-                                     ^
-ads1299.c:50:58: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_device_init(uint8_t chip_select, uint8_t init_regs)
-                                                          ^
-ads1299.c:146:30: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_rreg(uint8_t chip_select, uint8_t reg_addr, uint8_t* read_reg_val_ptr)
-                              ^
-ads1299.c:146:51: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_rreg(uint8_t chip_select, uint8_t reg_addr, uint8_t* read_reg_val_ptr)
-                                                   ^
-ads1299.c:146:69: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_rreg(uint8_t chip_select, uint8_t reg_addr, uint8_t* read_reg_val_ptr)
-                                                                     ^
-ads1299.c:174:30: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_wreg(uint8_t chip_select, uint8_t reg_addr, uint8_t reg_val_to_write)
-                              ^
-ads1299.c:174:51: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_wreg(uint8_t chip_select, uint8_t reg_addr, uint8_t reg_val_to_write)
-                                                   ^
-ads1299.c:174:69: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_wreg(uint8_t chip_select, uint8_t reg_addr, uint8_t reg_val_to_write)
-                                                                     ^
-ads1299.c:197:40: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_rdata32_packet(uint8_t chip_select, volatile uint32_t sample_idx, bboard_data32bit_packet_t* packet_ptr)
-                                        ^
-ads1299.c:197:70: error: unknown type name 'uint32_t'
- ads1299_error_t ads1299_rdata32_packet(uint8_t chip_select, volatile uint32_t sample_idx, bboard_data32bit_packet_t* packet_ptr)
-                                                                      ^
-ads1299.c:197:91: error: unknown type name 'bboard_data32bit_packet_t'
- ads1299_error_t ads1299_rdata32_packet(uint8_t chip_select, volatile uint32_t sample_idx, bboard_data32bit_packet_t* packet_ptr)
-                                                                                           ^
-ads1299.c:235:40: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_rdata24_packet(uint8_t chip_select, volatile uint32_t sample_idx, bboard_data24bit_packet_t* packet_ptr)
-                                        ^
-ads1299.c:235:70: error: unknown type name 'uint32_t'
- ads1299_error_t ads1299_rdata24_packet(uint8_t chip_select, volatile uint32_t sample_idx, bboard_data24bit_packet_t* packet_ptr)
-                                                                      ^
-ads1299.c:235:91: error: unknown type name 'bboard_data24bit_packet_t'
- ads1299_error_t ads1299_rdata24_packet(uint8_t chip_select, volatile uint32_t sample_idx, bboard_data24bit_packet_t* packet_ptr)
-                                                                                           ^
-ads1299.c:269:41: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint8_t status_array[], volatile uint8_t data_array[][MAX_EEG_CHANNELS][3])
-                                         ^
-ads1299.c:269:71: error: unknown type name 'uint32_t'
- ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint8_t status_array[], volatile uint8_t data_array[][MAX_EEG_CHANNELS][3])
-                                                                       ^
-ads1299.c:269:101: error: unknown type name 'uint8_t'
-The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
- ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint8_t status_array[], volatile uint8_t data_array[][MAX_EEG_CHANNELS][3])
-                                                                                                     ^
-ads1299.c:269:134: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint8_t status_array[], volatile uint8_t data_array[][MAX_EEG_CHANNELS][3])
-                                                                                                                                      ^
-ads1299.c:269:155: error: 'MAX_EEG_CHANNELS' undeclared here (not in a function)
- ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint8_t status_array[], volatile uint8_t data_array[][MAX_EEG_CHANNELS][3])
-                                                                                                                                                           ^
-ads1299.c:299:41: error: unknown type name 'uint8_t'
- ads1299_error_t ads1299_rdata32_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint32_t status, volatile int32_t data_array[][MAX_EEG_CHANNELS])
-                                         ^
-ads1299.c:299:71: error: unknown type name 'uint32_t'
- ads1299_error_t ads1299_rdata32_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint32_t status, volatile int32_t data_array[][MAX_EEG_CHANNELS])
-                                                                       ^
-ads1299.c:299:101: error: unknown type name 'uint32_t'
- ads1299_error_t ads1299_rdata32_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint32_t status, volatile int32_t data_array[][MAX_EEG_CHANNELS])
-                                                                                                     ^
-ads1299.c:299:127: error: unknown type name 'int32_t'
- ads1299_error_t ads1299_rdata32_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint32_t status, volatile int32_t data_array[][MAX_EEG_CHANNELS])
-                                                                                                                               ^
-ads1299.c:299:148: error: 'MAX_EEG_CHANNELS' undeclared here (not in a function)
- ads1299_error_t ads1299_rdata32_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint32_t status, volatile int32_t data_array[][MAX_EEG_CHANNELS])
-                                                                                                                                                    ^
---------------- Build Failed: 12/19/2019 19:21:50 ---------------
+ads1299.c: In function 'ads1299_wreg':
+ads1299.c:193:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ads1299_spi_adapt.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ads1299_spi_adapt.c -o .\CortexM0\ARM_GCC_541\Debug\ads1299_spi_adapt.o
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\EEG_Project_Demo.a .\CortexM0\ARM_GCC_541\Debug\ble.o .\CortexM0\ARM_GCC_541\Debug\ble_gatt.o .\CortexM0\ARM_GCC_541\Debug\ble_eventHandler.o .\CortexM0\ARM_GCC_541\Debug\ble_HAL_INT.o .\CortexM0\ARM_GCC_541\Debug\ble_HAL_PVT.o .\CortexM0\ARM_GCC_541\Debug\ble_custom.o .\CortexM0\ARM_GCC_541\Debug\red.o .\CortexM0\ARM_GCC_541\Debug\red_PM.o .\CortexM0\ARM_GCC_541\Debug\blue.o .\CortexM0\ARM_GCC_541\Debug\blue_PM.o .\CortexM0\ARM_GCC_541\Debug\pwm.o .\CortexM0\ARM_GCC_541\Debug\pwm_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock_1.o .\CortexM0\ARM_GCC_541\Debug\ble_bless_isr.o .\CortexM0\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\CyDMA.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\spi.o .\CortexM0\ARM_GCC_541\Debug\spi_PM.o .\CortexM0\ARM_GCC_541\Debug\spi_INT.o .\CortexM0\ARM_GCC_541\Debug\Clock_2.o .\CortexM0\ARM_GCC_541\Debug\Pin_SS.o .\CortexM0\ARM_GCC_541\Debug\Pin_SS_PM.o .\CortexM0\ARM_GCC_541\Debug\Pin_SCLK.o .\CortexM0\ARM_GCC_541\Debug\Pin_SCLK_PM.o .\CortexM0\ARM_GCC_541\Debug\Pin_MOSI.o .\CortexM0\ARM_GCC_541\Debug\Pin_MOSI_PM.o .\CortexM0\ARM_GCC_541\Debug\Pin_MISO.o .\CortexM0\ARM_GCC_541\Debug\Pin_MISO_PM.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\EEG_Project_Demo.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\CortexM0\ARM_GCC_541\Debug\EEG_Project_Demo.elf" .\CortexM0\ARM_GCC_541\Debug\main.o .\CortexM0\ARM_GCC_541\Debug\ads1299.o .\CortexM0\ARM_GCC_541\Debug\ads1299_spi_adapt.o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o .\CortexM0\ARM_GCC_541\Debug\EEG_Project_Demo.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\BLE_v3_50\Library\gccCyBLEStack_BLE_SOC_PERIPHERAL.a" -mcpu=cortex-m0 -mthumb -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_541\Debug/EEG_Project_Demo.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C "C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\CortexM0\ARM_GCC_541\Debug\EEG_Project_Demo.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+cyelftool.exe -S "C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\CortexM0\ARM_GCC_541\Debug\EEG_Project_Demo.elf"
+Flash used: 99212 of 262144 bytes (37.8%).
+SRAM used: 11640 of 32768 bytes (35.5%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 12/25/2019 00:06:41 ---------------

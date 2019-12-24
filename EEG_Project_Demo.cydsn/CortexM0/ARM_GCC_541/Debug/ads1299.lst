@@ -1,0 +1,2565 @@
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"ads1299.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ads1299_device_init,"ax",%progbits
+  20              		.align	2
+  21              		.global	ads1299_device_init
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	ads1299_device_init, %function
+  25              	ads1299_device_init:
+  26              	.LFB49:
+  27              		.file 1 "ads1299.c"
+   1:ads1299.c     **** /** 
+   2:ads1299.c     ****  *  \file ads1299.c
+   3:ads1299.c     ****  *  \brief Some useful functions for using the ADS1299 EEG analog front-end from Texas Instruments.
+   4:ads1299.c     ****  *	\details The ADS1299 is an SPI slave device. Communication with it requires at least one SPI mas
+   5:ads1299.c     ****  *	\author Graham Kelly
+   6:ads1299.c     ****  *	\version 1.0
+   7:ads1299.c     ****  *	\date August 2014
+   8:ads1299.c     ****  *
+   9:ads1299.c     ****  *  All Atmel Software Framework libraries used herein are copyright Atmel and
+  10:ads1299.c     ****  *  subject to their appropriate licenses, which allow free redistribution with
+  11:ads1299.c     ****  *  some restrictions. These restrictions are listed in their appropriate files.
+  12:ads1299.c     ****  *
+  13:ads1299.c     ****  *  \page License
+  14:ads1299.c     ****  *
+  15:ads1299.c     ****  *  Brainboard firmware code is placed under the MIT license
+  16:ads1299.c     ****  *  Copyright (c) 2014 Graham Kelly
+  17:ads1299.c     ****  *
+  18:ads1299.c     ****  *  Permission is hereby granted, free of charge, to any person obtaining a copy
+  19:ads1299.c     ****  *  of this software and associated documentation files (the "Software"), to deal
+  20:ads1299.c     ****  *  in the Software without restriction, including without limitation the rights
+  21:ads1299.c     ****  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  22:ads1299.c     ****  *  copies of the Software, and to permit persons to whom the Software is
+  23:ads1299.c     ****  *  furnished to do so, subject to the following conditions:
+  24:ads1299.c     ****  *
+  25:ads1299.c     ****  *  The above copyright notice and this permission notice shall be included in
+  26:ads1299.c     ****  *  all copies or substantial portions of the Software.
+  27:ads1299.c     ****  *
+  28:ads1299.c     ****  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  29:ads1299.c     ****  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  30:ads1299.c     ****  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 2
+
+
+  31:ads1299.c     ****  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  32:ads1299.c     ****  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  33:ads1299.c     ****  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  34:ads1299.c     ****  *  THE SOFTWARE.
+  35:ads1299.c     ****  *
+  36:ads1299.c     ****  */
+  37:ads1299.c     **** 
+  38:ads1299.c     **** #ifdef __cplusplus
+  39:ads1299.c     **** extern "C" {
+  40:ads1299.c     **** #endif
+  41:ads1299.c     **** 
+  42:ads1299.c     **** #include "ads1299.h"
+  43:ads1299.c     **** 
+  44:ads1299.c     **** /**************************************************************************************************
+  45:ads1299.c     **** *               Function Definitions                                                               
+  46:ads1299.c     **** ***************************************************************************************************
+  47:ads1299.c     **** 
+  48:ads1299.c     **** /* SYSTEM CONTROL FUNCTIONS ***********************************************************************
+  49:ads1299.c     **** 
+  50:ads1299.c     **** ads1299_error_t	ads1299_device_init(uint8_t chip_select, uint8_t init_regs)
+  51:ads1299.c     **** {
+  28              		.loc 1 51 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34              	.LVL1:
+  52:ads1299.c     **** 	#if UC3
+  53:ads1299.c     **** 	/* Power cycle ADS1299 */
+  54:ads1299.c     **** 	gpio_clr_gpio_pin(ADS1299_PIN_PWDN);
+  55:ads1299.c     **** 	delay_us(20);
+  56:ads1299.c     **** 	gpio_set_gpio_pin(ADS1299_PIN_PWDN);
+  57:ads1299.c     **** 	
+  58:ads1299.c     **** 	/* Allow oscillator warm-up */
+  59:ads1299.c     **** 	delay_ms(1000);
+  60:ads1299.c     **** 	
+  61:ads1299.c     **** 	/* Tell chip to exit continuous data mode */
+  62:ads1299.c     **** 	ads1299_send_byte(chip_select, ADS1299_OPC_SDATAC);
+  63:ads1299.c     **** 	/* Stop taking conversions; apparently not done automatically */
+  64:ads1299.c     **** 	ads1299_send_byte(chip_select, ADS1299_OPC_STOP);
+  65:ads1299.c     ****  	
+  66:ads1299.c     **** 	if (init_regs) 
+  67:ads1299.c     **** 	{
+  68:ads1299.c     **** 		/* Write to GPIO register, set all pins to driven-low output */
+  69:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_GPIO, ADS1299_REG_GPIO_GPIOC4_OUTPUT |
+  70:ads1299.c     **** 		ADS1299_REG_GPIO_GPIOD4_LOW    |
+  71:ads1299.c     **** 		ADS1299_REG_GPIO_GPIOC3_OUTPUT |
+  72:ads1299.c     **** 		ADS1299_REG_GPIO_GPIOD3_LOW    |
+  73:ads1299.c     **** 		ADS1299_REG_GPIO_GPIOC2_OUTPUT |
+  74:ads1299.c     **** 		ADS1299_REG_GPIO_GPIOD2_LOW    |
+  75:ads1299.c     **** 		ADS1299_REG_GPIO_GPIOC1_OUTPUT |
+  76:ads1299.c     **** 		ADS1299_REG_GPIO_GPIOD1_LOW    );
+  77:ads1299.c     **** 			
+  78:ads1299.c     **** 		/* Write to CONFIG1, set data rate to 250 Hz */
+  79:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CONFIG1, ADS1299_REG_CONFIG1_RESERVED_VALUE |
+  80:ads1299.c     **** 		ADS1299_REG_CONFIG1_FMOD_DIV_BY_4096);
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 3
+
+
+  81:ads1299.c     **** 		/* Write to CONFIG2 register, generate test signal internally */
+  82:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CONFIG2, ADS1299_REG_CONFIG2_RESERVED_VALUE |
+  83:ads1299.c     **** 		ADS1299_REG_CONFIG2_CAL_INT        |
+  84:ads1299.c     **** 		ADS1299_REG_CONFIG2_CAL_PULSE_FCLK_DIV_2_21);
+  85:ads1299.c     **** 			
+  86:ads1299.c     **** 		/* Write to CONFIG3, enable internal reference buffer, bias internally generated, bias buffer ena
+  87:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CONFIG3, ADS1299_REG_CONFIG3_REFBUF_ENABLED |
+  88:ads1299.c     **** 		ADS1299_REG_CONFIG3_BIASREF_INT    |
+  89:ads1299.c     **** 		ADS1299_REG_CONFIG3_BIASBUF_ENABLED);
+  90:ads1299.c     **** 		/* Reference settling time */
+  91:ads1299.c     **** 		delay_ms(150);
+  92:ads1299.c     **** 			
+  93:ads1299.c     **** 		/* Write to CH1 settings register, set as normal input, gain 24 */
+  94:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH1SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
+  95:ads1299.c     **** 		ADS1299_REG_CHNSET_GAIN_24			|
+  96:ads1299.c     **** 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
+  97:ads1299.c     **** 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+  98:ads1299.c     **** 		/* Write to CH2 settings register, set as normal input, gain 24 */
+  99:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH2SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
+ 100:ads1299.c     **** 		ADS1299_REG_CHNSET_GAIN_24			|
+ 101:ads1299.c     **** 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
+ 102:ads1299.c     **** 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+ 103:ads1299.c     **** 		/* Write to CH3 settings register, set as normal input, gain 24 */
+ 104:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH3SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
+ 105:ads1299.c     **** 		ADS1299_REG_CHNSET_GAIN_24			|
+ 106:ads1299.c     **** 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
+ 107:ads1299.c     **** 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+ 108:ads1299.c     **** 		/* Write to CH4 settings register, set as normal input, gain 24 */
+ 109:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH4SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
+ 110:ads1299.c     **** 		ADS1299_REG_CHNSET_GAIN_24			|
+ 111:ads1299.c     **** 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
+ 112:ads1299.c     **** 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+ 113:ads1299.c     **** 		/* Write to CH5 settings register, set as normal input, gain 24 */
+ 114:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH5SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
+ 115:ads1299.c     **** 		ADS1299_REG_CHNSET_GAIN_24			|
+ 116:ads1299.c     **** 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
+ 117:ads1299.c     **** 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+ 118:ads1299.c     **** 		/* Write to CH6 settings register, set as normal input, gain 24 */
+ 119:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH6SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
+ 120:ads1299.c     **** 		ADS1299_REG_CHNSET_GAIN_24			|
+ 121:ads1299.c     **** 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
+ 122:ads1299.c     **** 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+ 123:ads1299.c     **** 		/* Write to CH5 settings register, set as normal input, gain 24 */
+ 124:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH7SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
+ 125:ads1299.c     **** 		ADS1299_REG_CHNSET_GAIN_24			|
+ 126:ads1299.c     **** 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
+ 127:ads1299.c     **** 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+ 128:ads1299.c     **** 		/* Write to CH6 settings register, set as normal input, gain 24 */
+ 129:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH8SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
+ 130:ads1299.c     **** 		ADS1299_REG_CHNSET_GAIN_24			|
+ 131:ads1299.c     **** 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
+ 132:ads1299.c     **** 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+ 133:ads1299.c     **** 			
+ 134:ads1299.c     **** 		/* Write to MISC1 register, SRB1 on (ref electrode) */
+ 135:ads1299.c     **** 		ads1299_wreg(chip_select, ADS1299_REGADDR_MISC1, ADS1299_REG_MISC1_SRB1_ON);
+ 136:ads1299.c     **** 	} 		
+ 137:ads1299.c     **** 	return ADS1299_STATUS_OK;
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 4
+
+
+ 138:ads1299.c     **** 	#else
+ 139:ads1299.c     **** 	#endif /* #if UC3 */
+ 140:ads1299.c     **** }
+  35              		.loc 1 140 0
+  36              		@ sp needed
+  37 0000 7047     		bx	lr
+  38              		.cfi_endproc
+  39              	.LFE49:
+  40              		.size	ads1299_device_init, .-ads1299_device_init
+  41 0002 C046     		.section	.text.ads1299_rreg,"ax",%progbits
+  42              		.align	2
+  43              		.global	ads1299_rreg
+  44              		.code	16
+  45              		.thumb_func
+  46              		.type	ads1299_rreg, %function
+  47              	ads1299_rreg:
+  48              	.LFB50:
+ 141:ads1299.c     **** 
+ 142:ads1299.c     **** 
+ 143:ads1299.c     **** 
+ 144:ads1299.c     **** /* REGISTER READ/WRITE FUNCTIONS ******************************************************************
+ 145:ads1299.c     **** 
+ 146:ads1299.c     **** ads1299_error_t ads1299_rreg(uint8_t chip_select, uint8_t reg_addr, uint8_t* read_reg_val_ptr)
+ 147:ads1299.c     **** {
+  49              		.loc 1 147 0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+  54              	.LVL2:
+  55              	.LVL3:
+ 148:ads1299.c     **** 	#if UC3
+ 149:ads1299.c     **** 	uint16_t read_data;
+ 150:ads1299.c     **** 		
+ 151:ads1299.c     **** 	spi_selectChip(SPI_ADDRESS, chip_select);
+ 152:ads1299.c     **** 	
+ 153:ads1299.c     **** 	/* First byte: read command for specified register */
+ 154:ads1299.c     **** 	ads1299_send_byte_no_cs(ADS1299_OPC_RREG | reg_addr);
+ 155:ads1299.c     **** 	
+ 156:ads1299.c     **** 	/* Second byte: Read only 1 register (send n-1, where n is number of registers to read) */
+ 157:ads1299.c     **** 	ads1299_send_byte_no_cs(0x00);
+ 158:ads1299.c     **** 	
+ 159:ads1299.c     **** 	/* Dummy byte to clock in data */
+ 160:ads1299.c     **** 	ads1299_send_byte_no_cs(DUMMY_BYTE);
+ 161:ads1299.c     **** 	
+ 162:ads1299.c     **** 	delay_us(10);
+ 163:ads1299.c     **** 	spi_unselectChip(SPI_ADDRESS, chip_select);
+ 164:ads1299.c     **** 	
+ 165:ads1299.c     **** 	/* Read SPI RX register */
+ 166:ads1299.c     **** 	read_data = spi_get(SPI_ADDRESS);
+ 167:ads1299.c     **** 	*read_reg_val_ptr = (uint8_t) read_data;	
+ 168:ads1299.c     **** 		
+ 169:ads1299.c     **** 	return ADS1299_STATUS_OK;
+ 170:ads1299.c     **** 	#else
+ 171:ads1299.c     **** 	#endif /* #if UC3 */
+ 172:ads1299.c     **** }
+  56              		.loc 1 172 0
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 5
+
+
+  57              		@ sp needed
+  58 0000 7047     		bx	lr
+  59              		.cfi_endproc
+  60              	.LFE50:
+  61              		.size	ads1299_rreg, .-ads1299_rreg
+  62 0002 C046     		.section	.text.ads1299_wreg,"ax",%progbits
+  63              		.align	2
+  64              		.global	ads1299_wreg
+  65              		.code	16
+  66              		.thumb_func
+  67              		.type	ads1299_wreg, %function
+  68              	ads1299_wreg:
+  69              	.LFB51:
+ 173:ads1299.c     **** 
+ 174:ads1299.c     **** ads1299_error_t ads1299_wreg(uint8_t chip_select, uint8_t reg_addr, uint8_t reg_val_to_write)
+ 175:ads1299.c     **** {
+  70              		.loc 1 175 0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74              		@ link register save eliminated.
+  75              	.LVL4:
+  76              	.LVL5:
+ 176:ads1299.c     **** 	#if UC3
+ 177:ads1299.c     **** 	spi_selectChip(SPI_ADDRESS, chip_select);
+ 178:ads1299.c     **** 	
+ 179:ads1299.c     **** 	/* First byte: write command for specified register */
+ 180:ads1299.c     **** 	ads1299_send_byte_no_cs(ADS1299_OPC_WREG | reg_addr);
+ 181:ads1299.c     **** 	
+ 182:ads1299.c     **** 	/* Second byte: number of registers to write (1) */
+ 183:ads1299.c     **** 	ads1299_send_byte_no_cs(0x00);
+ 184:ads1299.c     **** 	
+ 185:ads1299.c     **** 	/* Third byte: write register value */
+ 186:ads1299.c     **** 	ads1299_send_byte_no_cs(reg_val_to_write);
+ 187:ads1299.c     **** 		
+ 188:ads1299.c     **** 	spi_unselectChip(SPI_ADDRESS, chip_select);
+ 189:ads1299.c     **** 		
+ 190:ads1299.c     **** 	return ADS1299_STATUS_OK;
+ 191:ads1299.c     **** 	#else
+ 192:ads1299.c     **** 	#endif /* #if UC3 */
+ 193:ads1299.c     **** }
+  77              		.loc 1 193 0
+  78              		@ sp needed
+  79 0000 7047     		bx	lr
+  80              		.cfi_endproc
+  81              	.LFE51:
+  82              		.size	ads1299_wreg, .-ads1299_wreg
+  83 0002 C046     		.section	.text.ads1299_rdata32_packet,"ax",%progbits
+  84              		.align	2
+  85              		.global	ads1299_rdata32_packet
+  86              		.code	16
+  87              		.thumb_func
+  88              		.type	ads1299_rdata32_packet, %function
+  89              	ads1299_rdata32_packet:
+  90              	.LFB52:
+ 194:ads1299.c     **** 
+ 195:ads1299.c     **** /* DATA RETRIEVAL FUNCTIONS ***********************************************************************
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 6
+
+
+ 196:ads1299.c     **** 
+ 197:ads1299.c     **** ads1299_error_t ads1299_rdata32_packet(uint8_t chip_select, volatile uint32_t sample_idx, bboard_da
+ 198:ads1299.c     **** {
+  91              		.loc 1 198 0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 8
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95              		@ link register save eliminated.
+  96              	.LVL6:
+  97 0000 82B0     		sub	sp, sp, #8
+  98              		.cfi_def_cfa_offset 8
+  99 0002 0191     		str	r1, [sp, #4]
+ 199:ads1299.c     **** 	#if UC3
+ 200:ads1299.c     **** 	volatile uint8_t channel_idx;	
+ 201:ads1299.c     **** 	union {
+ 202:ads1299.c     **** 		uint32_t raw;
+ 203:ads1299.c     **** 		uint8_t status[4];
+ 204:ads1299.c     **** 	} __attribute__((packed)) statustemp;	
+ 205:ads1299.c     **** 	union {
+ 206:ads1299.c     **** 		int32_t raw;
+ 207:ads1299.c     **** 		uint8_t data[4];
+ 208:ads1299.c     **** 	} __attribute__((packed)) sigtemp;
+ 209:ads1299.c     **** 	statustemp.raw = 0;
+ 210:ads1299.c     **** 	sigtemp.raw = 0;
+ 211:ads1299.c     **** 	
+ 212:ads1299.c     **** 	/* Begin SPI comms */
+ 213:ads1299.c     **** 	spi_selectChip(SPI_ADDRESS, chip_select);
+ 214:ads1299.c     **** 	
+ 215:ads1299.c     **** 	/* Function assumes we've already sent RDATA command or are in RDATAC mode */
+ 216:ads1299.c     **** 		
+ 217:ads1299.c     **** 	/* Read in status word first (24 bits) */
+ 218:ads1299.c     **** 	spi_read_packet(SPI_ADDRESS, &statustemp.status[1], 3);
+ 219:ads1299.c     **** 	packet_ptr->eegstatus = statustemp.raw;
+ 220:ads1299.c     **** 	
+ 221:ads1299.c     **** 	/* Begin reading in data */	
+ 222:ads1299.c     **** 	for (channel_idx = 0; channel_idx < MAX_EEG_CHANNELS; channel_idx++)
+ 223:ads1299.c     **** 	{
+ 224:ads1299.c     **** 		spi_read_packet(SPI_ADDRESS, &sigtemp.data[1], 3);				
+ 225:ads1299.c     **** 		packet_ptr->eegdata[sample_idx][channel_idx] = SIGN_EXT_24(sigtemp.raw);
+ 226:ads1299.c     **** 	}
+ 227:ads1299.c     **** 		
+ 228:ads1299.c     **** 	spi_unselectChip(SPI_ADDRESS, chip_select);
+ 229:ads1299.c     **** 		
+ 230:ads1299.c     **** 	#else
+ 231:ads1299.c     **** 	#endif	/* #if UC3 */
+ 232:ads1299.c     **** 	return ADS1299_STATUS_OK;
+ 233:ads1299.c     **** }
+ 100              		.loc 1 233 0
+ 101 0004 0020     		movs	r0, #0
+ 102              	.LVL7:
+ 103 0006 02B0     		add	sp, sp, #8
+ 104              		@ sp needed
+ 105 0008 7047     		bx	lr
+ 106              		.cfi_endproc
+ 107              	.LFE52:
+ 108              		.size	ads1299_rdata32_packet, .-ads1299_rdata32_packet
+ 109              		.section	.text.ads1299_rdata24_packet,"ax",%progbits
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 7
+
+
+ 110              		.align	2
+ 111              		.global	ads1299_rdata24_packet
+ 112              		.code	16
+ 113              		.thumb_func
+ 114              		.type	ads1299_rdata24_packet, %function
+ 115              	ads1299_rdata24_packet:
+ 116              	.LFB53:
+ 234:ads1299.c     **** 
+ 235:ads1299.c     **** ads1299_error_t ads1299_rdata24_packet(uint8_t chip_select, volatile uint32_t sample_idx, bboard_da
+ 236:ads1299.c     **** {
+ 117              		.loc 1 236 0
+ 118              		.cfi_startproc
+ 119              		@ args = 0, pretend = 0, frame = 8
+ 120              		@ frame_needed = 0, uses_anonymous_args = 0
+ 121              		@ link register save eliminated.
+ 122              	.LVL8:
+ 123 0000 82B0     		sub	sp, sp, #8
+ 124              		.cfi_def_cfa_offset 8
+ 125 0002 0191     		str	r1, [sp, #4]
+ 237:ads1299.c     **** 	#if UC3
+ 238:ads1299.c     **** 	volatile uint8_t channel_idx;
+ 239:ads1299.c     **** 	
+ 240:ads1299.c     **** 	uint8_t temp[3];
+ 241:ads1299.c     **** 	
+ 242:ads1299.c     **** 	/* Begin SPI comms */
+ 243:ads1299.c     **** 	spi_selectChip(SPI_ADDRESS, chip_select);
+ 244:ads1299.c     **** 	
+ 245:ads1299.c     **** 	/* Function assumes we've already sent RDATA command or are in RDATAC mode */
+ 246:ads1299.c     **** 	
+ 247:ads1299.c     **** 	/* Read in status word first (24 bits) */
+ 248:ads1299.c     **** 	spi_read_packet(SPI_ADDRESS, temp, 3);
+ 249:ads1299.c     **** 	packet_ptr->eegstatus[0] = temp[0];
+ 250:ads1299.c     **** 	packet_ptr->eegstatus[1] = temp[1];
+ 251:ads1299.c     **** 	packet_ptr->eegstatus[2] = temp[2];
+ 252:ads1299.c     **** 	
+ 253:ads1299.c     **** 	/* Begin reading in data */
+ 254:ads1299.c     **** 	for (channel_idx = 0; channel_idx < MAX_EEG_CHANNELS; channel_idx++)
+ 255:ads1299.c     **** 	{
+ 256:ads1299.c     **** 		spi_read_packet(SPI_ADDRESS, temp, 3);
+ 257:ads1299.c     **** 		packet_ptr->eegdata[sample_idx][channel_idx][0] = temp[0];
+ 258:ads1299.c     **** 		packet_ptr->eegdata[sample_idx][channel_idx][1] = temp[1];
+ 259:ads1299.c     **** 		packet_ptr->eegdata[sample_idx][channel_idx][2] = temp[2];
+ 260:ads1299.c     **** 	}
+ 261:ads1299.c     **** 	
+ 262:ads1299.c     **** 	spi_unselectChip(SPI_ADDRESS, chip_select);
+ 263:ads1299.c     **** 	
+ 264:ads1299.c     **** 	#else
+ 265:ads1299.c     **** 	#endif	/* #if UC3 */
+ 266:ads1299.c     **** 	return ADS1299_STATUS_OK;
+ 267:ads1299.c     **** }
+ 126              		.loc 1 267 0
+ 127 0004 0020     		movs	r0, #0
+ 128              	.LVL9:
+ 129 0006 02B0     		add	sp, sp, #8
+ 130              		@ sp needed
+ 131 0008 7047     		bx	lr
+ 132              		.cfi_endproc
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 8
+
+
+ 133              	.LFE53:
+ 134              		.size	ads1299_rdata24_packet, .-ads1299_rdata24_packet
+ 135              		.section	.text.ads1299_rdata24_generic,"ax",%progbits
+ 136              		.align	2
+ 137              		.global	ads1299_rdata24_generic
+ 138              		.code	16
+ 139              		.thumb_func
+ 140              		.type	ads1299_rdata24_generic, %function
+ 141              	ads1299_rdata24_generic:
+ 142              	.LFB54:
+ 268:ads1299.c     **** 
+ 269:ads1299.c     **** ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile
+ 270:ads1299.c     **** {
+ 143              		.loc 1 270 0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 8
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147              		@ link register save eliminated.
+ 148              	.LVL10:
+ 149 0000 82B0     		sub	sp, sp, #8
+ 150              		.cfi_def_cfa_offset 8
+ 151 0002 0191     		str	r1, [sp, #4]
+ 271:ads1299.c     **** 	#if UC3
+ 272:ads1299.c     **** 	volatile uint8_t channel_idx;
+ 273:ads1299.c     **** 	uint8_t sigtemp[3];
+ 274:ads1299.c     **** 	
+ 275:ads1299.c     **** 	/* Begin SPI comms */
+ 276:ads1299.c     **** 	spi_selectChip(SPI_ADDRESS, chip_select);
+ 277:ads1299.c     **** 	
+ 278:ads1299.c     **** 	/* Function assumes we've already sent RDATA command or are in RDATAC mode */
+ 279:ads1299.c     **** 	
+ 280:ads1299.c     **** 	/* Read in status word first (24 bits) */
+ 281:ads1299.c     **** 	spi_read_packet(SPI_ADDRESS, (uint8_t*) status_array, 3);
+ 282:ads1299.c     **** 	
+ 283:ads1299.c     **** 	/* Begin reading in data */
+ 284:ads1299.c     **** 	for (channel_idx = 0; channel_idx < MAX_EEG_CHANNELS; channel_idx++)
+ 285:ads1299.c     **** 	{
+ 286:ads1299.c     **** 		spi_read_packet(SPI_ADDRESS, sigtemp, 3);
+ 287:ads1299.c     **** 		data_array[sample_idx][channel_idx][0] = sigtemp[0];
+ 288:ads1299.c     **** 		data_array[sample_idx][channel_idx][1] = sigtemp[1];
+ 289:ads1299.c     **** 		data_array[sample_idx][channel_idx][2] = sigtemp[2];
+ 290:ads1299.c     **** 	}
+ 291:ads1299.c     **** 	
+ 292:ads1299.c     **** 	spi_unselectChip(SPI_ADDRESS, chip_select);
+ 293:ads1299.c     **** 	
+ 294:ads1299.c     **** 	#else
+ 295:ads1299.c     **** 	#endif	/* #if UC3 */
+ 296:ads1299.c     **** 	return ADS1299_STATUS_OK;
+ 297:ads1299.c     **** }
+ 152              		.loc 1 297 0
+ 153 0004 0020     		movs	r0, #0
+ 154              	.LVL11:
+ 155 0006 02B0     		add	sp, sp, #8
+ 156              		@ sp needed
+ 157 0008 7047     		bx	lr
+ 158              		.cfi_endproc
+ 159              	.LFE54:
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 9
+
+
+ 160              		.size	ads1299_rdata24_generic, .-ads1299_rdata24_generic
+ 161              		.section	.text.ads1299_rdata32_generic,"ax",%progbits
+ 162              		.align	2
+ 163              		.global	ads1299_rdata32_generic
+ 164              		.code	16
+ 165              		.thumb_func
+ 166              		.type	ads1299_rdata32_generic, %function
+ 167              	ads1299_rdata32_generic:
+ 168              	.LFB55:
+ 298:ads1299.c     **** 
+ 299:ads1299.c     **** ads1299_error_t ads1299_rdata32_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile
+ 300:ads1299.c     **** {
+ 169              		.loc 1 300 0
+ 170              		.cfi_startproc
+ 171              		@ args = 0, pretend = 0, frame = 8
+ 172              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173              		@ link register save eliminated.
+ 174              	.LVL12:
+ 175 0000 82B0     		sub	sp, sp, #8
+ 176              		.cfi_def_cfa_offset 8
+ 177 0002 0191     		str	r1, [sp, #4]
+ 178 0004 0092     		str	r2, [sp]
+ 301:ads1299.c     **** 	#if UC3
+ 302:ads1299.c     **** 	volatile uint8_t channel_idx;
+ 303:ads1299.c     **** 	union {
+ 304:ads1299.c     **** 		uint32_t raw;
+ 305:ads1299.c     **** 		uint8_t status[4];
+ 306:ads1299.c     **** 	} __attribute__((packed)) statustemp;
+ 307:ads1299.c     **** 	union {
+ 308:ads1299.c     **** 		int32_t raw;
+ 309:ads1299.c     **** 		uint8_t data[4];
+ 310:ads1299.c     **** 	} __attribute__((packed)) sigtemp;
+ 311:ads1299.c     **** 	statustemp.raw = 0;
+ 312:ads1299.c     **** 	sigtemp.raw = 0;
+ 313:ads1299.c     **** 	
+ 314:ads1299.c     **** 	/* Begin SPI comms */
+ 315:ads1299.c     **** 	spi_selectChip(SPI_ADDRESS, chip_select);
+ 316:ads1299.c     **** 	
+ 317:ads1299.c     **** 	/* Function assumes we've already sent RDATA command or are in RDATAC mode */
+ 318:ads1299.c     **** 	
+ 319:ads1299.c     **** 	/* Read in status word first (24 bits) */
+ 320:ads1299.c     **** 	spi_read_packet(SPI_ADDRESS, &statustemp.status[1], 3);
+ 321:ads1299.c     **** 	status = statustemp.raw;
+ 322:ads1299.c     **** 	
+ 323:ads1299.c     **** 	/* Begin reading in data */
+ 324:ads1299.c     **** 	/* Begin reading in data */
+ 325:ads1299.c     **** 	for (channel_idx = 0; channel_idx < MAX_EEG_CHANNELS; channel_idx++)
+ 326:ads1299.c     **** 	{
+ 327:ads1299.c     **** 		spi_read_packet(SPI_ADDRESS, &sigtemp.data[1], 3);
+ 328:ads1299.c     **** 		data_array[sample_idx][channel_idx] = SIGN_EXT_24(sigtemp.raw);
+ 329:ads1299.c     **** 	}
+ 330:ads1299.c     **** 	
+ 331:ads1299.c     **** 	spi_unselectChip(SPI_ADDRESS, chip_select);
+ 332:ads1299.c     **** 	
+ 333:ads1299.c     **** 	#else
+ 334:ads1299.c     **** 	#endif	/* #if UC3 */
+ 335:ads1299.c     **** 	return ADS1299_STATUS_OK;
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 10
+
+
+ 336:ads1299.c     **** }
+ 179              		.loc 1 336 0
+ 180 0006 0020     		movs	r0, #0
+ 181              	.LVL13:
+ 182 0008 02B0     		add	sp, sp, #8
+ 183              		@ sp needed
+ 184 000a 7047     		bx	lr
+ 185              		.cfi_endproc
+ 186              	.LFE55:
+ 187              		.size	ads1299_rdata32_generic, .-ads1299_rdata32_generic
+ 188              		.comm	spi,1,1
+ 189              		.text
+ 190              	.Letext0:
+ 191              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 192              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 193              		.file 4 "comms.h"
+ 194              		.file 5 "Generated_Source\\PSoC4/ble_Stack.h"
+ 195              		.file 6 "ads1299.h"
+ 196              		.file 7 "ads1299_spi_adapt.h"
+ 197              		.section	.debug_info,"",%progbits
+ 198              	.Ldebug_info0:
+ 199 0000 47060000 		.4byte	0x647
+ 200 0004 0400     		.2byte	0x4
+ 201 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 202 000a 04       		.byte	0x4
+ 203 000b 01       		.uleb128 0x1
+ 204 000c 46010000 		.4byte	.LASF123
+ 205 0010 0C       		.byte	0xc
+ 206 0011 2D0C0000 		.4byte	.LASF124
+ 207 0015 B90A0000 		.4byte	.LASF125
+ 208 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 209 001d 00000000 		.4byte	0
+ 210 0021 00000000 		.4byte	.Ldebug_line0
+ 211 0025 02       		.uleb128 0x2
+ 212 0026 01       		.byte	0x1
+ 213 0027 06       		.byte	0x6
+ 214 0028 B1020000 		.4byte	.LASF0
+ 215 002c 03       		.uleb128 0x3
+ 216 002d 09010000 		.4byte	.LASF2
+ 217 0031 02       		.byte	0x2
+ 218 0032 1D       		.byte	0x1d
+ 219 0033 37000000 		.4byte	0x37
+ 220 0037 02       		.uleb128 0x2
+ 221 0038 01       		.byte	0x1
+ 222 0039 08       		.byte	0x8
+ 223 003a 87080000 		.4byte	.LASF1
+ 224 003e 03       		.uleb128 0x3
+ 225 003f DD030000 		.4byte	.LASF3
+ 226 0043 02       		.byte	0x2
+ 227 0044 29       		.byte	0x29
+ 228 0045 49000000 		.4byte	0x49
+ 229 0049 02       		.uleb128 0x2
+ 230 004a 02       		.byte	0x2
+ 231 004b 05       		.byte	0x5
+ 232 004c B9080000 		.4byte	.LASF4
+ 233 0050 03       		.uleb128 0x3
+ 234 0051 E9090000 		.4byte	.LASF5
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 11
+
+
+ 235 0055 02       		.byte	0x2
+ 236 0056 2B       		.byte	0x2b
+ 237 0057 5B000000 		.4byte	0x5b
+ 238 005b 02       		.uleb128 0x2
+ 239 005c 02       		.byte	0x2
+ 240 005d 07       		.byte	0x7
+ 241 005e 23050000 		.4byte	.LASF6
+ 242 0062 03       		.uleb128 0x3
+ 243 0063 1D0A0000 		.4byte	.LASF7
+ 244 0067 02       		.byte	0x2
+ 245 0068 3F       		.byte	0x3f
+ 246 0069 6D000000 		.4byte	0x6d
+ 247 006d 02       		.uleb128 0x2
+ 248 006e 04       		.byte	0x4
+ 249 006f 05       		.byte	0x5
+ 250 0070 3D010000 		.4byte	.LASF8
+ 251 0074 03       		.uleb128 0x3
+ 252 0075 D2030000 		.4byte	.LASF9
+ 253 0079 02       		.byte	0x2
+ 254 007a 41       		.byte	0x41
+ 255 007b 7F000000 		.4byte	0x7f
+ 256 007f 02       		.uleb128 0x2
+ 257 0080 04       		.byte	0x4
+ 258 0081 07       		.byte	0x7
+ 259 0082 7A040000 		.4byte	.LASF10
+ 260 0086 02       		.uleb128 0x2
+ 261 0087 08       		.byte	0x8
+ 262 0088 05       		.byte	0x5
+ 263 0089 A3020000 		.4byte	.LASF11
+ 264 008d 02       		.uleb128 0x2
+ 265 008e 08       		.byte	0x8
+ 266 008f 07       		.byte	0x7
+ 267 0090 D4010000 		.4byte	.LASF12
+ 268 0094 04       		.uleb128 0x4
+ 269 0095 04       		.byte	0x4
+ 270 0096 05       		.byte	0x5
+ 271 0097 696E7400 		.ascii	"int\000"
+ 272 009b 02       		.uleb128 0x2
+ 273 009c 04       		.byte	0x4
+ 274 009d 07       		.byte	0x7
+ 275 009e 4A040000 		.4byte	.LASF13
+ 276 00a2 03       		.uleb128 0x3
+ 277 00a3 170B0000 		.4byte	.LASF14
+ 278 00a7 03       		.byte	0x3
+ 279 00a8 18       		.byte	0x18
+ 280 00a9 2C000000 		.4byte	0x2c
+ 281 00ad 03       		.uleb128 0x3
+ 282 00ae 9B020000 		.4byte	.LASF15
+ 283 00b2 03       		.byte	0x3
+ 284 00b3 20       		.byte	0x20
+ 285 00b4 3E000000 		.4byte	0x3e
+ 286 00b8 03       		.uleb128 0x3
+ 287 00b9 71040000 		.4byte	.LASF16
+ 288 00bd 03       		.byte	0x3
+ 289 00be 24       		.byte	0x24
+ 290 00bf 50000000 		.4byte	0x50
+ 291 00c3 03       		.uleb128 0x3
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 12
+
+
+ 292 00c4 7F080000 		.4byte	.LASF17
+ 293 00c8 03       		.byte	0x3
+ 294 00c9 2C       		.byte	0x2c
+ 295 00ca 62000000 		.4byte	0x62
+ 296 00ce 03       		.uleb128 0x3
+ 297 00cf 920A0000 		.4byte	.LASF18
+ 298 00d3 03       		.byte	0x3
+ 299 00d4 30       		.byte	0x30
+ 300 00d5 74000000 		.4byte	0x74
+ 301 00d9 02       		.uleb128 0x2
+ 302 00da 04       		.byte	0x4
+ 303 00db 04       		.byte	0x4
+ 304 00dc 5D080000 		.4byte	.LASF19
+ 305 00e0 02       		.uleb128 0x2
+ 306 00e1 08       		.byte	0x8
+ 307 00e2 04       		.byte	0x4
+ 308 00e3 B5030000 		.4byte	.LASF20
+ 309 00e7 02       		.uleb128 0x2
+ 310 00e8 01       		.byte	0x1
+ 311 00e9 08       		.byte	0x8
+ 312 00ea C2090000 		.4byte	.LASF21
+ 313 00ee 02       		.uleb128 0x2
+ 314 00ef 08       		.byte	0x8
+ 315 00f0 04       		.byte	0x4
+ 316 00f1 9E090000 		.4byte	.LASF22
+ 317 00f5 02       		.uleb128 0x2
+ 318 00f6 04       		.byte	0x4
+ 319 00f7 07       		.byte	0x7
+ 320 00f8 5C070000 		.4byte	.LASF23
+ 321 00fc 05       		.uleb128 0x5
+ 322 00fd 01       		.byte	0x1
+ 323 00fe 37000000 		.4byte	0x37
+ 324 0102 05       		.byte	0x5
+ 325 0103 3201     		.2byte	0x132
+ 326 0105 BA020000 		.4byte	0x2ba
+ 327 0109 06       		.uleb128 0x6
+ 328 010a 40050000 		.4byte	.LASF24
+ 329 010e 00       		.byte	0
+ 330 010f 06       		.uleb128 0x6
+ 331 0110 BD020000 		.4byte	.LASF25
+ 332 0114 01       		.byte	0x1
+ 333 0115 06       		.uleb128 0x6
+ 334 0116 2B010000 		.4byte	.LASF26
+ 335 011a 02       		.byte	0x2
+ 336 011b 06       		.uleb128 0x6
+ 337 011c 680A0000 		.4byte	.LASF27
+ 338 0120 03       		.byte	0x3
+ 339 0121 06       		.uleb128 0x6
+ 340 0122 EB010000 		.4byte	.LASF28
+ 341 0126 04       		.byte	0x4
+ 342 0127 06       		.uleb128 0x6
+ 343 0128 23000000 		.4byte	.LASF29
+ 344 012c 05       		.byte	0x5
+ 345 012d 06       		.uleb128 0x6
+ 346 012e 75050000 		.4byte	.LASF30
+ 347 0132 06       		.byte	0x6
+ 348 0133 06       		.uleb128 0x6
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 13
+
+
+ 349 0134 D1060000 		.4byte	.LASF31
+ 350 0138 20       		.byte	0x20
+ 351 0139 06       		.uleb128 0x6
+ 352 013a EF020000 		.4byte	.LASF32
+ 353 013e 21       		.byte	0x21
+ 354 013f 06       		.uleb128 0x6
+ 355 0140 B7050000 		.4byte	.LASF33
+ 356 0144 22       		.byte	0x22
+ 357 0145 06       		.uleb128 0x6
+ 358 0146 74060000 		.4byte	.LASF34
+ 359 014a 23       		.byte	0x23
+ 360 014b 06       		.uleb128 0x6
+ 361 014c DB070000 		.4byte	.LASF35
+ 362 0150 24       		.byte	0x24
+ 363 0151 06       		.uleb128 0x6
+ 364 0152 65070000 		.4byte	.LASF36
+ 365 0156 25       		.byte	0x25
+ 366 0157 06       		.uleb128 0x6
+ 367 0158 47030000 		.4byte	.LASF37
+ 368 015c 26       		.byte	0x26
+ 369 015d 06       		.uleb128 0x6
+ 370 015e DB050000 		.4byte	.LASF38
+ 371 0162 27       		.byte	0x27
+ 372 0163 06       		.uleb128 0x6
+ 373 0164 C7090000 		.4byte	.LASF39
+ 374 0168 28       		.byte	0x28
+ 375 0169 06       		.uleb128 0x6
+ 376 016a 44020000 		.4byte	.LASF40
+ 377 016e 29       		.byte	0x29
+ 378 016f 06       		.uleb128 0x6
+ 379 0170 77000000 		.4byte	.LASF41
+ 380 0174 2A       		.byte	0x2a
+ 381 0175 06       		.uleb128 0x6
+ 382 0176 D0020000 		.4byte	.LASF42
+ 383 017a 2B       		.byte	0x2b
+ 384 017b 06       		.uleb128 0x6
+ 385 017c 750B0000 		.4byte	.LASF43
+ 386 0180 2C       		.byte	0x2c
+ 387 0181 06       		.uleb128 0x6
+ 388 0182 61020000 		.4byte	.LASF44
+ 389 0186 2D       		.byte	0x2d
+ 390 0187 06       		.uleb128 0x6
+ 391 0188 95080000 		.4byte	.LASF45
+ 392 018c 2E       		.byte	0x2e
+ 393 018d 06       		.uleb128 0x6
+ 394 018e C1000000 		.4byte	.LASF46
+ 395 0192 2F       		.byte	0x2f
+ 396 0193 06       		.uleb128 0x6
+ 397 0194 BA070000 		.4byte	.LASF47
+ 398 0198 30       		.byte	0x30
+ 399 0199 06       		.uleb128 0x6
+ 400 019a 090C0000 		.4byte	.LASF48
+ 401 019e 31       		.byte	0x31
+ 402 019f 06       		.uleb128 0x6
+ 403 01a0 99070000 		.4byte	.LASF49
+ 404 01a4 32       		.byte	0x32
+ 405 01a5 06       		.uleb128 0x6
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 14
+
+
+ 406 01a6 77090000 		.4byte	.LASF50
+ 407 01aa 33       		.byte	0x33
+ 408 01ab 06       		.uleb128 0x6
+ 409 01ac 8C040000 		.4byte	.LASF51
+ 410 01b0 34       		.byte	0x34
+ 411 01b1 06       		.uleb128 0x6
+ 412 01b2 0B040000 		.4byte	.LASF52
+ 413 01b6 35       		.byte	0x35
+ 414 01b7 06       		.uleb128 0x6
+ 415 01b8 25060000 		.4byte	.LASF53
+ 416 01bc 36       		.byte	0x36
+ 417 01bd 06       		.uleb128 0x6
+ 418 01be F5060000 		.4byte	.LASF54
+ 419 01c2 37       		.byte	0x37
+ 420 01c3 06       		.uleb128 0x6
+ 421 01c4 5D090000 		.4byte	.LASF55
+ 422 01c8 40       		.byte	0x40
+ 423 01c9 06       		.uleb128 0x6
+ 424 01ca 9A060000 		.4byte	.LASF56
+ 425 01ce 41       		.byte	0x41
+ 426 01cf 06       		.uleb128 0x6
+ 427 01d0 420C0000 		.4byte	.LASF57
+ 428 01d4 42       		.byte	0x42
+ 429 01d5 06       		.uleb128 0x6
+ 430 01d6 9B0A0000 		.4byte	.LASF58
+ 431 01da 43       		.byte	0x43
+ 432 01db 06       		.uleb128 0x6
+ 433 01dc BE040000 		.4byte	.LASF59
+ 434 01e0 44       		.byte	0x44
+ 435 01e1 06       		.uleb128 0x6
+ 436 01e2 36080000 		.4byte	.LASF60
+ 437 01e6 45       		.byte	0x45
+ 438 01e7 06       		.uleb128 0x6
+ 439 01e8 53060000 		.4byte	.LASF61
+ 440 01ec 46       		.byte	0x46
+ 441 01ed 06       		.uleb128 0x6
+ 442 01ee 57050000 		.4byte	.LASF62
+ 443 01f2 47       		.byte	0x47
+ 444 01f3 06       		.uleb128 0x6
+ 445 01f4 4E0B0000 		.4byte	.LASF63
+ 446 01f8 48       		.byte	0x48
+ 447 01f9 06       		.uleb128 0x6
+ 448 01fa 3F000000 		.4byte	.LASF64
+ 449 01fe 49       		.byte	0x49
+ 450 01ff 06       		.uleb128 0x6
+ 451 0200 4A0A0000 		.4byte	.LASF65
+ 452 0204 4A       		.byte	0x4a
+ 453 0205 06       		.uleb128 0x6
+ 454 0206 EA000000 		.4byte	.LASF66
+ 455 020a 4B       		.byte	0x4b
+ 456 020b 06       		.uleb128 0x6
+ 457 020c A4040000 		.4byte	.LASF67
+ 458 0210 4C       		.byte	0x4c
+ 459 0211 06       		.uleb128 0x6
+ 460 0212 7F070000 		.4byte	.LASF68
+ 461 0216 4D       		.byte	0x4d
+ 462 0217 06       		.uleb128 0x6
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 15
+
+
+ 463 0218 29030000 		.4byte	.LASF69
+ 464 021c 4E       		.byte	0x4e
+ 465 021d 06       		.uleb128 0x6
+ 466 021e 0B090000 		.4byte	.LASF70
+ 467 0222 4F       		.byte	0x4f
+ 468 0223 06       		.uleb128 0x6
+ 469 0224 8E050000 		.4byte	.LASF71
+ 470 0228 50       		.byte	0x50
+ 471 0229 06       		.uleb128 0x6
+ 472 022a 96030000 		.4byte	.LASF72
+ 473 022e 51       		.byte	0x51
+ 474 022f 06       		.uleb128 0x6
+ 475 0230 F7070000 		.4byte	.LASF73
+ 476 0234 52       		.byte	0x52
+ 477 0235 06       		.uleb128 0x6
+ 478 0236 FA050000 		.4byte	.LASF74
+ 479 023a 53       		.byte	0x53
+ 480 023b 06       		.uleb128 0x6
+ 481 023c 3C090000 		.4byte	.LASF75
+ 482 0240 54       		.byte	0x54
+ 483 0241 06       		.uleb128 0x6
+ 484 0242 DC040000 		.4byte	.LASF76
+ 485 0246 55       		.byte	0x55
+ 486 0247 06       		.uleb128 0x6
+ 487 0248 28040000 		.4byte	.LASF77
+ 488 024c 56       		.byte	0x56
+ 489 024d 06       		.uleb128 0x6
+ 490 024e F4090000 		.4byte	.LASF78
+ 491 0252 57       		.byte	0x57
+ 492 0253 06       		.uleb128 0x6
+ 493 0254 00050000 		.4byte	.LASF79
+ 494 0258 58       		.byte	0x58
+ 495 0259 06       		.uleb128 0x6
+ 496 025a 1E020000 		.4byte	.LASF80
+ 497 025e 70       		.byte	0x70
+ 498 025f 06       		.uleb128 0x6
+ 499 0260 D80B0000 		.4byte	.LASF81
+ 500 0264 71       		.byte	0x71
+ 501 0265 06       		.uleb128 0x6
+ 502 0266 B5060000 		.4byte	.LASF82
+ 503 026a 72       		.byte	0x72
+ 504 026b 06       		.uleb128 0x6
+ 505 026c 2A070000 		.4byte	.LASF83
+ 506 0270 73       		.byte	0x73
+ 507 0271 06       		.uleb128 0x6
+ 508 0272 18080000 		.4byte	.LASF84
+ 509 0276 74       		.byte	0x74
+ 510 0277 06       		.uleb128 0x6
+ 511 0278 990B0000 		.4byte	.LASF85
+ 512 027c 75       		.byte	0x75
+ 513 027d 06       		.uleb128 0x6
+ 514 027e A0000000 		.4byte	.LASF86
+ 515 0282 76       		.byte	0x76
+ 516 0283 06       		.uleb128 0x6
+ 517 0284 58000000 		.4byte	.LASF87
+ 518 0288 77       		.byte	0x77
+ 519 0289 06       		.uleb128 0x6
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 16
+
+
+ 520 028a 00000000 		.4byte	.LASF88
+ 521 028e 78       		.byte	0x78
+ 522 028f 06       		.uleb128 0x6
+ 523 0290 270A0000 		.4byte	.LASF89
+ 524 0294 79       		.byte	0x79
+ 525 0295 06       		.uleb128 0x6
+ 526 0296 E7030000 		.4byte	.LASF90
+ 527 029a 7A       		.byte	0x7a
+ 528 029b 06       		.uleb128 0x6
+ 529 029c 00020000 		.4byte	.LASF91
+ 530 02a0 FA       		.byte	0xfa
+ 531 02a1 06       		.uleb128 0x6
+ 532 02a2 DA080000 		.4byte	.LASF92
+ 533 02a6 FB       		.byte	0xfb
+ 534 02a7 06       		.uleb128 0x6
+ 535 02a8 F9080000 		.4byte	.LASF93
+ 536 02ac FC       		.byte	0xfc
+ 537 02ad 06       		.uleb128 0x6
+ 538 02ae AA090000 		.4byte	.LASF94
+ 539 02b2 FD       		.byte	0xfd
+ 540 02b3 06       		.uleb128 0x6
+ 541 02b4 C4030000 		.4byte	.LASF95
+ 542 02b8 FF       		.byte	0xff
+ 543 02b9 00       		.byte	0
+ 544 02ba 07       		.uleb128 0x7
+ 545 02bb CE000000 		.4byte	0xce
+ 546 02bf 08       		.uleb128 0x8
+ 547 02c0 33       		.byte	0x33
+ 548 02c1 04       		.byte	0x4
+ 549 02c2 75       		.byte	0x75
+ 550 02c3 04030000 		.4byte	0x304
+ 551 02c7 09       		.uleb128 0x9
+ 552 02c8 BA0B0000 		.4byte	.LASF96
+ 553 02cc 04       		.byte	0x4
+ 554 02cd 77       		.byte	0x77
+ 555 02ce B8000000 		.4byte	0xb8
+ 556 02d2 00       		.byte	0
+ 557 02d3 09       		.uleb128 0x9
+ 558 02d4 1B060000 		.4byte	.LASF97
+ 559 02d8 04       		.byte	0x4
+ 560 02d9 78       		.byte	0x78
+ 561 02da A2000000 		.4byte	0xa2
+ 562 02de 02       		.byte	0x2
+ 563 02df 09       		.uleb128 0x9
+ 564 02e0 AD050000 		.4byte	.LASF98
+ 565 02e4 04       		.byte	0x4
+ 566 02e5 79       		.byte	0x79
+ 567 02e6 BA020000 		.4byte	0x2ba
+ 568 02ea 03       		.byte	0x3
+ 569 02eb 09       		.uleb128 0x9
+ 570 02ec BC030000 		.4byte	.LASF99
+ 571 02f0 04       		.byte	0x4
+ 572 02f1 7A       		.byte	0x7a
+ 573 02f2 1F030000 		.4byte	0x31f
+ 574 02f6 07       		.byte	0x7
+ 575 02f7 09       		.uleb128 0x9
+ 576 02f8 600C0000 		.4byte	.LASF100
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 17
+
+
+ 577 02fc 04       		.byte	0x4
+ 578 02fd 7B       		.byte	0x7b
+ 579 02fe 3F030000 		.4byte	0x33f
+ 580 0302 27       		.byte	0x27
+ 581 0303 00       		.byte	0
+ 582 0304 0A       		.uleb128 0xa
+ 583 0305 1A030000 		.4byte	0x31a
+ 584 0309 1A030000 		.4byte	0x31a
+ 585 030d 0B       		.uleb128 0xb
+ 586 030e F5000000 		.4byte	0xf5
+ 587 0312 00       		.byte	0
+ 588 0313 0B       		.uleb128 0xb
+ 589 0314 F5000000 		.4byte	0xf5
+ 590 0318 07       		.byte	0x7
+ 591 0319 00       		.byte	0
+ 592 031a 07       		.uleb128 0x7
+ 593 031b C3000000 		.4byte	0xc3
+ 594 031f 07       		.uleb128 0x7
+ 595 0320 04030000 		.4byte	0x304
+ 596 0324 0A       		.uleb128 0xa
+ 597 0325 3A030000 		.4byte	0x33a
+ 598 0329 3A030000 		.4byte	0x33a
+ 599 032d 0B       		.uleb128 0xb
+ 600 032e F5000000 		.4byte	0xf5
+ 601 0332 00       		.byte	0
+ 602 0333 0B       		.uleb128 0xb
+ 603 0334 F5000000 		.4byte	0xf5
+ 604 0338 05       		.byte	0x5
+ 605 0339 00       		.byte	0
+ 606 033a 07       		.uleb128 0x7
+ 607 033b AD000000 		.4byte	0xad
+ 608 033f 07       		.uleb128 0x7
+ 609 0340 24030000 		.4byte	0x324
+ 610 0344 03       		.uleb128 0x3
+ 611 0345 7C030000 		.4byte	.LASF101
+ 612 0349 04       		.byte	0x4
+ 613 034a 7C       		.byte	0x7c
+ 614 034b BF020000 		.4byte	0x2bf
+ 615 034f 08       		.uleb128 0x8
+ 616 0350 2A       		.byte	0x2a
+ 617 0351 04       		.byte	0x4
+ 618 0352 83       		.byte	0x83
+ 619 0353 94030000 		.4byte	0x394
+ 620 0357 09       		.uleb128 0x9
+ 621 0358 BA0B0000 		.4byte	.LASF96
+ 622 035c 04       		.byte	0x4
+ 623 035d 85       		.byte	0x85
+ 624 035e B8000000 		.4byte	0xb8
+ 625 0362 00       		.byte	0
+ 626 0363 09       		.uleb128 0x9
+ 627 0364 1B060000 		.4byte	.LASF97
+ 628 0368 04       		.byte	0x4
+ 629 0369 86       		.byte	0x86
+ 630 036a A2000000 		.4byte	0xa2
+ 631 036e 02       		.byte	0x2
+ 632 036f 09       		.uleb128 0x9
+ 633 0370 AD050000 		.4byte	.LASF98
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 18
+
+
+ 634 0374 04       		.byte	0x4
+ 635 0375 87       		.byte	0x87
+ 636 0376 A9030000 		.4byte	0x3a9
+ 637 037a 03       		.byte	0x3
+ 638 037b 09       		.uleb128 0x9
+ 639 037c BC030000 		.4byte	.LASF99
+ 640 0380 04       		.byte	0x4
+ 641 0381 88       		.byte	0x88
+ 642 0382 CA030000 		.4byte	0x3ca
+ 643 0386 06       		.byte	0x6
+ 644 0387 09       		.uleb128 0x9
+ 645 0388 600C0000 		.4byte	.LASF100
+ 646 038c 04       		.byte	0x4
+ 647 038d 89       		.byte	0x89
+ 648 038e CF030000 		.4byte	0x3cf
+ 649 0392 1E       		.byte	0x1e
+ 650 0393 00       		.byte	0
+ 651 0394 0A       		.uleb128 0xa
+ 652 0395 A4030000 		.4byte	0x3a4
+ 653 0399 A4030000 		.4byte	0x3a4
+ 654 039d 0B       		.uleb128 0xb
+ 655 039e F5000000 		.4byte	0xf5
+ 656 03a2 02       		.byte	0x2
+ 657 03a3 00       		.byte	0
+ 658 03a4 07       		.uleb128 0x7
+ 659 03a5 A2000000 		.4byte	0xa2
+ 660 03a9 07       		.uleb128 0x7
+ 661 03aa 94030000 		.4byte	0x394
+ 662 03ae 0A       		.uleb128 0xa
+ 663 03af A4030000 		.4byte	0x3a4
+ 664 03b3 CA030000 		.4byte	0x3ca
+ 665 03b7 0B       		.uleb128 0xb
+ 666 03b8 F5000000 		.4byte	0xf5
+ 667 03bc 00       		.byte	0
+ 668 03bd 0B       		.uleb128 0xb
+ 669 03be F5000000 		.4byte	0xf5
+ 670 03c2 07       		.byte	0x7
+ 671 03c3 0B       		.uleb128 0xb
+ 672 03c4 F5000000 		.4byte	0xf5
+ 673 03c8 02       		.byte	0x2
+ 674 03c9 00       		.byte	0
+ 675 03ca 07       		.uleb128 0x7
+ 676 03cb AE030000 		.4byte	0x3ae
+ 677 03cf 07       		.uleb128 0x7
+ 678 03d0 24030000 		.4byte	0x324
+ 679 03d4 03       		.uleb128 0x3
+ 680 03d5 0F030000 		.4byte	.LASF102
+ 681 03d9 04       		.byte	0x4
+ 682 03da 8A       		.byte	0x8a
+ 683 03db 4F030000 		.4byte	0x34f
+ 684 03df 0C       		.uleb128 0xc
+ 685 03e0 01       		.byte	0x1
+ 686 03e1 37000000 		.4byte	0x37
+ 687 03e5 06       		.byte	0x6
+ 688 03e6 6A       		.byte	0x6a
+ 689 03e7 F8030000 		.4byte	0x3f8
+ 690 03eb 06       		.uleb128 0x6
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 19
+
+
+ 691 03ec 2A090000 		.4byte	.LASF103
+ 692 03f0 00       		.byte	0
+ 693 03f1 06       		.uleb128 0x6
+ 694 03f2 57040000 		.4byte	.LASF104
+ 695 03f6 01       		.byte	0x1
+ 696 03f7 00       		.byte	0
+ 697 03f8 03       		.uleb128 0x3
+ 698 03f9 6F080000 		.4byte	.LASF105
+ 699 03fd 06       		.byte	0x6
+ 700 03fe 6E       		.byte	0x6e
+ 701 03ff DF030000 		.4byte	0x3df
+ 702 0403 0D       		.uleb128 0xd
+ 703 0404 48070000 		.4byte	.LASF108
+ 704 0408 01       		.byte	0x1
+ 705 0409 32       		.byte	0x32
+ 706 040a F8030000 		.4byte	0x3f8
+ 707 040e 00000000 		.4byte	.LFB49
+ 708 0412 02000000 		.4byte	.LFE49-.LFB49
+ 709 0416 01       		.uleb128 0x1
+ 710 0417 9C       		.byte	0x9c
+ 711 0418 39040000 		.4byte	0x439
+ 712 041c 0E       		.uleb128 0xe
+ 713 041d 63080000 		.4byte	.LASF106
+ 714 0421 01       		.byte	0x1
+ 715 0422 32       		.byte	0x32
+ 716 0423 A2000000 		.4byte	0xa2
+ 717 0427 00000000 		.4byte	.LLST0
+ 718 042b 0F       		.uleb128 0xf
+ 719 042c 36050000 		.4byte	.LASF107
+ 720 0430 01       		.byte	0x1
+ 721 0431 32       		.byte	0x32
+ 722 0432 A2000000 		.4byte	0xa2
+ 723 0436 01       		.uleb128 0x1
+ 724 0437 51       		.byte	0x51
+ 725 0438 00       		.byte	0
+ 726 0439 0D       		.uleb128 0xd
+ 727 043a 1F0B0000 		.4byte	.LASF109
+ 728 043e 01       		.byte	0x1
+ 729 043f 92       		.byte	0x92
+ 730 0440 F8030000 		.4byte	0x3f8
+ 731 0444 00000000 		.4byte	.LFB50
+ 732 0448 02000000 		.4byte	.LFE50-.LFB50
+ 733 044c 01       		.uleb128 0x1
+ 734 044d 9C       		.byte	0x9c
+ 735 044e 7C040000 		.4byte	0x47c
+ 736 0452 0E       		.uleb128 0xe
+ 737 0453 63080000 		.4byte	.LASF106
+ 738 0457 01       		.byte	0x1
+ 739 0458 92       		.byte	0x92
+ 740 0459 A2000000 		.4byte	0xa2
+ 741 045d 21000000 		.4byte	.LLST1
+ 742 0461 0F       		.uleb128 0xf
+ 743 0462 06030000 		.4byte	.LASF110
+ 744 0466 01       		.byte	0x1
+ 745 0467 92       		.byte	0x92
+ 746 0468 A2000000 		.4byte	0xa2
+ 747 046c 01       		.uleb128 0x1
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 20
+
+
+ 748 046d 51       		.byte	0x51
+ 749 046e 0F       		.uleb128 0xf
+ 750 046f 8A020000 		.4byte	.LASF111
+ 751 0473 01       		.byte	0x1
+ 752 0474 92       		.byte	0x92
+ 753 0475 7C040000 		.4byte	0x47c
+ 754 0479 01       		.uleb128 0x1
+ 755 047a 52       		.byte	0x52
+ 756 047b 00       		.byte	0
+ 757 047c 10       		.uleb128 0x10
+ 758 047d 04       		.byte	0x4
+ 759 047e A2000000 		.4byte	0xa2
+ 760 0482 0D       		.uleb128 0xd
+ 761 0483 6F030000 		.4byte	.LASF112
+ 762 0487 01       		.byte	0x1
+ 763 0488 AE       		.byte	0xae
+ 764 0489 F8030000 		.4byte	0x3f8
+ 765 048d 00000000 		.4byte	.LFB51
+ 766 0491 02000000 		.4byte	.LFE51-.LFB51
+ 767 0495 01       		.uleb128 0x1
+ 768 0496 9C       		.byte	0x9c
+ 769 0497 C5040000 		.4byte	0x4c5
+ 770 049b 0E       		.uleb128 0xe
+ 771 049c 63080000 		.4byte	.LASF106
+ 772 04a0 01       		.byte	0x1
+ 773 04a1 AE       		.byte	0xae
+ 774 04a2 A2000000 		.4byte	0xa2
+ 775 04a6 42000000 		.4byte	.LLST2
+ 776 04aa 0F       		.uleb128 0xf
+ 777 04ab 06030000 		.4byte	.LASF110
+ 778 04af 01       		.byte	0x1
+ 779 04b0 AE       		.byte	0xae
+ 780 04b1 A2000000 		.4byte	0xa2
+ 781 04b5 01       		.uleb128 0x1
+ 782 04b6 51       		.byte	0x51
+ 783 04b7 0F       		.uleb128 0xf
+ 784 04b8 810A0000 		.4byte	.LASF113
+ 785 04bc 01       		.byte	0x1
+ 786 04bd AE       		.byte	0xae
+ 787 04be A2000000 		.4byte	0xa2
+ 788 04c2 01       		.uleb128 0x1
+ 789 04c3 52       		.byte	0x52
+ 790 04c4 00       		.byte	0
+ 791 04c5 0D       		.uleb128 0xd
+ 792 04c6 C3080000 		.4byte	.LASF114
+ 793 04ca 01       		.byte	0x1
+ 794 04cb C5       		.byte	0xc5
+ 795 04cc F8030000 		.4byte	0x3f8
+ 796 04d0 00000000 		.4byte	.LFB52
+ 797 04d4 0A000000 		.4byte	.LFE52-.LFB52
+ 798 04d8 01       		.uleb128 0x1
+ 799 04d9 9C       		.byte	0x9c
+ 800 04da 08050000 		.4byte	0x508
+ 801 04de 0E       		.uleb128 0xe
+ 802 04df 63080000 		.4byte	.LASF106
+ 803 04e3 01       		.byte	0x1
+ 804 04e4 C5       		.byte	0xc5
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 21
+
+
+ 805 04e5 A2000000 		.4byte	0xa2
+ 806 04e9 63000000 		.4byte	.LLST3
+ 807 04ed 0F       		.uleb128 0xf
+ 808 04ee 370C0000 		.4byte	.LASF115
+ 809 04f2 01       		.byte	0x1
+ 810 04f3 C5       		.byte	0xc5
+ 811 04f4 BA020000 		.4byte	0x2ba
+ 812 04f8 01       		.uleb128 0x1
+ 813 04f9 51       		.byte	0x51
+ 814 04fa 0F       		.uleb128 0xf
+ 815 04fb 430B0000 		.4byte	.LASF116
+ 816 04ff 01       		.byte	0x1
+ 817 0500 C5       		.byte	0xc5
+ 818 0501 08050000 		.4byte	0x508
+ 819 0505 01       		.uleb128 0x1
+ 820 0506 52       		.byte	0x52
+ 821 0507 00       		.byte	0
+ 822 0508 10       		.uleb128 0x10
+ 823 0509 04       		.byte	0x4
+ 824 050a 44030000 		.4byte	0x344
+ 825 050e 0D       		.uleb128 0xd
+ 826 050f 2C0B0000 		.4byte	.LASF117
+ 827 0513 01       		.byte	0x1
+ 828 0514 EB       		.byte	0xeb
+ 829 0515 F8030000 		.4byte	0x3f8
+ 830 0519 00000000 		.4byte	.LFB53
+ 831 051d 0A000000 		.4byte	.LFE53-.LFB53
+ 832 0521 01       		.uleb128 0x1
+ 833 0522 9C       		.byte	0x9c
+ 834 0523 51050000 		.4byte	0x551
+ 835 0527 0E       		.uleb128 0xe
+ 836 0528 63080000 		.4byte	.LASF106
+ 837 052c 01       		.byte	0x1
+ 838 052d EB       		.byte	0xeb
+ 839 052e A2000000 		.4byte	0xa2
+ 840 0532 84000000 		.4byte	.LLST4
+ 841 0536 0F       		.uleb128 0xf
+ 842 0537 370C0000 		.4byte	.LASF115
+ 843 053b 01       		.byte	0x1
+ 844 053c EB       		.byte	0xeb
+ 845 053d BA020000 		.4byte	0x2ba
+ 846 0541 01       		.uleb128 0x1
+ 847 0542 51       		.byte	0x51
+ 848 0543 0F       		.uleb128 0xf
+ 849 0544 430B0000 		.4byte	.LASF116
+ 850 0548 01       		.byte	0x1
+ 851 0549 EB       		.byte	0xeb
+ 852 054a 51050000 		.4byte	0x551
+ 853 054e 01       		.uleb128 0x1
+ 854 054f 52       		.byte	0x52
+ 855 0550 00       		.byte	0
+ 856 0551 10       		.uleb128 0x10
+ 857 0552 04       		.byte	0x4
+ 858 0553 D4030000 		.4byte	0x3d4
+ 859 0557 11       		.uleb128 0x11
+ 860 0558 C00B0000 		.4byte	.LASF118
+ 861 055c 01       		.byte	0x1
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 22
+
+
+ 862 055d 0D01     		.2byte	0x10d
+ 863 055f F8030000 		.4byte	0x3f8
+ 864 0563 00000000 		.4byte	.LFB54
+ 865 0567 0A000000 		.4byte	.LFE54-.LFB54
+ 866 056b 01       		.uleb128 0x1
+ 867 056c 9C       		.byte	0x9c
+ 868 056d AC050000 		.4byte	0x5ac
+ 869 0571 12       		.uleb128 0x12
+ 870 0572 63080000 		.4byte	.LASF106
+ 871 0576 01       		.byte	0x1
+ 872 0577 0D01     		.2byte	0x10d
+ 873 0579 A2000000 		.4byte	0xa2
+ 874 057d A5000000 		.4byte	.LLST5
+ 875 0581 13       		.uleb128 0x13
+ 876 0582 370C0000 		.4byte	.LASF115
+ 877 0586 01       		.byte	0x1
+ 878 0587 0D01     		.2byte	0x10d
+ 879 0589 BA020000 		.4byte	0x2ba
+ 880 058d 01       		.uleb128 0x1
+ 881 058e 51       		.byte	0x51
+ 882 058f 13       		.uleb128 0x13
+ 883 0590 46060000 		.4byte	.LASF119
+ 884 0594 01       		.byte	0x1
+ 885 0595 0D01     		.2byte	0x10d
+ 886 0597 AC050000 		.4byte	0x5ac
+ 887 059b 01       		.uleb128 0x1
+ 888 059c 52       		.byte	0x52
+ 889 059d 13       		.uleb128 0x13
+ 890 059e FE0B0000 		.4byte	.LASF120
+ 891 05a2 01       		.byte	0x1
+ 892 05a3 0D01     		.2byte	0x10d
+ 893 05a5 C8050000 		.4byte	0x5c8
+ 894 05a9 01       		.uleb128 0x1
+ 895 05aa 53       		.byte	0x53
+ 896 05ab 00       		.byte	0
+ 897 05ac 10       		.uleb128 0x10
+ 898 05ad 04       		.byte	0x4
+ 899 05ae A4030000 		.4byte	0x3a4
+ 900 05b2 0A       		.uleb128 0xa
+ 901 05b3 A4030000 		.4byte	0x3a4
+ 902 05b7 C8050000 		.4byte	0x5c8
+ 903 05bb 0B       		.uleb128 0xb
+ 904 05bc F5000000 		.4byte	0xf5
+ 905 05c0 07       		.byte	0x7
+ 906 05c1 0B       		.uleb128 0xb
+ 907 05c2 F5000000 		.4byte	0xf5
+ 908 05c6 02       		.byte	0x2
+ 909 05c7 00       		.byte	0
+ 910 05c8 10       		.uleb128 0x10
+ 911 05c9 04       		.byte	0x4
+ 912 05ca B2050000 		.4byte	0x5b2
+ 913 05ce 11       		.uleb128 0x11
+ 914 05cf 13010000 		.4byte	.LASF121
+ 915 05d3 01       		.byte	0x1
+ 916 05d4 2B01     		.2byte	0x12b
+ 917 05d6 F8030000 		.4byte	0x3f8
+ 918 05da 00000000 		.4byte	.LFB55
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 23
+
+
+ 919 05de 0C000000 		.4byte	.LFE55-.LFB55
+ 920 05e2 01       		.uleb128 0x1
+ 921 05e3 9C       		.byte	0x9c
+ 922 05e4 23060000 		.4byte	0x623
+ 923 05e8 12       		.uleb128 0x12
+ 924 05e9 63080000 		.4byte	.LASF106
+ 925 05ed 01       		.byte	0x1
+ 926 05ee 2B01     		.2byte	0x12b
+ 927 05f0 A2000000 		.4byte	0xa2
+ 928 05f4 C6000000 		.4byte	.LLST6
+ 929 05f8 13       		.uleb128 0x13
+ 930 05f9 370C0000 		.4byte	.LASF115
+ 931 05fd 01       		.byte	0x1
+ 932 05fe 2B01     		.2byte	0x12b
+ 933 0600 BA020000 		.4byte	0x2ba
+ 934 0604 01       		.uleb128 0x1
+ 935 0605 51       		.byte	0x51
+ 936 0606 13       		.uleb128 0x13
+ 937 0607 100B0000 		.4byte	.LASF122
+ 938 060b 01       		.byte	0x1
+ 939 060c 2B01     		.2byte	0x12b
+ 940 060e BA020000 		.4byte	0x2ba
+ 941 0612 01       		.uleb128 0x1
+ 942 0613 52       		.byte	0x52
+ 943 0614 13       		.uleb128 0x13
+ 944 0615 FE0B0000 		.4byte	.LASF120
+ 945 0619 01       		.byte	0x1
+ 946 061a 2B01     		.2byte	0x12b
+ 947 061c 33060000 		.4byte	0x633
+ 948 0620 01       		.uleb128 0x1
+ 949 0621 53       		.byte	0x53
+ 950 0622 00       		.byte	0
+ 951 0623 0A       		.uleb128 0xa
+ 952 0624 1A030000 		.4byte	0x31a
+ 953 0628 33060000 		.4byte	0x633
+ 954 062c 0B       		.uleb128 0xb
+ 955 062d F5000000 		.4byte	0xf5
+ 956 0631 07       		.byte	0x7
+ 957 0632 00       		.byte	0
+ 958 0633 10       		.uleb128 0x10
+ 959 0634 04       		.byte	0x4
+ 960 0635 23060000 		.4byte	0x623
+ 961 0639 14       		.uleb128 0x14
+ 962 063a 73706900 		.ascii	"spi\000"
+ 963 063e 07       		.byte	0x7
+ 964 063f 11       		.byte	0x11
+ 965 0640 A2000000 		.4byte	0xa2
+ 966 0644 05       		.uleb128 0x5
+ 967 0645 03       		.byte	0x3
+ 968 0646 00000000 		.4byte	spi
+ 969 064a 00       		.byte	0
+ 970              		.section	.debug_abbrev,"",%progbits
+ 971              	.Ldebug_abbrev0:
+ 972 0000 01       		.uleb128 0x1
+ 973 0001 11       		.uleb128 0x11
+ 974 0002 01       		.byte	0x1
+ 975 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 24
+
+
+ 976 0004 0E       		.uleb128 0xe
+ 977 0005 13       		.uleb128 0x13
+ 978 0006 0B       		.uleb128 0xb
+ 979 0007 03       		.uleb128 0x3
+ 980 0008 0E       		.uleb128 0xe
+ 981 0009 1B       		.uleb128 0x1b
+ 982 000a 0E       		.uleb128 0xe
+ 983 000b 55       		.uleb128 0x55
+ 984 000c 17       		.uleb128 0x17
+ 985 000d 11       		.uleb128 0x11
+ 986 000e 01       		.uleb128 0x1
+ 987 000f 10       		.uleb128 0x10
+ 988 0010 17       		.uleb128 0x17
+ 989 0011 00       		.byte	0
+ 990 0012 00       		.byte	0
+ 991 0013 02       		.uleb128 0x2
+ 992 0014 24       		.uleb128 0x24
+ 993 0015 00       		.byte	0
+ 994 0016 0B       		.uleb128 0xb
+ 995 0017 0B       		.uleb128 0xb
+ 996 0018 3E       		.uleb128 0x3e
+ 997 0019 0B       		.uleb128 0xb
+ 998 001a 03       		.uleb128 0x3
+ 999 001b 0E       		.uleb128 0xe
+ 1000 001c 00       		.byte	0
+ 1001 001d 00       		.byte	0
+ 1002 001e 03       		.uleb128 0x3
+ 1003 001f 16       		.uleb128 0x16
+ 1004 0020 00       		.byte	0
+ 1005 0021 03       		.uleb128 0x3
+ 1006 0022 0E       		.uleb128 0xe
+ 1007 0023 3A       		.uleb128 0x3a
+ 1008 0024 0B       		.uleb128 0xb
+ 1009 0025 3B       		.uleb128 0x3b
+ 1010 0026 0B       		.uleb128 0xb
+ 1011 0027 49       		.uleb128 0x49
+ 1012 0028 13       		.uleb128 0x13
+ 1013 0029 00       		.byte	0
+ 1014 002a 00       		.byte	0
+ 1015 002b 04       		.uleb128 0x4
+ 1016 002c 24       		.uleb128 0x24
+ 1017 002d 00       		.byte	0
+ 1018 002e 0B       		.uleb128 0xb
+ 1019 002f 0B       		.uleb128 0xb
+ 1020 0030 3E       		.uleb128 0x3e
+ 1021 0031 0B       		.uleb128 0xb
+ 1022 0032 03       		.uleb128 0x3
+ 1023 0033 08       		.uleb128 0x8
+ 1024 0034 00       		.byte	0
+ 1025 0035 00       		.byte	0
+ 1026 0036 05       		.uleb128 0x5
+ 1027 0037 04       		.uleb128 0x4
+ 1028 0038 01       		.byte	0x1
+ 1029 0039 0B       		.uleb128 0xb
+ 1030 003a 0B       		.uleb128 0xb
+ 1031 003b 49       		.uleb128 0x49
+ 1032 003c 13       		.uleb128 0x13
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 25
+
+
+ 1033 003d 3A       		.uleb128 0x3a
+ 1034 003e 0B       		.uleb128 0xb
+ 1035 003f 3B       		.uleb128 0x3b
+ 1036 0040 05       		.uleb128 0x5
+ 1037 0041 01       		.uleb128 0x1
+ 1038 0042 13       		.uleb128 0x13
+ 1039 0043 00       		.byte	0
+ 1040 0044 00       		.byte	0
+ 1041 0045 06       		.uleb128 0x6
+ 1042 0046 28       		.uleb128 0x28
+ 1043 0047 00       		.byte	0
+ 1044 0048 03       		.uleb128 0x3
+ 1045 0049 0E       		.uleb128 0xe
+ 1046 004a 1C       		.uleb128 0x1c
+ 1047 004b 0B       		.uleb128 0xb
+ 1048 004c 00       		.byte	0
+ 1049 004d 00       		.byte	0
+ 1050 004e 07       		.uleb128 0x7
+ 1051 004f 35       		.uleb128 0x35
+ 1052 0050 00       		.byte	0
+ 1053 0051 49       		.uleb128 0x49
+ 1054 0052 13       		.uleb128 0x13
+ 1055 0053 00       		.byte	0
+ 1056 0054 00       		.byte	0
+ 1057 0055 08       		.uleb128 0x8
+ 1058 0056 13       		.uleb128 0x13
+ 1059 0057 01       		.byte	0x1
+ 1060 0058 0B       		.uleb128 0xb
+ 1061 0059 0B       		.uleb128 0xb
+ 1062 005a 3A       		.uleb128 0x3a
+ 1063 005b 0B       		.uleb128 0xb
+ 1064 005c 3B       		.uleb128 0x3b
+ 1065 005d 0B       		.uleb128 0xb
+ 1066 005e 01       		.uleb128 0x1
+ 1067 005f 13       		.uleb128 0x13
+ 1068 0060 00       		.byte	0
+ 1069 0061 00       		.byte	0
+ 1070 0062 09       		.uleb128 0x9
+ 1071 0063 0D       		.uleb128 0xd
+ 1072 0064 00       		.byte	0
+ 1073 0065 03       		.uleb128 0x3
+ 1074 0066 0E       		.uleb128 0xe
+ 1075 0067 3A       		.uleb128 0x3a
+ 1076 0068 0B       		.uleb128 0xb
+ 1077 0069 3B       		.uleb128 0x3b
+ 1078 006a 0B       		.uleb128 0xb
+ 1079 006b 49       		.uleb128 0x49
+ 1080 006c 13       		.uleb128 0x13
+ 1081 006d 38       		.uleb128 0x38
+ 1082 006e 0B       		.uleb128 0xb
+ 1083 006f 00       		.byte	0
+ 1084 0070 00       		.byte	0
+ 1085 0071 0A       		.uleb128 0xa
+ 1086 0072 01       		.uleb128 0x1
+ 1087 0073 01       		.byte	0x1
+ 1088 0074 49       		.uleb128 0x49
+ 1089 0075 13       		.uleb128 0x13
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 26
+
+
+ 1090 0076 01       		.uleb128 0x1
+ 1091 0077 13       		.uleb128 0x13
+ 1092 0078 00       		.byte	0
+ 1093 0079 00       		.byte	0
+ 1094 007a 0B       		.uleb128 0xb
+ 1095 007b 21       		.uleb128 0x21
+ 1096 007c 00       		.byte	0
+ 1097 007d 49       		.uleb128 0x49
+ 1098 007e 13       		.uleb128 0x13
+ 1099 007f 2F       		.uleb128 0x2f
+ 1100 0080 0B       		.uleb128 0xb
+ 1101 0081 00       		.byte	0
+ 1102 0082 00       		.byte	0
+ 1103 0083 0C       		.uleb128 0xc
+ 1104 0084 04       		.uleb128 0x4
+ 1105 0085 01       		.byte	0x1
+ 1106 0086 0B       		.uleb128 0xb
+ 1107 0087 0B       		.uleb128 0xb
+ 1108 0088 49       		.uleb128 0x49
+ 1109 0089 13       		.uleb128 0x13
+ 1110 008a 3A       		.uleb128 0x3a
+ 1111 008b 0B       		.uleb128 0xb
+ 1112 008c 3B       		.uleb128 0x3b
+ 1113 008d 0B       		.uleb128 0xb
+ 1114 008e 01       		.uleb128 0x1
+ 1115 008f 13       		.uleb128 0x13
+ 1116 0090 00       		.byte	0
+ 1117 0091 00       		.byte	0
+ 1118 0092 0D       		.uleb128 0xd
+ 1119 0093 2E       		.uleb128 0x2e
+ 1120 0094 01       		.byte	0x1
+ 1121 0095 3F       		.uleb128 0x3f
+ 1122 0096 19       		.uleb128 0x19
+ 1123 0097 03       		.uleb128 0x3
+ 1124 0098 0E       		.uleb128 0xe
+ 1125 0099 3A       		.uleb128 0x3a
+ 1126 009a 0B       		.uleb128 0xb
+ 1127 009b 3B       		.uleb128 0x3b
+ 1128 009c 0B       		.uleb128 0xb
+ 1129 009d 27       		.uleb128 0x27
+ 1130 009e 19       		.uleb128 0x19
+ 1131 009f 49       		.uleb128 0x49
+ 1132 00a0 13       		.uleb128 0x13
+ 1133 00a1 11       		.uleb128 0x11
+ 1134 00a2 01       		.uleb128 0x1
+ 1135 00a3 12       		.uleb128 0x12
+ 1136 00a4 06       		.uleb128 0x6
+ 1137 00a5 40       		.uleb128 0x40
+ 1138 00a6 18       		.uleb128 0x18
+ 1139 00a7 9742     		.uleb128 0x2117
+ 1140 00a9 19       		.uleb128 0x19
+ 1141 00aa 01       		.uleb128 0x1
+ 1142 00ab 13       		.uleb128 0x13
+ 1143 00ac 00       		.byte	0
+ 1144 00ad 00       		.byte	0
+ 1145 00ae 0E       		.uleb128 0xe
+ 1146 00af 05       		.uleb128 0x5
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 27
+
+
+ 1147 00b0 00       		.byte	0
+ 1148 00b1 03       		.uleb128 0x3
+ 1149 00b2 0E       		.uleb128 0xe
+ 1150 00b3 3A       		.uleb128 0x3a
+ 1151 00b4 0B       		.uleb128 0xb
+ 1152 00b5 3B       		.uleb128 0x3b
+ 1153 00b6 0B       		.uleb128 0xb
+ 1154 00b7 49       		.uleb128 0x49
+ 1155 00b8 13       		.uleb128 0x13
+ 1156 00b9 02       		.uleb128 0x2
+ 1157 00ba 17       		.uleb128 0x17
+ 1158 00bb 00       		.byte	0
+ 1159 00bc 00       		.byte	0
+ 1160 00bd 0F       		.uleb128 0xf
+ 1161 00be 05       		.uleb128 0x5
+ 1162 00bf 00       		.byte	0
+ 1163 00c0 03       		.uleb128 0x3
+ 1164 00c1 0E       		.uleb128 0xe
+ 1165 00c2 3A       		.uleb128 0x3a
+ 1166 00c3 0B       		.uleb128 0xb
+ 1167 00c4 3B       		.uleb128 0x3b
+ 1168 00c5 0B       		.uleb128 0xb
+ 1169 00c6 49       		.uleb128 0x49
+ 1170 00c7 13       		.uleb128 0x13
+ 1171 00c8 02       		.uleb128 0x2
+ 1172 00c9 18       		.uleb128 0x18
+ 1173 00ca 00       		.byte	0
+ 1174 00cb 00       		.byte	0
+ 1175 00cc 10       		.uleb128 0x10
+ 1176 00cd 0F       		.uleb128 0xf
+ 1177 00ce 00       		.byte	0
+ 1178 00cf 0B       		.uleb128 0xb
+ 1179 00d0 0B       		.uleb128 0xb
+ 1180 00d1 49       		.uleb128 0x49
+ 1181 00d2 13       		.uleb128 0x13
+ 1182 00d3 00       		.byte	0
+ 1183 00d4 00       		.byte	0
+ 1184 00d5 11       		.uleb128 0x11
+ 1185 00d6 2E       		.uleb128 0x2e
+ 1186 00d7 01       		.byte	0x1
+ 1187 00d8 3F       		.uleb128 0x3f
+ 1188 00d9 19       		.uleb128 0x19
+ 1189 00da 03       		.uleb128 0x3
+ 1190 00db 0E       		.uleb128 0xe
+ 1191 00dc 3A       		.uleb128 0x3a
+ 1192 00dd 0B       		.uleb128 0xb
+ 1193 00de 3B       		.uleb128 0x3b
+ 1194 00df 05       		.uleb128 0x5
+ 1195 00e0 27       		.uleb128 0x27
+ 1196 00e1 19       		.uleb128 0x19
+ 1197 00e2 49       		.uleb128 0x49
+ 1198 00e3 13       		.uleb128 0x13
+ 1199 00e4 11       		.uleb128 0x11
+ 1200 00e5 01       		.uleb128 0x1
+ 1201 00e6 12       		.uleb128 0x12
+ 1202 00e7 06       		.uleb128 0x6
+ 1203 00e8 40       		.uleb128 0x40
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 28
+
+
+ 1204 00e9 18       		.uleb128 0x18
+ 1205 00ea 9742     		.uleb128 0x2117
+ 1206 00ec 19       		.uleb128 0x19
+ 1207 00ed 01       		.uleb128 0x1
+ 1208 00ee 13       		.uleb128 0x13
+ 1209 00ef 00       		.byte	0
+ 1210 00f0 00       		.byte	0
+ 1211 00f1 12       		.uleb128 0x12
+ 1212 00f2 05       		.uleb128 0x5
+ 1213 00f3 00       		.byte	0
+ 1214 00f4 03       		.uleb128 0x3
+ 1215 00f5 0E       		.uleb128 0xe
+ 1216 00f6 3A       		.uleb128 0x3a
+ 1217 00f7 0B       		.uleb128 0xb
+ 1218 00f8 3B       		.uleb128 0x3b
+ 1219 00f9 05       		.uleb128 0x5
+ 1220 00fa 49       		.uleb128 0x49
+ 1221 00fb 13       		.uleb128 0x13
+ 1222 00fc 02       		.uleb128 0x2
+ 1223 00fd 17       		.uleb128 0x17
+ 1224 00fe 00       		.byte	0
+ 1225 00ff 00       		.byte	0
+ 1226 0100 13       		.uleb128 0x13
+ 1227 0101 05       		.uleb128 0x5
+ 1228 0102 00       		.byte	0
+ 1229 0103 03       		.uleb128 0x3
+ 1230 0104 0E       		.uleb128 0xe
+ 1231 0105 3A       		.uleb128 0x3a
+ 1232 0106 0B       		.uleb128 0xb
+ 1233 0107 3B       		.uleb128 0x3b
+ 1234 0108 05       		.uleb128 0x5
+ 1235 0109 49       		.uleb128 0x49
+ 1236 010a 13       		.uleb128 0x13
+ 1237 010b 02       		.uleb128 0x2
+ 1238 010c 18       		.uleb128 0x18
+ 1239 010d 00       		.byte	0
+ 1240 010e 00       		.byte	0
+ 1241 010f 14       		.uleb128 0x14
+ 1242 0110 34       		.uleb128 0x34
+ 1243 0111 00       		.byte	0
+ 1244 0112 03       		.uleb128 0x3
+ 1245 0113 08       		.uleb128 0x8
+ 1246 0114 3A       		.uleb128 0x3a
+ 1247 0115 0B       		.uleb128 0xb
+ 1248 0116 3B       		.uleb128 0x3b
+ 1249 0117 0B       		.uleb128 0xb
+ 1250 0118 49       		.uleb128 0x49
+ 1251 0119 13       		.uleb128 0x13
+ 1252 011a 3F       		.uleb128 0x3f
+ 1253 011b 19       		.uleb128 0x19
+ 1254 011c 02       		.uleb128 0x2
+ 1255 011d 18       		.uleb128 0x18
+ 1256 011e 00       		.byte	0
+ 1257 011f 00       		.byte	0
+ 1258 0120 00       		.byte	0
+ 1259              		.section	.debug_loc,"",%progbits
+ 1260              	.Ldebug_loc0:
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 29
+
+
+ 1261              	.LLST0:
+ 1262 0000 00000000 		.4byte	.LVL0
+ 1263 0004 00000000 		.4byte	.LVL1
+ 1264 0008 0100     		.2byte	0x1
+ 1265 000a 50       		.byte	0x50
+ 1266 000b 00000000 		.4byte	.LVL1
+ 1267 000f 02000000 		.4byte	.LFE49
+ 1268 0013 0400     		.2byte	0x4
+ 1269 0015 F3       		.byte	0xf3
+ 1270 0016 01       		.uleb128 0x1
+ 1271 0017 50       		.byte	0x50
+ 1272 0018 9F       		.byte	0x9f
+ 1273 0019 00000000 		.4byte	0
+ 1274 001d 00000000 		.4byte	0
+ 1275              	.LLST1:
+ 1276 0021 00000000 		.4byte	.LVL2
+ 1277 0025 00000000 		.4byte	.LVL3
+ 1278 0029 0100     		.2byte	0x1
+ 1279 002b 50       		.byte	0x50
+ 1280 002c 00000000 		.4byte	.LVL3
+ 1281 0030 02000000 		.4byte	.LFE50
+ 1282 0034 0400     		.2byte	0x4
+ 1283 0036 F3       		.byte	0xf3
+ 1284 0037 01       		.uleb128 0x1
+ 1285 0038 50       		.byte	0x50
+ 1286 0039 9F       		.byte	0x9f
+ 1287 003a 00000000 		.4byte	0
+ 1288 003e 00000000 		.4byte	0
+ 1289              	.LLST2:
+ 1290 0042 00000000 		.4byte	.LVL4
+ 1291 0046 00000000 		.4byte	.LVL5
+ 1292 004a 0100     		.2byte	0x1
+ 1293 004c 50       		.byte	0x50
+ 1294 004d 00000000 		.4byte	.LVL5
+ 1295 0051 02000000 		.4byte	.LFE51
+ 1296 0055 0400     		.2byte	0x4
+ 1297 0057 F3       		.byte	0xf3
+ 1298 0058 01       		.uleb128 0x1
+ 1299 0059 50       		.byte	0x50
+ 1300 005a 9F       		.byte	0x9f
+ 1301 005b 00000000 		.4byte	0
+ 1302 005f 00000000 		.4byte	0
+ 1303              	.LLST3:
+ 1304 0063 00000000 		.4byte	.LVL6
+ 1305 0067 06000000 		.4byte	.LVL7
+ 1306 006b 0100     		.2byte	0x1
+ 1307 006d 50       		.byte	0x50
+ 1308 006e 06000000 		.4byte	.LVL7
+ 1309 0072 0A000000 		.4byte	.LFE52
+ 1310 0076 0400     		.2byte	0x4
+ 1311 0078 F3       		.byte	0xf3
+ 1312 0079 01       		.uleb128 0x1
+ 1313 007a 50       		.byte	0x50
+ 1314 007b 9F       		.byte	0x9f
+ 1315 007c 00000000 		.4byte	0
+ 1316 0080 00000000 		.4byte	0
+ 1317              	.LLST4:
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 30
+
+
+ 1318 0084 00000000 		.4byte	.LVL8
+ 1319 0088 06000000 		.4byte	.LVL9
+ 1320 008c 0100     		.2byte	0x1
+ 1321 008e 50       		.byte	0x50
+ 1322 008f 06000000 		.4byte	.LVL9
+ 1323 0093 0A000000 		.4byte	.LFE53
+ 1324 0097 0400     		.2byte	0x4
+ 1325 0099 F3       		.byte	0xf3
+ 1326 009a 01       		.uleb128 0x1
+ 1327 009b 50       		.byte	0x50
+ 1328 009c 9F       		.byte	0x9f
+ 1329 009d 00000000 		.4byte	0
+ 1330 00a1 00000000 		.4byte	0
+ 1331              	.LLST5:
+ 1332 00a5 00000000 		.4byte	.LVL10
+ 1333 00a9 06000000 		.4byte	.LVL11
+ 1334 00ad 0100     		.2byte	0x1
+ 1335 00af 50       		.byte	0x50
+ 1336 00b0 06000000 		.4byte	.LVL11
+ 1337 00b4 0A000000 		.4byte	.LFE54
+ 1338 00b8 0400     		.2byte	0x4
+ 1339 00ba F3       		.byte	0xf3
+ 1340 00bb 01       		.uleb128 0x1
+ 1341 00bc 50       		.byte	0x50
+ 1342 00bd 9F       		.byte	0x9f
+ 1343 00be 00000000 		.4byte	0
+ 1344 00c2 00000000 		.4byte	0
+ 1345              	.LLST6:
+ 1346 00c6 00000000 		.4byte	.LVL12
+ 1347 00ca 08000000 		.4byte	.LVL13
+ 1348 00ce 0100     		.2byte	0x1
+ 1349 00d0 50       		.byte	0x50
+ 1350 00d1 08000000 		.4byte	.LVL13
+ 1351 00d5 0C000000 		.4byte	.LFE55
+ 1352 00d9 0400     		.2byte	0x4
+ 1353 00db F3       		.byte	0xf3
+ 1354 00dc 01       		.uleb128 0x1
+ 1355 00dd 50       		.byte	0x50
+ 1356 00de 9F       		.byte	0x9f
+ 1357 00df 00000000 		.4byte	0
+ 1358 00e3 00000000 		.4byte	0
+ 1359              		.section	.debug_aranges,"",%progbits
+ 1360 0000 4C000000 		.4byte	0x4c
+ 1361 0004 0200     		.2byte	0x2
+ 1362 0006 00000000 		.4byte	.Ldebug_info0
+ 1363 000a 04       		.byte	0x4
+ 1364 000b 00       		.byte	0
+ 1365 000c 0000     		.2byte	0
+ 1366 000e 0000     		.2byte	0
+ 1367 0010 00000000 		.4byte	.LFB49
+ 1368 0014 02000000 		.4byte	.LFE49-.LFB49
+ 1369 0018 00000000 		.4byte	.LFB50
+ 1370 001c 02000000 		.4byte	.LFE50-.LFB50
+ 1371 0020 00000000 		.4byte	.LFB51
+ 1372 0024 02000000 		.4byte	.LFE51-.LFB51
+ 1373 0028 00000000 		.4byte	.LFB52
+ 1374 002c 0A000000 		.4byte	.LFE52-.LFB52
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 31
+
+
+ 1375 0030 00000000 		.4byte	.LFB53
+ 1376 0034 0A000000 		.4byte	.LFE53-.LFB53
+ 1377 0038 00000000 		.4byte	.LFB54
+ 1378 003c 0A000000 		.4byte	.LFE54-.LFB54
+ 1379 0040 00000000 		.4byte	.LFB55
+ 1380 0044 0C000000 		.4byte	.LFE55-.LFB55
+ 1381 0048 00000000 		.4byte	0
+ 1382 004c 00000000 		.4byte	0
+ 1383              		.section	.debug_ranges,"",%progbits
+ 1384              	.Ldebug_ranges0:
+ 1385 0000 00000000 		.4byte	.LFB49
+ 1386 0004 02000000 		.4byte	.LFE49
+ 1387 0008 00000000 		.4byte	.LFB50
+ 1388 000c 02000000 		.4byte	.LFE50
+ 1389 0010 00000000 		.4byte	.LFB51
+ 1390 0014 02000000 		.4byte	.LFE51
+ 1391 0018 00000000 		.4byte	.LFB52
+ 1392 001c 0A000000 		.4byte	.LFE52
+ 1393 0020 00000000 		.4byte	.LFB53
+ 1394 0024 0A000000 		.4byte	.LFE53
+ 1395 0028 00000000 		.4byte	.LFB54
+ 1396 002c 0A000000 		.4byte	.LFE54
+ 1397 0030 00000000 		.4byte	.LFB55
+ 1398 0034 0C000000 		.4byte	.LFE55
+ 1399 0038 00000000 		.4byte	0
+ 1400 003c 00000000 		.4byte	0
+ 1401              		.section	.debug_line,"",%progbits
+ 1402              	.Ldebug_line0:
+ 1403 0000 FD010000 		.section	.debug_str,"MS",%progbits,1
+ 1403      02007201 
+ 1403      00000201 
+ 1403      FB0E0D00 
+ 1403      01010101 
+ 1404              	.LASF88:
+ 1405 0000 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
+ 1405      455F4556 
+ 1405      545F4C32 
+ 1405      4341505F 
+ 1405      43424643 
+ 1406              	.LASF29:
+ 1407 0023 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
+ 1407      455F4556 
+ 1407      545F5354 
+ 1407      41434B5F 
+ 1407      42555359 
+ 1408              	.LASF64:
+ 1409 003f 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
+ 1409      455F4556 
+ 1409      545F4741 
+ 1409      5454435F 
+ 1409      52454144 
+ 1410              	.LASF87:
+ 1411 0058 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
+ 1411      455F4556 
+ 1411      545F4C32 
+ 1411      4341505F 
+ 1411      43424643 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 32
+
+
+ 1412              	.LASF41:
+ 1413 0077 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
+ 1413      455F4556 
+ 1413      545F4741 
+ 1413      505F434F 
+ 1413      4E4E4543 
+ 1414              	.LASF86:
+ 1415 00a0 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
+ 1415      455F4556 
+ 1415      545F4C32 
+ 1415      4341505F 
+ 1415      43424643 
+ 1416              	.LASF46:
+ 1417 00c1 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
+ 1417      455F4556 
+ 1417      545F4741 
+ 1417      505F4F4F 
+ 1417      425F4745 
+ 1418              	.LASF66:
+ 1419 00ea 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
+ 1419      455F4556 
+ 1419      545F4741 
+ 1419      5454435F 
+ 1419      52454144 
+ 1420              	.LASF2:
+ 1421 0109 5F5F7569 		.ascii	"__uint8_t\000"
+ 1421      6E74385F 
+ 1421      7400
+ 1422              	.LASF121:
+ 1423 0113 61647331 		.ascii	"ads1299_rdata32_generic\000"
+ 1423      3239395F 
+ 1423      72646174 
+ 1423      6133325F 
+ 1423      67656E65 
+ 1424              	.LASF26:
+ 1425 012b 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
+ 1425      455F4556 
+ 1425      545F5449 
+ 1425      4D454F55 
+ 1425      5400
+ 1426              	.LASF8:
+ 1427 013d 6C6F6E67 		.ascii	"long int\000"
+ 1427      20696E74 
+ 1427      00
+ 1428              	.LASF123:
+ 1429 0146 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1429      43313120 
+ 1429      352E342E 
+ 1429      31203230 
+ 1429      31363036 
+ 1430 0179 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1430      20726576 
+ 1430      6973696F 
+ 1430      6E203233 
+ 1430      37373135 
+ 1431 01ac 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1431      66756E63 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 33
+
+
+ 1431      74696F6E 
+ 1431      2D736563 
+ 1431      74696F6E 
+ 1432              	.LASF12:
+ 1433 01d4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1433      206C6F6E 
+ 1433      6720756E 
+ 1433      7369676E 
+ 1433      65642069 
+ 1434              	.LASF28:
+ 1435 01eb 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
+ 1435      455F4556 
+ 1435      545F4843 
+ 1435      495F5354 
+ 1435      41545553 
+ 1436              	.LASF91:
+ 1437 0200 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 1437      455F4556 
+ 1437      545F5045 
+ 1437      4E44494E 
+ 1437      475F464C 
+ 1438              	.LASF80:
+ 1439 021e 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
+ 1439      455F4556 
+ 1439      545F4C32 
+ 1439      4341505F 
+ 1439      434F4E4E 
+ 1440              	.LASF40:
+ 1441 0244 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
+ 1441      455F4556 
+ 1441      545F4741 
+ 1441      505F454E 
+ 1441      43525950 
+ 1442              	.LASF44:
+ 1443 0261 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
+ 1443      455F4556 
+ 1443      545F4741 
+ 1443      505F4E55 
+ 1443      4D455249 
+ 1444              	.LASF111:
+ 1445 028a 72656164 		.ascii	"read_reg_val_ptr\000"
+ 1445      5F726567 
+ 1445      5F76616C 
+ 1445      5F707472 
+ 1445      00
+ 1446              	.LASF15:
+ 1447 029b 696E7431 		.ascii	"int16_t\000"
+ 1447      365F7400 
+ 1448              	.LASF11:
+ 1449 02a3 6C6F6E67 		.ascii	"long long int\000"
+ 1449      206C6F6E 
+ 1449      6720696E 
+ 1449      7400
+ 1450              	.LASF0:
+ 1451 02b1 7369676E 		.ascii	"signed char\000"
+ 1451      65642063 
+ 1451      68617200 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 34
+
+
+ 1452              	.LASF25:
+ 1453 02bd 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
+ 1453      455F4556 
+ 1453      545F5354 
+ 1453      41434B5F 
+ 1453      4F4E00
+ 1454              	.LASF42:
+ 1455 02d0 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
+ 1455      455F4556 
+ 1455      545F4741 
+ 1455      50435F53 
+ 1455      43414E5F 
+ 1456              	.LASF32:
+ 1457 02ef 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
+ 1457      455F4556 
+ 1457      545F4741 
+ 1457      505F4155 
+ 1457      54485F52 
+ 1458              	.LASF110:
+ 1459 0306 7265675F 		.ascii	"reg_addr\000"
+ 1459      61646472 
+ 1459      00
+ 1460              	.LASF102:
+ 1461 030f 62626F61 		.ascii	"bboard_data24bit_packet_t\000"
+ 1461      72645F64 
+ 1461      61746132 
+ 1461      34626974 
+ 1461      5F706163 
+ 1462              	.LASF69:
+ 1463 0329 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 1463      455F4556 
+ 1463      545F4741 
+ 1463      5454535F 
+ 1463      57524954 
+ 1464              	.LASF37:
+ 1465 0347 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
+ 1465      455F4556 
+ 1465      545F4741 
+ 1465      50505F41 
+ 1465      44564552 
+ 1466              	.LASF112:
+ 1467 036f 61647331 		.ascii	"ads1299_wreg\000"
+ 1467      3239395F 
+ 1467      77726567 
+ 1467      00
+ 1468              	.LASF101:
+ 1469 037c 62626F61 		.ascii	"bboard_data32bit_packet_t\000"
+ 1469      72645F64 
+ 1469      61746133 
+ 1469      32626974 
+ 1469      5F706163 
+ 1470              	.LASF72:
+ 1471 0396 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
+ 1471      455F4556 
+ 1471      545F4741 
+ 1471      5454435F 
+ 1471      45584543 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 35
+
+
+ 1472              	.LASF20:
+ 1473 03b5 646F7562 		.ascii	"double\000"
+ 1473      6C6500
+ 1474              	.LASF99:
+ 1475 03bc 65656764 		.ascii	"eegdata\000"
+ 1475      61746100 
+ 1476              	.LASF95:
+ 1477 03c4 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
+ 1477      455F4556 
+ 1477      545F4D41 
+ 1477      5800
+ 1478              	.LASF9:
+ 1479 03d2 5F5F7569 		.ascii	"__uint32_t\000"
+ 1479      6E743332 
+ 1479      5F7400
+ 1480              	.LASF3:
+ 1481 03dd 5F5F696E 		.ascii	"__int16_t\000"
+ 1481      7431365F 
+ 1481      7400
+ 1482              	.LASF90:
+ 1483 03e7 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 1483      455F4556 
+ 1483      545F4C32 
+ 1483      4341505F 
+ 1483      43424643 
+ 1484              	.LASF52:
+ 1485 040b 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
+ 1485      455F4556 
+ 1485      545F4741 
+ 1485      505F5343 
+ 1485      414E5F52 
+ 1486              	.LASF77:
+ 1487 0428 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ 1487      455F4556 
+ 1487      545F4741 
+ 1487      5454435F 
+ 1487      53544F50 
+ 1488              	.LASF13:
+ 1489 044a 756E7369 		.ascii	"unsigned int\000"
+ 1489      676E6564 
+ 1489      20696E74 
+ 1489      00
+ 1490              	.LASF104:
+ 1491 0457 41445331 		.ascii	"ADS1299_ERROR_SPI_TIMEOUT\000"
+ 1491      3239395F 
+ 1491      4552524F 
+ 1491      525F5350 
+ 1491      495F5449 
+ 1492              	.LASF16:
+ 1493 0471 75696E74 		.ascii	"uint16_t\000"
+ 1493      31365F74 
+ 1493      00
+ 1494              	.LASF10:
+ 1495 047a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1495      20756E73 
+ 1495      69676E65 
+ 1495      6420696E 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 36
+
+
+ 1495      7400
+ 1496              	.LASF51:
+ 1497 048c 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
+ 1497      455F4556 
+ 1497      545F4741 
+ 1497      505F434F 
+ 1497      4E4E5F45 
+ 1498              	.LASF67:
+ 1499 04a4 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
+ 1499      455F4556 
+ 1499      545F4741 
+ 1499      5454535F 
+ 1499      57524954 
+ 1500              	.LASF59:
+ 1501 04be 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 1501      455F4556 
+ 1501      545F4741 
+ 1501      5454435F 
+ 1501      5843484E 
+ 1502              	.LASF76:
+ 1503 04dc 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
+ 1503      455F4556 
+ 1503      545F4741 
+ 1503      5454535F 
+ 1503      44415441 
+ 1504              	.LASF79:
+ 1505 0500 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
+ 1505      455F4556 
+ 1505      545F4741 
+ 1505      5454435F 
+ 1505      4C4F4E47 
+ 1506              	.LASF6:
+ 1507 0523 73686F72 		.ascii	"short unsigned int\000"
+ 1507      7420756E 
+ 1507      7369676E 
+ 1507      65642069 
+ 1507      6E7400
+ 1508              	.LASF107:
+ 1509 0536 696E6974 		.ascii	"init_regs\000"
+ 1509      5F726567 
+ 1509      7300
+ 1510              	.LASF24:
+ 1511 0540 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
+ 1511      455F4556 
+ 1511      545F484F 
+ 1511      53545F49 
+ 1511      4E56414C 
+ 1512              	.LASF62:
+ 1513 0557 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
+ 1513      455F4556 
+ 1513      545F4741 
+ 1513      5454435F 
+ 1513      46494E44 
+ 1514              	.LASF30:
+ 1515 0575 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
+ 1515      455F4556 
+ 1515      545F4D45 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 37
+
+
+ 1515      4D4F5259 
+ 1515      5F524551 
+ 1516              	.LASF71:
+ 1517 058e 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
+ 1517      455F4556 
+ 1517      545F4741 
+ 1517      5454535F 
+ 1517      45584543 
+ 1518              	.LASF98:
+ 1519 05ad 65656773 		.ascii	"eegstatus\000"
+ 1519      74617475 
+ 1519      7300
+ 1520              	.LASF33:
+ 1521 05b7 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 1521      455F4556 
+ 1521      545F4741 
+ 1521      505F5041 
+ 1521      53534B45 
+ 1522              	.LASF38:
+ 1523 05db 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
+ 1523      455F4556 
+ 1523      545F4741 
+ 1523      505F4445 
+ 1523      56494345 
+ 1524              	.LASF74:
+ 1525 05fa 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
+ 1525      455F4556 
+ 1525      545F4741 
+ 1525      5454435F 
+ 1525      48414E44 
+ 1526              	.LASF97:
+ 1527 061b 7061636B 		.ascii	"packetnum\000"
+ 1527      65746E75 
+ 1527      6D00
+ 1528              	.LASF53:
+ 1529 0625 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
+ 1529      455F4556 
+ 1529      545F4741 
+ 1529      505F4155 
+ 1529      54485F52 
+ 1530              	.LASF119:
+ 1531 0646 73746174 		.ascii	"status_array\000"
+ 1531      75735F61 
+ 1531      72726179 
+ 1531      00
+ 1532              	.LASF61:
+ 1533 0653 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 1533      455F4556 
+ 1533      545F4741 
+ 1533      5454435F 
+ 1533      52454144 
+ 1534              	.LASF34:
+ 1535 0674 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
+ 1535      455F4556 
+ 1535      545F4741 
+ 1535      505F5041 
+ 1535      53534B45 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 38
+
+
+ 1536              	.LASF56:
+ 1537 069a 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
+ 1537      455F4556 
+ 1537      545F4741 
+ 1537      54545F43 
+ 1537      4F4E4E45 
+ 1538              	.LASF82:
+ 1539 06b5 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
+ 1539      455F4556 
+ 1539      545F4C32 
+ 1539      4341505F 
+ 1539      434F4D4D 
+ 1540              	.LASF31:
+ 1541 06d1 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ 1541      455F4556 
+ 1541      545F4741 
+ 1541      50435F53 
+ 1541      43414E5F 
+ 1542              	.LASF54:
+ 1543 06f5 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_LOC_P256_KEYS_GEN_AND_SET_COMPLET"
+ 1543      455F4556 
+ 1543      545F4741 
+ 1543      505F534D 
+ 1543      505F4C4F 
+ 1544 0728 4500     		.ascii	"E\000"
+ 1545              	.LASF83:
+ 1546 072a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
+ 1546      455F4556 
+ 1546      545F4C32 
+ 1546      4341505F 
+ 1546      43424643 
+ 1547              	.LASF108:
+ 1548 0748 61647331 		.ascii	"ads1299_device_init\000"
+ 1548      3239395F 
+ 1548      64657669 
+ 1548      63655F69 
+ 1548      6E697400 
+ 1549              	.LASF23:
+ 1550 075c 73697A65 		.ascii	"sizetype\000"
+ 1550      74797065 
+ 1550      00
+ 1551              	.LASF36:
+ 1552 0765 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
+ 1552      455F4556 
+ 1552      545F4741 
+ 1552      505F4155 
+ 1552      54485F46 
+ 1553              	.LASF68:
+ 1554 077f 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
+ 1554      455F4556 
+ 1554      545F4741 
+ 1554      5454435F 
+ 1554      57524954 
+ 1555              	.LASF49:
+ 1556 0799 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
+ 1556      455F4556 
+ 1556      545F4741 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 39
+
+
+ 1556      50435F44 
+ 1556      49524543 
+ 1557              	.LASF47:
+ 1558 07ba 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
+ 1558      455F4556 
+ 1558      545F4741 
+ 1558      505F4441 
+ 1558      54415F4C 
+ 1559              	.LASF35:
+ 1560 07db 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
+ 1560      455F4556 
+ 1560      545F4741 
+ 1560      505F4155 
+ 1560      54485F43 
+ 1561              	.LASF73:
+ 1562 07f7 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
+ 1562      455F4556 
+ 1562      545F4741 
+ 1562      5454435F 
+ 1562      48414E44 
+ 1563              	.LASF84:
+ 1564 0818 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
+ 1564      455F4556 
+ 1564      545F4C32 
+ 1564      4341505F 
+ 1564      43424643 
+ 1565              	.LASF60:
+ 1566 0836 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 1566      455F4556 
+ 1566      545F4741 
+ 1566      5454435F 
+ 1566      52454144 
+ 1567              	.LASF19:
+ 1568 085d 666C6F61 		.ascii	"float\000"
+ 1568      7400
+ 1569              	.LASF106:
+ 1570 0863 63686970 		.ascii	"chip_select\000"
+ 1570      5F73656C 
+ 1570      65637400 
+ 1571              	.LASF105:
+ 1572 086f 61647331 		.ascii	"ads1299_error_t\000"
+ 1572      3239395F 
+ 1572      6572726F 
+ 1572      725F7400 
+ 1573              	.LASF17:
+ 1574 087f 696E7433 		.ascii	"int32_t\000"
+ 1574      325F7400 
+ 1575              	.LASF1:
+ 1576 0887 756E7369 		.ascii	"unsigned char\000"
+ 1576      676E6564 
+ 1576      20636861 
+ 1576      7200
+ 1577              	.LASF45:
+ 1578 0895 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
+ 1578      455F4556 
+ 1578      545F4741 
+ 1578      505F4B45 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 40
+
+
+ 1578      59505245 
+ 1579              	.LASF4:
+ 1580 08b9 73686F72 		.ascii	"short int\000"
+ 1580      7420696E 
+ 1580      7400
+ 1581              	.LASF114:
+ 1582 08c3 61647331 		.ascii	"ads1299_rdata32_packet\000"
+ 1582      3239395F 
+ 1582      72646174 
+ 1582      6133325F 
+ 1582      7061636B 
+ 1583              	.LASF92:
+ 1584 08da 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
+ 1584      455F4556 
+ 1584      545F4C45 
+ 1584      5F50494E 
+ 1584      475F4155 
+ 1585              	.LASF93:
+ 1586 08f9 4359424C 		.ascii	"CYBLE_EVT_HCI_PKT\000"
+ 1586      455F4556 
+ 1586      545F4843 
+ 1586      495F504B 
+ 1586      5400
+ 1587              	.LASF70:
+ 1588 090b 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
+ 1588      455F4556 
+ 1588      545F4741 
+ 1588      5454535F 
+ 1588      50524550 
+ 1589              	.LASF103:
+ 1590 092a 41445331 		.ascii	"ADS1299_STATUS_OK\000"
+ 1590      3239395F 
+ 1590      53544154 
+ 1590      55535F4F 
+ 1590      4B00
+ 1591              	.LASF75:
+ 1592 093c 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
+ 1592      455F4556 
+ 1592      545F4741 
+ 1592      5454535F 
+ 1592      48414E44 
+ 1593              	.LASF55:
+ 1594 095d 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
+ 1594      455F4556 
+ 1594      545F4741 
+ 1594      5454435F 
+ 1594      4552524F 
+ 1595              	.LASF50:
+ 1596 0977 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
+ 1596      455F4556 
+ 1596      545F4741 
+ 1596      505F534D 
+ 1596      505F4E45 
+ 1597              	.LASF22:
+ 1598 099e 6C6F6E67 		.ascii	"long double\000"
+ 1598      20646F75 
+ 1598      626C6500 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 41
+
+
+ 1599              	.LASF94:
+ 1600 09aa 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
+ 1600      455F4556 
+ 1600      545F464C 
+ 1600      4153485F 
+ 1600      434F5252 
+ 1601              	.LASF21:
+ 1602 09c2 63686172 		.ascii	"char\000"
+ 1602      00
+ 1603              	.LASF39:
+ 1604 09c7 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
+ 1604      455F4556 
+ 1604      545F4741 
+ 1604      505F4445 
+ 1604      56494345 
+ 1605              	.LASF5:
+ 1606 09e9 5F5F7569 		.ascii	"__uint16_t\000"
+ 1606      6E743136 
+ 1606      5F7400
+ 1607              	.LASF78:
+ 1608 09f4 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
+ 1608      455F4556 
+ 1608      545F4741 
+ 1608      5454535F 
+ 1608      52454144 
+ 1609              	.LASF7:
+ 1610 0a1d 5F5F696E 		.ascii	"__int32_t\000"
+ 1610      7433325F 
+ 1610      7400
+ 1611              	.LASF89:
+ 1612 0a27 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 1612      455F4556 
+ 1612      545F4C32 
+ 1612      4341505F 
+ 1612      43424643 
+ 1613              	.LASF65:
+ 1614 0a4a 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
+ 1614      455F4556 
+ 1614      545F4741 
+ 1614      5454435F 
+ 1614      52454144 
+ 1615              	.LASF27:
+ 1616 0a68 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
+ 1616      455F4556 
+ 1616      545F4841 
+ 1616      52445741 
+ 1616      52455F45 
+ 1617              	.LASF113:
+ 1618 0a81 7265675F 		.ascii	"reg_val_to_write\000"
+ 1618      76616C5F 
+ 1618      746F5F77 
+ 1618      72697465 
+ 1618      00
+ 1619              	.LASF18:
+ 1620 0a92 75696E74 		.ascii	"uint32_t\000"
+ 1620      33325F74 
+ 1620      00
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 42
+
+
+ 1621              	.LASF58:
+ 1622 0a9b 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
+ 1622      455F4556 
+ 1622      545F4741 
+ 1622      5454535F 
+ 1622      58434E48 
+ 1623              	.LASF125:
+ 1624 0ab9 433A5C55 		.ascii	"C:\\Users\\dmr85\\Documents\\PSoC Creator\\EEG_Work"
+ 1624      73657273 
+ 1624      5C646D72 
+ 1624      38355C44 
+ 1624      6F63756D 
+ 1625 0ae7 73706163 		.ascii	"space\\EEGfirmware\\EEG_Project_Demo.cydsn\000"
+ 1625      655C4545 
+ 1625      47666972 
+ 1625      6D776172 
+ 1625      655C4545 
+ 1626              	.LASF122:
+ 1627 0b10 73746174 		.ascii	"status\000"
+ 1627      757300
+ 1628              	.LASF14:
+ 1629 0b17 75696E74 		.ascii	"uint8_t\000"
+ 1629      385F7400 
+ 1630              	.LASF109:
+ 1631 0b1f 61647331 		.ascii	"ads1299_rreg\000"
+ 1631      3239395F 
+ 1631      72726567 
+ 1631      00
+ 1632              	.LASF117:
+ 1633 0b2c 61647331 		.ascii	"ads1299_rdata24_packet\000"
+ 1633      3239395F 
+ 1633      72646174 
+ 1633      6132345F 
+ 1633      7061636B 
+ 1634              	.LASF116:
+ 1635 0b43 7061636B 		.ascii	"packet_ptr\000"
+ 1635      65745F70 
+ 1635      747200
+ 1636              	.LASF63:
+ 1637 0b4e 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
+ 1637      455F4556 
+ 1637      545F4741 
+ 1637      5454435F 
+ 1637      46494E44 
+ 1638              	.LASF43:
+ 1639 0b75 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
+ 1639      455F4556 
+ 1639      545F4741 
+ 1639      505F4B45 
+ 1639      59494E46 
+ 1640              	.LASF85:
+ 1641 0b99 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 1641      455F4556 
+ 1641      545F4C32 
+ 1641      4341505F 
+ 1641      43424643 
+ 1642              	.LASF96:
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccJaCJmC.s 			page 43
+
+
+ 1643 0bba 73746172 		.ascii	"start\000"
+ 1643      7400
+ 1644              	.LASF118:
+ 1645 0bc0 61647331 		.ascii	"ads1299_rdata24_generic\000"
+ 1645      3239395F 
+ 1645      72646174 
+ 1645      6132345F 
+ 1645      67656E65 
+ 1646              	.LASF81:
+ 1647 0bd8 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
+ 1647      455F4556 
+ 1647      545F4C32 
+ 1647      4341505F 
+ 1647      434F4E4E 
+ 1648              	.LASF120:
+ 1649 0bfe 64617461 		.ascii	"data_array\000"
+ 1649      5F617272 
+ 1649      617900
+ 1650              	.LASF48:
+ 1651 0c09 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
+ 1651      455F4556 
+ 1651      545F4741 
+ 1651      505F454E 
+ 1651      48414E43 
+ 1652              	.LASF124:
+ 1653 0c2d 61647331 		.ascii	"ads1299.c\000"
+ 1653      3239392E 
+ 1653      6300
+ 1654              	.LASF115:
+ 1655 0c37 73616D70 		.ascii	"sample_idx\000"
+ 1655      6C655F69 
+ 1655      647800
+ 1656              	.LASF57:
+ 1657 0c42 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
+ 1657      455F4556 
+ 1657      545F4741 
+ 1657      54545F44 
+ 1657      4953434F 
+ 1658              	.LASF100:
+ 1659 0c60 696D7564 		.ascii	"imudata\000"
+ 1659      61746100 
+ 1660              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

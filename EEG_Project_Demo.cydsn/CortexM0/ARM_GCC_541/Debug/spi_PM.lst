@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
   28:Generated_Source\PSoC4/spi_PM.c **** * Function Name: spi_SaveConfig
   29:Generated_Source\PSoC4/spi_PM.c **** ********************************************************************************
   30:Generated_Source\PSoC4/spi_PM.c **** *
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 2
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 2
 
 
   31:Generated_Source\PSoC4/spi_PM.c **** * Summary:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
   50              		@ frame_needed = 0, uses_anonymous_args = 0
   51              		@ link register save eliminated.
   63:Generated_Source\PSoC4/spi_PM.c **** 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 3
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 3
 
 
   64:Generated_Source\PSoC4/spi_PM.c **** }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
   79 000a 1340     		ands	r3, r2
   80 000c 034A     		ldr	r2, .L4+4
   81 000e 1370     		strb	r3, [r2]
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 4
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 4
 
 
   91:Generated_Source\PSoC4/spi_PM.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  123:Generated_Source\PSoC4/spi_PM.c **** *******************************************************************************/
  124:Generated_Source\PSoC4/spi_PM.c **** void spi_Wakeup(void) 
  125:Generated_Source\PSoC4/spi_PM.c **** {
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 5
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 5
 
 
  104              		.loc 1 125 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  137              		.type	spi_backup, %object
  138              		.size	spi_backup, 2
  139              	spi_backup:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 6
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 6
 
 
  140 0000 00       		.byte	0
@@ -314,75 +314,75 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  150 0006 00000000 		.4byte	.Ldebug_abbrev0
  151 000a 04       		.byte	0x4
  152 000b 01       		.uleb128 0x1
- 153 000c D2000000 		.4byte	.LASF26
+ 153 000c 29010000 		.4byte	.LASF26
  154 0010 0C       		.byte	0xc
- 155 0011 7C000000 		.4byte	.LASF27
- 156 0015 E2010000 		.4byte	.LASF28
+ 155 0011 D3000000 		.4byte	.LASF27
+ 156 0015 00000000 		.4byte	.LASF28
  157 0019 00000000 		.4byte	.Ldebug_ranges0+0
  158 001d 00000000 		.4byte	0
  159 0021 00000000 		.4byte	.Ldebug_line0
  160 0025 02       		.uleb128 0x2
  161 0026 01       		.byte	0x1
  162 0027 06       		.byte	0x6
- 163 0028 CB010000 		.4byte	.LASF0
+ 163 0028 22020000 		.4byte	.LASF0
  164 002c 02       		.uleb128 0x2
  165 002d 01       		.byte	0x1
  166 002e 08       		.byte	0x8
- 167 002f 51000000 		.4byte	.LASF1
+ 167 002f A8000000 		.4byte	.LASF1
  168 0033 02       		.uleb128 0x2
  169 0034 02       		.byte	0x2
  170 0035 05       		.byte	0x5
- 171 0036 8B010000 		.4byte	.LASF2
+ 171 0036 E2010000 		.4byte	.LASF2
  172 003a 02       		.uleb128 0x2
  173 003b 02       		.byte	0x2
  174 003c 07       		.byte	0x7
- 175 003d 00000000 		.4byte	.LASF3
+ 175 003d 57000000 		.4byte	.LASF3
  176 0041 02       		.uleb128 0x2
  177 0042 04       		.byte	0x4
  178 0043 05       		.byte	0x5
- 179 0044 AA010000 		.4byte	.LASF4
+ 179 0044 01020000 		.4byte	.LASF4
  180 0048 02       		.uleb128 0x2
  181 0049 04       		.byte	0x4
  182 004a 07       		.byte	0x7
- 183 004b 39000000 		.4byte	.LASF5
+ 183 004b 90000000 		.4byte	.LASF5
  184 004f 02       		.uleb128 0x2
  185 0050 08       		.byte	0x8
  186 0051 05       		.byte	0x5
- 187 0052 78010000 		.4byte	.LASF6
+ 187 0052 CF010000 		.4byte	.LASF6
  188 0056 02       		.uleb128 0x2
  189 0057 08       		.byte	0x8
  190 0058 07       		.byte	0x7
- 191 0059 A9000000 		.4byte	.LASF7
+ 191 0059 00010000 		.4byte	.LASF7
  192 005d 03       		.uleb128 0x3
  193 005e 04       		.byte	0x4
  194 005f 05       		.byte	0x5
  195 0060 696E7400 		.ascii	"int\000"
  196 0064 02       		.uleb128 0x2
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 7
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 7
 
 
  197 0065 04       		.byte	0x4
  198 0066 07       		.byte	0x7
- 199 0067 9C000000 		.4byte	.LASF8
+ 199 0067 F3000000 		.4byte	.LASF8
  200 006b 04       		.uleb128 0x4
- 201 006c 4B000000 		.4byte	.LASF12
+ 201 006c A2000000 		.4byte	.LASF12
  202 0070 02       		.byte	0x2
  203 0071 E401     		.2byte	0x1e4
  204 0073 2C000000 		.4byte	0x2c
  205 0077 02       		.uleb128 0x2
  206 0078 04       		.byte	0x4
  207 0079 04       		.byte	0x4
- 208 007a 25000000 		.4byte	.LASF9
+ 208 007a 7C000000 		.4byte	.LASF9
  209 007e 02       		.uleb128 0x2
  210 007f 08       		.byte	0x8
  211 0080 04       		.byte	0x4
- 212 0081 5F000000 		.4byte	.LASF10
+ 212 0081 B6000000 		.4byte	.LASF10
  213 0085 02       		.uleb128 0x2
  214 0086 01       		.byte	0x1
  215 0087 08       		.byte	0x8
- 216 0088 86010000 		.4byte	.LASF11
+ 216 0088 DD010000 		.4byte	.LASF11
  217 008c 04       		.uleb128 0x4
- 218 008d 34000000 		.4byte	.LASF13
+ 218 008d 8B000000 		.4byte	.LASF13
  219 0091 02       		.byte	0x2
  220 0092 8E02     		.2byte	0x28e
  221 0094 98000000 		.4byte	0x98
@@ -391,39 +391,39 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  224 009d 02       		.uleb128 0x2
  225 009e 08       		.byte	0x8
  226 009f 04       		.byte	0x4
- 227 00a0 BF010000 		.4byte	.LASF14
+ 227 00a0 16020000 		.4byte	.LASF14
  228 00a4 02       		.uleb128 0x2
  229 00a5 04       		.byte	0x4
  230 00a6 07       		.byte	0x7
- 231 00a7 60010000 		.4byte	.LASF15
+ 231 00a7 B7010000 		.4byte	.LASF15
  232 00ab 06       		.uleb128 0x6
  233 00ac 02       		.byte	0x2
  234 00ad 03       		.byte	0x3
  235 00ae 40       		.byte	0x40
  236 00af CC000000 		.4byte	0xcc
  237 00b3 07       		.uleb128 0x7
- 238 00b4 B3010000 		.4byte	.LASF16
+ 238 00b4 0A020000 		.4byte	.LASF16
  239 00b8 03       		.byte	0x3
  240 00b9 42       		.byte	0x42
  241 00ba 6B000000 		.4byte	0x6b
  242 00be 00       		.byte	0
  243 00bf 07       		.uleb128 0x7
- 244 00c0 71000000 		.4byte	.LASF17
+ 244 00c0 C8000000 		.4byte	.LASF17
  245 00c4 03       		.byte	0x3
  246 00c5 43       		.byte	0x43
  247 00c6 6B000000 		.4byte	0x6b
  248 00ca 01       		.byte	0x1
  249 00cb 00       		.byte	0
  250 00cc 08       		.uleb128 0x8
- 251 00cd 13000000 		.4byte	.LASF18
+ 251 00cd 6A000000 		.4byte	.LASF18
  252 00d1 03       		.byte	0x3
  253 00d2 44       		.byte	0x44
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 8
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 8
 
 
  254 00d3 AB000000 		.4byte	0xab
  255 00d7 09       		.uleb128 0x9
- 256 00d8 69010000 		.4byte	.LASF19
+ 256 00d8 C0010000 		.4byte	.LASF19
  257 00dc 01       		.byte	0x1
  258 00dd 29       		.byte	0x29
  259 00de 00000000 		.4byte	.LFB2
@@ -431,7 +431,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  261 00e6 01       		.uleb128 0x1
  262 00e7 9C       		.byte	0x9c
  263 00e8 09       		.uleb128 0x9
- 264 00e9 C0000000 		.4byte	.LASF20
+ 264 00e9 17010000 		.4byte	.LASF20
  265 00ed 01       		.byte	0x1
  266 00ee 3D       		.byte	0x3d
  267 00ef 00000000 		.4byte	.LFB3
@@ -439,7 +439,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  269 00f7 01       		.uleb128 0x1
  270 00f8 9C       		.byte	0x9c
  271 00f9 0A       		.uleb128 0xa
- 272 00fa 95010000 		.4byte	.LASF21
+ 272 00fa EC010000 		.4byte	.LASF21
  273 00fe 01       		.byte	0x1
  274 00ff 57       		.byte	0x57
  275 0100 00000000 		.4byte	.LFB4
@@ -452,7 +452,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  282 0113 51010000 		.4byte	0x151
  283 0117 00       		.byte	0
  284 0118 0A       		.uleb128 0xa
- 285 0119 D7010000 		.4byte	.LASF22
+ 285 0119 2E020000 		.4byte	.LASF22
  286 011d 01       		.byte	0x1
  287 011e 7C       		.byte	0x7c
  288 011f 00000000 		.4byte	.LFB5
@@ -468,7 +468,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  298 013b 67010000 		.4byte	0x167
  299 013f 00       		.byte	0
  300 0140 0C       		.uleb128 0xc
- 301 0141 9F010000 		.4byte	.LASF29
+ 301 0141 F6010000 		.4byte	.LASF29
  302 0145 01       		.byte	0x1
  303 0146 14       		.byte	0x14
  304 0147 CC000000 		.4byte	0xcc
@@ -476,21 +476,21 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  306 014c 03       		.byte	0x3
  307 014d 00000000 		.4byte	spi_backup
  308 0151 0D       		.uleb128 0xd
- 309 0152 2B000000 		.4byte	.LASF23
- 310 0156 2B000000 		.4byte	.LASF23
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 9
+ 309 0152 82000000 		.4byte	.LASF23
+ 310 0156 82000000 		.4byte	.LASF23
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 9
 
 
  311 015a 03       		.byte	0x3
  312 015b 4E       		.byte	0x4e
  313 015c 0D       		.uleb128 0xd
- 314 015d 2D020000 		.4byte	.LASF24
- 315 0161 2D020000 		.4byte	.LASF24
+ 314 015d 39020000 		.4byte	.LASF24
+ 315 0161 39020000 		.4byte	.LASF24
  316 0165 03       		.byte	0x3
  317 0166 66       		.byte	0x66
  318 0167 0D       		.uleb128 0xd
- 319 0168 66000000 		.4byte	.LASF25
- 320 016c 66000000 		.4byte	.LASF25
+ 319 0168 BD000000 		.4byte	.LASF25
+ 320 016c BD000000 		.4byte	.LASF25
  321 0170 03       		.byte	0x3
  322 0171 4C       		.byte	0x4c
  323 0172 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  365 0027 00       		.byte	0
  366 0028 00       		.byte	0
  367 0029 04       		.uleb128 0x4
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 10
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 10
 
 
  368 002a 16       		.uleb128 0x16
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  422 0060 3B       		.uleb128 0x3b
  423 0061 0B       		.uleb128 0xb
  424 0062 49       		.uleb128 0x49
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 11
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 11
 
 
  425 0063 13       		.uleb128 0x13
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  479 009d 11       		.uleb128 0x11
  480 009e 01       		.uleb128 0x1
  481 009f 31       		.uleb128 0x31
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 12
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 12
 
 
  482 00a0 13       		.uleb128 0x13
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  536              		.section	.debug_ranges,"",%progbits
  537              	.Ldebug_ranges0:
  538 0000 00000000 		.4byte	.LFB2
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 13
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 13
 
 
  539 0004 02000000 		.4byte	.LFE2
@@ -737,160 +737,160 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 1
  550      00000201 
  550      FB0E0D00 
  550      01010101 
- 551              	.LASF3:
- 552 0000 73686F72 		.ascii	"short unsigned int\000"
- 552      7420756E 
- 552      7369676E 
- 552      65642069 
- 552      6E7400
- 553              	.LASF18:
- 554 0013 7370695F 		.ascii	"spi_BACKUP_STRUCT\000"
- 554      4241434B 
- 554      55505F53 
- 554      54525543 
- 554      5400
- 555              	.LASF9:
- 556 0025 666C6F61 		.ascii	"float\000"
- 556      7400
- 557              	.LASF23:
- 558 002b 7370695F 		.ascii	"spi_Stop\000"
- 558      53746F70 
- 558      00
- 559              	.LASF13:
- 560 0034 72656738 		.ascii	"reg8\000"
- 560      00
- 561              	.LASF5:
- 562 0039 6C6F6E67 		.ascii	"long unsigned int\000"
- 562      20756E73 
- 562      69676E65 
- 562      6420696E 
- 562      7400
- 563              	.LASF12:
- 564 004b 75696E74 		.ascii	"uint8\000"
- 564      3800
- 565              	.LASF1:
- 566 0051 756E7369 		.ascii	"unsigned char\000"
- 566      676E6564 
- 566      20636861 
- 566      7200
- 567              	.LASF10:
- 568 005f 646F7562 		.ascii	"double\000"
- 568      6C6500
- 569              	.LASF25:
- 570 0066 7370695F 		.ascii	"spi_Enable\000"
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 14
+ 551              	.LASF28:
+ 552 0000 433A5C55 		.ascii	"C:\\Users\\dmr85\\Documents\\PSoC Creator\\EEG_Work"
+ 552      73657273 
+ 552      5C646D72 
+ 552      38355C44 
+ 552      6F63756D 
+ 553 002e 73706163 		.ascii	"space\\EEGfirmware\\EEG_Project_Demo.cydsn\000"
+ 553      655C4545 
+ 553      47666972 
+ 553      6D776172 
+ 553      655C4545 
+ 554              	.LASF3:
+ 555 0057 73686F72 		.ascii	"short unsigned int\000"
+ 555      7420756E 
+ 555      7369676E 
+ 555      65642069 
+ 555      6E7400
+ 556              	.LASF18:
+ 557 006a 7370695F 		.ascii	"spi_BACKUP_STRUCT\000"
+ 557      4241434B 
+ 557      55505F53 
+ 557      54525543 
+ 557      5400
+ 558              	.LASF9:
+ 559 007c 666C6F61 		.ascii	"float\000"
+ 559      7400
+ 560              	.LASF23:
+ 561 0082 7370695F 		.ascii	"spi_Stop\000"
+ 561      53746F70 
+ 561      00
+ 562              	.LASF13:
+ 563 008b 72656738 		.ascii	"reg8\000"
+ 563      00
+ 564              	.LASF5:
+ 565 0090 6C6F6E67 		.ascii	"long unsigned int\000"
+ 565      20756E73 
+ 565      69676E65 
+ 565      6420696E 
+ 565      7400
+ 566              	.LASF12:
+ 567 00a2 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 14
 
 
- 570      456E6162 
- 570      6C6500
- 571              	.LASF17:
- 572 0071 636E7472 		.ascii	"cntrPeriod\000"
- 572      50657269 
- 572      6F6400
- 573              	.LASF27:
- 574 007c 47656E65 		.ascii	"Generated_Source\\PSoC4\\spi_PM.c\000"
- 574      72617465 
- 574      645F536F 
- 574      75726365 
- 574      5C50536F 
- 575              	.LASF8:
- 576 009c 756E7369 		.ascii	"unsigned int\000"
- 576      676E6564 
- 576      20696E74 
- 576      00
- 577              	.LASF7:
- 578 00a9 6C6F6E67 		.ascii	"long long unsigned int\000"
- 578      206C6F6E 
- 578      6720756E 
- 578      7369676E 
- 578      65642069 
- 579              	.LASF20:
- 580 00c0 7370695F 		.ascii	"spi_RestoreConfig\000"
- 580      52657374 
- 580      6F726543 
- 580      6F6E6669 
- 580      6700
- 581              	.LASF26:
- 582 00d2 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 582      43313120 
- 582      352E342E 
- 582      31203230 
- 582      31363036 
- 583 0105 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 583      20726576 
- 583      6973696F 
- 583      6E203233 
- 583      37373135 
- 584 0138 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 584      66756E63 
- 584      74696F6E 
- 584      2D736563 
- 584      74696F6E 
- 585              	.LASF15:
- 586 0160 73697A65 		.ascii	"sizetype\000"
- 586      74797065 
- 586      00
- 587              	.LASF19:
- 588 0169 7370695F 		.ascii	"spi_SaveConfig\000"
- 588      53617665 
- 588      436F6E66 
- 588      696700
- 589              	.LASF6:
- 590 0178 6C6F6E67 		.ascii	"long long int\000"
- 590      206C6F6E 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccwNDfD1.s 			page 15
+ 567      3800
+ 568              	.LASF1:
+ 569 00a8 756E7369 		.ascii	"unsigned char\000"
+ 569      676E6564 
+ 569      20636861 
+ 569      7200
+ 570              	.LASF10:
+ 571 00b6 646F7562 		.ascii	"double\000"
+ 571      6C6500
+ 572              	.LASF25:
+ 573 00bd 7370695F 		.ascii	"spi_Enable\000"
+ 573      456E6162 
+ 573      6C6500
+ 574              	.LASF17:
+ 575 00c8 636E7472 		.ascii	"cntrPeriod\000"
+ 575      50657269 
+ 575      6F6400
+ 576              	.LASF27:
+ 577 00d3 47656E65 		.ascii	"Generated_Source\\PSoC4\\spi_PM.c\000"
+ 577      72617465 
+ 577      645F536F 
+ 577      75726365 
+ 577      5C50536F 
+ 578              	.LASF8:
+ 579 00f3 756E7369 		.ascii	"unsigned int\000"
+ 579      676E6564 
+ 579      20696E74 
+ 579      00
+ 580              	.LASF7:
+ 581 0100 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 581      206C6F6E 
+ 581      6720756E 
+ 581      7369676E 
+ 581      65642069 
+ 582              	.LASF20:
+ 583 0117 7370695F 		.ascii	"spi_RestoreConfig\000"
+ 583      52657374 
+ 583      6F726543 
+ 583      6F6E6669 
+ 583      6700
+ 584              	.LASF26:
+ 585 0129 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 585      43313120 
+ 585      352E342E 
+ 585      31203230 
+ 585      31363036 
+ 586 015c 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 586      20726576 
+ 586      6973696F 
+ 586      6E203233 
+ 586      37373135 
+ 587 018f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 587      66756E63 
+ 587      74696F6E 
+ 587      2D736563 
+ 587      74696F6E 
+ 588              	.LASF15:
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCcpra0.s 			page 15
 
 
- 590      6720696E 
- 590      7400
- 591              	.LASF11:
- 592 0186 63686172 		.ascii	"char\000"
- 592      00
- 593              	.LASF2:
- 594 018b 73686F72 		.ascii	"short int\000"
- 594      7420696E 
- 594      7400
- 595              	.LASF21:
- 596 0195 7370695F 		.ascii	"spi_Sleep\000"
- 596      536C6565 
- 596      7000
- 597              	.LASF29:
- 598 019f 7370695F 		.ascii	"spi_backup\000"
- 598      6261636B 
- 598      757000
- 599              	.LASF4:
- 600 01aa 6C6F6E67 		.ascii	"long int\000"
- 600      20696E74 
- 600      00
- 601              	.LASF16:
- 602 01b3 656E6162 		.ascii	"enableState\000"
- 602      6C655374 
- 602      61746500 
- 603              	.LASF14:
- 604 01bf 6C6F6E67 		.ascii	"long double\000"
- 604      20646F75 
- 604      626C6500 
- 605              	.LASF0:
- 606 01cb 7369676E 		.ascii	"signed char\000"
- 606      65642063 
- 606      68617200 
- 607              	.LASF22:
- 608 01d7 7370695F 		.ascii	"spi_Wakeup\000"
- 608      57616B65 
- 608      757000
- 609              	.LASF28:
- 610 01e2 433A5C55 		.ascii	"C:\\Users\\dmr85\\Documents\\PSoC Creator\\EEG_Work"
- 610      73657273 
- 610      5C646D72 
- 610      38355C44 
- 610      6F63756D 
- 611 0210 73706163 		.ascii	"space\\EEG_Project_Demo.cydsn\000"
- 611      655C4545 
- 611      475F5072 
- 611      6F6A6563 
- 611      745F4465 
+ 589 01b7 73697A65 		.ascii	"sizetype\000"
+ 589      74797065 
+ 589      00
+ 590              	.LASF19:
+ 591 01c0 7370695F 		.ascii	"spi_SaveConfig\000"
+ 591      53617665 
+ 591      436F6E66 
+ 591      696700
+ 592              	.LASF6:
+ 593 01cf 6C6F6E67 		.ascii	"long long int\000"
+ 593      206C6F6E 
+ 593      6720696E 
+ 593      7400
+ 594              	.LASF11:
+ 595 01dd 63686172 		.ascii	"char\000"
+ 595      00
+ 596              	.LASF2:
+ 597 01e2 73686F72 		.ascii	"short int\000"
+ 597      7420696E 
+ 597      7400
+ 598              	.LASF21:
+ 599 01ec 7370695F 		.ascii	"spi_Sleep\000"
+ 599      536C6565 
+ 599      7000
+ 600              	.LASF29:
+ 601 01f6 7370695F 		.ascii	"spi_backup\000"
+ 601      6261636B 
+ 601      757000
+ 602              	.LASF4:
+ 603 0201 6C6F6E67 		.ascii	"long int\000"
+ 603      20696E74 
+ 603      00
+ 604              	.LASF16:
+ 605 020a 656E6162 		.ascii	"enableState\000"
+ 605      6C655374 
+ 605      61746500 
+ 606              	.LASF14:
+ 607 0216 6C6F6E67 		.ascii	"long double\000"
+ 607      20646F75 
+ 607      626C6500 
+ 608              	.LASF0:
+ 609 0222 7369676E 		.ascii	"signed char\000"
+ 609      65642063 
+ 609      68617200 
+ 610              	.LASF22:
+ 611 022e 7370695F 		.ascii	"spi_Wakeup\000"
+ 611      57616B65 
+ 611      757000
  612              	.LASF24:
- 613 022d 7370695F 		.ascii	"spi_ClearFIFO\000"
+ 613 0239 7370695F 		.ascii	"spi_ClearFIFO\000"
  613      436C6561 
  613      72464946 
  613      4F00

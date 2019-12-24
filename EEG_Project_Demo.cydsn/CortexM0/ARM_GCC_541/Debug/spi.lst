@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
   28:Generated_Source\PSoC4/spi.c ****     volatile uint8 spi_rxBuffer[spi_RX_BUFFER_SIZE];
   29:Generated_Source\PSoC4/spi.c ****     volatile uint8 spi_rxBufferFull;
   30:Generated_Source\PSoC4/spi.c ****     volatile uint8 spi_rxBufferRead;
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 2
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 2
 
 
   31:Generated_Source\PSoC4/spi.c ****     volatile uint8 spi_rxBufferWrite;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
   85:Generated_Source\PSoC4/spi.c ****     #if(spi_RX_SOFTWARE_BUF_ENABLED)
   86:Generated_Source\PSoC4/spi.c ****         spi_rxBufferFull  = 0u;
   87:Generated_Source\PSoC4/spi.c ****         spi_rxBufferRead  = 0u;
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 3
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 3
 
 
   88:Generated_Source\PSoC4/spi.c ****         spi_rxBufferWrite = 0u;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
   44 000e DBB2     		uxtb	r3, r3
   45 0010 1370     		strb	r3, [r2]
  126:Generated_Source\PSoC4/spi.c ****     spi_TX_STATUS_ACTL_REG  |= spi_INT_ENABLE;
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 4
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 4
 
 
   46              		.loc 1 126 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  145:Generated_Source\PSoC4/spi.c **** *
  146:Generated_Source\PSoC4/spi.c **** * Parameters:
  147:Generated_Source\PSoC4/spi.c **** *  None.
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 5
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 5
 
 
  148:Generated_Source\PSoC4/spi.c **** *
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  194:Generated_Source\PSoC4/spi.c ****     uint8 enableInterrupts;
  195:Generated_Source\PSoC4/spi.c **** 
  196:Generated_Source\PSoC4/spi.c ****     enableInterrupts = CyEnterCriticalSection();
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 6
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 6
 
 
   90              		.loc 1 196 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  215:Generated_Source\PSoC4/spi.c **** *  Enable internal Tx interrupt generation.
  216:Generated_Source\PSoC4/spi.c **** *
  217:Generated_Source\PSoC4/spi.c **** * Parameters:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 7
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 7
 
 
  218:Generated_Source\PSoC4/spi.c **** *  None.
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  253:Generated_Source\PSoC4/spi.c **** {
  145              		.loc 1 253 0
  146              		.cfi_startproc
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 8
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 8
 
 
  147              		@ args = 0, pretend = 0, frame = 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  172              		.cfi_endproc
  173              	.LFE8:
  174              		.size	spi_DisableTxInt, .-spi_DisableTxInt
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 9
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 9
 
 
  175 0002 C046     		.section	.text.spi_DisableRxInt,"ax",%progbits
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  310:Generated_Source\PSoC4/spi.c **** /*******************************************************************************
  311:Generated_Source\PSoC4/spi.c **** * Function Name: spi_SetTxInterruptMode
  312:Generated_Source\PSoC4/spi.c **** ********************************************************************************
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 10
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 10
 
 
  313:Generated_Source\PSoC4/spi.c **** *
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  340:Generated_Source\PSoC4/spi.c **** *
  341:Generated_Source\PSoC4/spi.c **** * Parameters:
  342:Generated_Source\PSoC4/spi.c **** *  intSrc: An or'd combination of the desired status bit masks (defined in the
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 11
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 11
 
 
  343:Generated_Source\PSoC4/spi.c **** *  header file).
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  370:Generated_Source\PSoC4/spi.c **** *
  371:Generated_Source\PSoC4/spi.c **** * Global variables:
  372:Generated_Source\PSoC4/spi.c **** *  spi_swStatusTx - used to store in software status register,
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 12
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 12
 
 
  373:Generated_Source\PSoC4/spi.c **** *  modified every function call - resets to zero.
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  276              		.section	.text.spi_ReadRxStatus,"ax",%progbits
  277              		.align	2
  278              		.global	spi_ReadRxStatus
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 13
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 13
 
 
  279              		.code	16
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  451:Generated_Source\PSoC4/spi.c **** 
  452:Generated_Source\PSoC4/spi.c ****         tmpStatus = spi_RX_STATUS_REG;
  289              		.loc 1 452 0
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 14
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 14
 
 
  290 0000 014B     		ldr	r3, .L21
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  485:Generated_Source\PSoC4/spi.c **** * Side Effects:
  486:Generated_Source\PSoC4/spi.c **** *  If this function is called again before the previous byte is finished then
  487:Generated_Source\PSoC4/spi.c **** *  the next byte will be appended to the transfer with no time between
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 15
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 15
 
 
  488:Generated_Source\PSoC4/spi.c **** *  the byte transfers. Clear Tx status register of the component.
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  535:Generated_Source\PSoC4/spi.c ****                 spi_txBufferWrite = 0u;
  536:Generated_Source\PSoC4/spi.c ****             }
  537:Generated_Source\PSoC4/spi.c **** 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 16
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 16
 
 
  538:Generated_Source\PSoC4/spi.c ****             if(spi_txBufferWrite == spi_txBufferRead)
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  345              	.LFB15:
  566:Generated_Source\PSoC4/spi.c **** 
  567:Generated_Source\PSoC4/spi.c **** 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 17
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 17
 
 
  568:Generated_Source\PSoC4/spi.c **** /*******************************************************************************
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  617:Generated_Source\PSoC4/spi.c ****                 {
  618:Generated_Source\PSoC4/spi.c ****                     spi_rxBufferRead = 0u;
  619:Generated_Source\PSoC4/spi.c ****                 }
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 18
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 18
 
 
  620:Generated_Source\PSoC4/spi.c ****             }
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  651:Generated_Source\PSoC4/spi.c **** *  None.
  652:Generated_Source\PSoC4/spi.c **** *
  653:Generated_Source\PSoC4/spi.c **** * Return:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 19
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 19
 
 
  654:Generated_Source\PSoC4/spi.c **** *  Integer count of the number of bytes/words in the RX buffer.
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  388              	.L31:
  389              	.LVL10:
  694:Generated_Source\PSoC4/spi.c **** 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 20
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 20
 
 
  695:Generated_Source\PSoC4/spi.c ****     #endif /* (spi_TX_SOFTWARE_BUF_ENABLED) */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  410              		@ args = 0, pretend = 0, frame = 0
  411              		@ frame_needed = 0, uses_anonymous_args = 0
  412              		@ link register save eliminated.
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 21
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 21
 
 
  729:Generated_Source\PSoC4/spi.c ****     uint8 size;
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  434              	.L38:
  761:Generated_Source\PSoC4/spi.c ****         }
  762:Generated_Source\PSoC4/spi.c ****         else
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 22
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 22
 
 
  763:Generated_Source\PSoC4/spi.c ****         {
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  795:Generated_Source\PSoC4/spi.c **** *  Setting the pointers to zero makes the system believe there is no data to
  796:Generated_Source\PSoC4/spi.c **** *  read and writing will resume at address 0 overwriting any data that may have
  797:Generated_Source\PSoC4/spi.c **** *  remained in the RAM.
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 23
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 23
 
 
  798:Generated_Source\PSoC4/spi.c **** *
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  483              	.LFE18:
  484              		.size	spi_ClearRxBuffer, .-spi_ClearRxBuffer
  485              		.section	.text.spi_ClearTxBuffer,"ax",%progbits
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 24
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 24
 
 
  486              		.align	2
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  864:Generated_Source\PSoC4/spi.c **** 
  865:Generated_Source\PSoC4/spi.c ****     enableInterrupts = CyEnterCriticalSection();
  501              		.loc 1 865 0
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 25
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 25
 
 
  502 0002 FFF7FEFF 		bl	CyEnterCriticalSection
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  531              		.global	spi_PutArray
  532              		.code	16
  533              		.thumb_func
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 26
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 26
 
 
  534              		.type	spi_PutArray, %function
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  942:Generated_Source\PSoC4/spi.c **** * Summary:
  943:Generated_Source\PSoC4/spi.c **** *  Write available data from ROM/RAM to the TX buffer while space is available
  944:Generated_Source\PSoC4/spi.c **** *  in the TX buffer. Keep trying until all data is passed to the TX buffer.
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 27
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 27
 
 
  945:Generated_Source\PSoC4/spi.c **** *
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  563              	.LVL22:
  564 0012 EDB2     		uxtb	r5, r5
  565              	.LVL23:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 28
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 28
 
 
  973:Generated_Source\PSoC4/spi.c ****         byteCount--;
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  595              		@ frame_needed = 0, uses_anonymous_args = 0
  596 0000 10B5     		push	{r4, lr}
  597              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 29
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 29
 
 
  598              		.cfi_offset 4, -8
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  631              		@ sp needed
  632 002c 10BD     		pop	{r4, pc}
  633              	.L56:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 30
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 30
 
 
  634 002e C046     		.align	2
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  680 001e 10BD     		pop	{r4, pc}
  681              	.L59:
  682              		.align	2
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 31
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 31
 
 
  683              	.L58:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  731              		.size	spi_Start, .-spi_Start
  732              		.section	.text.spi_EnableInt,"ax",%progbits
  733              		.align	2
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 32
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 32
 
 
  734              		.global	spi_EnableInt
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
 1046:Generated_Source\PSoC4/spi.c **** 
 1047:Generated_Source\PSoC4/spi.c **** 
 1048:Generated_Source\PSoC4/spi.c **** /*******************************************************************************
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 33
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 33
 
 
 1049:Generated_Source\PSoC4/spi.c **** * Function Name: spi_DisableInt
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
 1084:Generated_Source\PSoC4/spi.c **** *  None.
 1085:Generated_Source\PSoC4/spi.c **** *
 1086:Generated_Source\PSoC4/spi.c **** * Theory:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 34
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 34
 
 
 1087:Generated_Source\PSoC4/spi.c **** *  Enables the output of specific status bits to the interrupt controller.
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
 1107:Generated_Source\PSoC4/spi.c **** * Return:
 1108:Generated_Source\PSoC4/spi.c **** *  Contents of the status register.
 1109:Generated_Source\PSoC4/spi.c **** *
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 35
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 35
 
 
 1110:Generated_Source\PSoC4/spi.c **** * Global variables:
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  829              	.LVL39:
 1147:Generated_Source\PSoC4/spi.c **** 
 1148:Generated_Source\PSoC4/spi.c ****     #endif /* (spi_TX_SOFTWARE_BUF_ENABLED || spi_RX_SOFTWARE_BUF_ENABLED) */
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 36
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 36
 
 
 1149:Generated_Source\PSoC4/spi.c **** 
@@ -2135,48 +2135,48 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  858 0006 00000000 		.4byte	.Ldebug_abbrev0
  859 000a 04       		.byte	0x4
  860 000b 01       		.uleb128 0x1
- 861 000c 37020000 		.4byte	.LASF54
+ 861 000c 8E020000 		.4byte	.LASF54
  862 0010 0C       		.byte	0xc
- 863 0011 A9010000 		.4byte	.LASF55
- 864 0015 51030000 		.4byte	.LASF56
+ 863 0011 00020000 		.4byte	.LASF55
+ 864 0015 3D000000 		.4byte	.LASF56
  865 0019 00000000 		.4byte	.Ldebug_ranges0+0
  866 001d 00000000 		.4byte	0
  867 0021 00000000 		.4byte	.Ldebug_line0
  868 0025 02       		.uleb128 0x2
  869 0026 01       		.byte	0x1
  870 0027 06       		.byte	0x6
- 871 0028 45030000 		.4byte	.LASF0
+ 871 0028 9C030000 		.4byte	.LASF0
  872 002c 02       		.uleb128 0x2
  873 002d 01       		.byte	0x1
  874 002e 08       		.byte	0x8
- 875 002f 9B010000 		.4byte	.LASF1
+ 875 002f F2010000 		.4byte	.LASF1
  876 0033 02       		.uleb128 0x2
  877 0034 02       		.byte	0x2
  878 0035 05       		.byte	0x5
- 879 0036 A1000000 		.4byte	.LASF2
+ 879 0036 F8000000 		.4byte	.LASF2
  880 003a 02       		.uleb128 0x2
  881 003b 02       		.byte	0x2
  882 003c 07       		.byte	0x7
- 883 003d 6D000000 		.4byte	.LASF3
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 37
+ 883 003d C4000000 		.4byte	.LASF3
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 37
 
 
  884 0041 02       		.uleb128 0x2
  885 0042 04       		.byte	0x4
  886 0043 05       		.byte	0x5
- 887 0044 26030000 		.4byte	.LASF4
+ 887 0044 7D030000 		.4byte	.LASF4
  888 0048 02       		.uleb128 0x2
  889 0049 04       		.byte	0x4
  890 004a 07       		.byte	0x7
- 891 004b 4A010000 		.4byte	.LASF5
+ 891 004b A1010000 		.4byte	.LASF5
  892 004f 02       		.uleb128 0x2
  893 0050 08       		.byte	0x8
  894 0051 05       		.byte	0x5
- 895 0052 DF020000 		.4byte	.LASF6
+ 895 0052 36030000 		.4byte	.LASF6
  896 0056 02       		.uleb128 0x2
  897 0057 08       		.byte	0x8
  898 0058 07       		.byte	0x7
- 899 0059 F5000000 		.4byte	.LASF7
+ 899 0059 4C010000 		.4byte	.LASF7
  900 005d 03       		.uleb128 0x3
  901 005e 04       		.byte	0x4
  902 005f 05       		.byte	0x5
@@ -2184,26 +2184,26 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  904 0064 02       		.uleb128 0x2
  905 0065 04       		.byte	0x4
  906 0066 07       		.byte	0x7
- 907 0067 06020000 		.4byte	.LASF8
+ 907 0067 5D020000 		.4byte	.LASF8
  908 006b 04       		.uleb128 0x4
- 909 006c 20030000 		.4byte	.LASF12
+ 909 006c 77030000 		.4byte	.LASF12
  910 0070 02       		.byte	0x2
  911 0071 E401     		.2byte	0x1e4
  912 0073 2C000000 		.4byte	0x2c
  913 0077 02       		.uleb128 0x2
  914 0078 04       		.byte	0x4
  915 0079 04       		.byte	0x4
- 916 007a E1000000 		.4byte	.LASF9
+ 916 007a 38010000 		.4byte	.LASF9
  917 007e 02       		.uleb128 0x2
  918 007f 08       		.byte	0x8
  919 0080 04       		.byte	0x4
- 920 0081 C6010000 		.4byte	.LASF10
+ 920 0081 1D020000 		.4byte	.LASF10
  921 0085 02       		.uleb128 0x2
  922 0086 01       		.byte	0x1
  923 0087 08       		.byte	0x8
- 924 0088 ED020000 		.4byte	.LASF11
+ 924 0088 44030000 		.4byte	.LASF11
  925 008c 04       		.uleb128 0x4
- 926 008d 24010000 		.4byte	.LASF13
+ 926 008d 7B010000 		.4byte	.LASF13
  927 0091 02       		.byte	0x2
  928 0092 8E02     		.2byte	0x28e
  929 0094 98000000 		.4byte	0x98
@@ -2212,16 +2212,16 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  932 009d 02       		.uleb128 0x2
  933 009e 08       		.byte	0x8
  934 009f 04       		.byte	0x4
- 935 00a0 39030000 		.4byte	.LASF14
+ 935 00a0 90030000 		.4byte	.LASF14
  936 00a4 02       		.uleb128 0x2
  937 00a5 04       		.byte	0x4
  938 00a6 07       		.byte	0x7
- 939 00a7 D6020000 		.4byte	.LASF15
+ 939 00a7 2D030000 		.4byte	.LASF15
  940 00ab 06       		.uleb128 0x6
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 38
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 38
 
 
- 941 00ac E4010000 		.4byte	.LASF16
+ 941 00ac 3B020000 		.4byte	.LASF16
  942 00b0 01       		.byte	0x1
  943 00b1 78       		.byte	0x78
  944 00b2 00000000 		.4byte	.LFB3
@@ -2230,7 +2230,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  947 00bb 9C       		.byte	0x9c
  948 00bc E2000000 		.4byte	0xe2
  949 00c0 07       		.uleb128 0x7
- 950 00c1 8A010000 		.4byte	.LASF18
+ 950 00c1 E1010000 		.4byte	.LASF18
  951 00c5 01       		.byte	0x1
  952 00c6 7A       		.byte	0x7a
  953 00c7 6B000000 		.4byte	0x6b
@@ -2243,7 +2243,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  960 00dd 87040000 		.4byte	0x487
  961 00e1 00       		.byte	0
  962 00e2 06       		.uleb128 0x6
- 963 00e3 1B010000 		.4byte	.LASF17
+ 963 00e3 72010000 		.4byte	.LASF17
  964 00e7 01       		.byte	0x1
  965 00e8 C0       		.byte	0xc0
  966 00e9 00000000 		.4byte	.LFB5
@@ -2252,7 +2252,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  969 00f2 9C       		.byte	0x9c
  970 00f3 19010000 		.4byte	0x119
  971 00f7 07       		.uleb128 0x7
- 972 00f8 8A010000 		.4byte	.LASF18
+ 972 00f8 E1010000 		.4byte	.LASF18
  973 00fc 01       		.byte	0x1
  974 00fd C2       		.byte	0xc2
  975 00fe 6B000000 		.4byte	0x6b
@@ -2265,7 +2265,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  982 0114 87040000 		.4byte	0x487
  983 0118 00       		.byte	0
  984 0119 09       		.uleb128 0x9
- 985 011a D4010000 		.4byte	.LASF19
+ 985 011a 2B020000 		.4byte	.LASF19
  986 011e 01       		.byte	0x1
  987 011f E3       		.byte	0xe3
  988 0120 00000000 		.4byte	.LFB6
@@ -2273,18 +2273,18 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  990 0128 01       		.uleb128 0x1
  991 0129 9C       		.byte	0x9c
  992 012a 09       		.uleb128 0x9
- 993 012b C2030000 		.4byte	.LASF20
+ 993 012b CE030000 		.4byte	.LASF20
  994 012f 01       		.byte	0x1
  995 0130 FC       		.byte	0xfc
  996 0131 00000000 		.4byte	.LFB7
  997 0135 02000000 		.4byte	.LFE7-.LFB7
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 39
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 39
 
 
  998 0139 01       		.uleb128 0x1
  999 013a 9C       		.byte	0x9c
  1000 013b 0A       		.uleb128 0xa
- 1001 013c C5020000 		.4byte	.LASF21
+ 1001 013c 1C030000 		.4byte	.LASF21
  1002 0140 01       		.byte	0x1
  1003 0141 1501     		.2byte	0x115
  1004 0143 00000000 		.4byte	.LFB8
@@ -2292,7 +2292,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1006 014b 01       		.uleb128 0x1
  1007 014c 9C       		.byte	0x9c
  1008 014d 0A       		.uleb128 0xa
- 1009 014e 90000000 		.4byte	.LASF22
+ 1009 014e E7000000 		.4byte	.LASF22
  1010 0152 01       		.byte	0x1
  1011 0153 2E01     		.2byte	0x12e
  1012 0155 00000000 		.4byte	.LFB9
@@ -2300,7 +2300,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1014 015d 01       		.uleb128 0x1
  1015 015e 9C       		.byte	0x9c
  1016 015f 0B       		.uleb128 0xb
- 1017 0160 F2020000 		.4byte	.LASF23
+ 1017 0160 49030000 		.4byte	.LASF23
  1018 0164 01       		.byte	0x1
  1019 0165 4801     		.2byte	0x148
  1020 0167 00000000 		.4byte	.LFB10
@@ -2309,7 +2309,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1023 0170 9C       		.byte	0x9c
  1024 0171 84010000 		.4byte	0x184
  1025 0175 0C       		.uleb128 0xc
- 1026 0176 CD010000 		.4byte	.LASF25
+ 1026 0176 24020000 		.4byte	.LASF25
  1027 017a 01       		.byte	0x1
  1028 017b 4801     		.2byte	0x148
  1029 017d 6B000000 		.4byte	0x6b
@@ -2317,7 +2317,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1031 0182 50       		.byte	0x50
  1032 0183 00       		.byte	0
  1033 0184 0B       		.uleb128 0xb
- 1034 0185 09030000 		.4byte	.LASF24
+ 1034 0185 60030000 		.4byte	.LASF24
  1035 0189 01       		.byte	0x1
  1036 018a 6001     		.2byte	0x160
  1037 018c 00000000 		.4byte	.LFB11
@@ -2326,7 +2326,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1040 0195 9C       		.byte	0x9c
  1041 0196 A9010000 		.4byte	0x1a9
  1042 019a 0C       		.uleb128 0xc
- 1043 019b CD010000 		.4byte	.LASF25
+ 1043 019b 24020000 		.4byte	.LASF25
  1044 019f 01       		.byte	0x1
  1045 01a0 6001     		.2byte	0x160
  1046 01a2 6B000000 		.4byte	0x6b
@@ -2334,11 +2334,11 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1048 01a7 50       		.byte	0x50
  1049 01a8 00       		.byte	0
  1050 01a9 0D       		.uleb128 0xd
- 1051 01aa AB000000 		.4byte	.LASF27
+ 1051 01aa 02010000 		.4byte	.LASF27
  1052 01ae 01       		.byte	0x1
  1053 01af 8201     		.2byte	0x182
  1054 01b1 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 40
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 40
 
 
  1055 01b5 00000000 		.4byte	.LFB12
@@ -2347,7 +2347,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1058 01be 9C       		.byte	0x9c
  1059 01bf D2010000 		.4byte	0x1d2
  1060 01c3 0E       		.uleb128 0xe
- 1061 01c4 2F030000 		.4byte	.LASF26
+ 1061 01c4 86030000 		.4byte	.LASF26
  1062 01c8 01       		.byte	0x1
  1063 01c9 8401     		.2byte	0x184
  1064 01cb 6B000000 		.4byte	0x6b
@@ -2355,7 +2355,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1066 01d0 50       		.byte	0x50
  1067 01d1 00       		.byte	0
  1068 01d2 0D       		.uleb128 0xd
- 1069 01d3 BC000000 		.4byte	.LASF28
+ 1069 01d3 13010000 		.4byte	.LASF28
  1070 01d7 01       		.byte	0x1
  1071 01d8 B501     		.2byte	0x1b5
  1072 01da 6B000000 		.4byte	0x6b
@@ -2365,7 +2365,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1076 01e7 9C       		.byte	0x9c
  1077 01e8 FB010000 		.4byte	0x1fb
  1078 01ec 0E       		.uleb128 0xe
- 1079 01ed 2F030000 		.4byte	.LASF26
+ 1079 01ed 86030000 		.4byte	.LASF26
  1080 01f1 01       		.byte	0x1
  1081 01f2 B701     		.2byte	0x1b7
  1082 01f4 6B000000 		.4byte	0x6b
@@ -2373,7 +2373,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1084 01f9 50       		.byte	0x50
  1085 01fa 00       		.byte	0
  1086 01fb 0B       		.uleb128 0xb
- 1087 01fc 80000000 		.4byte	.LASF29
+ 1087 01fc D7000000 		.4byte	.LASF29
  1088 0200 01       		.byte	0x1
  1089 0201 EE01     		.2byte	0x1ee
  1090 0203 00000000 		.4byte	.LFB14
@@ -2382,7 +2382,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1093 020c 9C       		.byte	0x9c
  1094 020d 20020000 		.4byte	0x220
  1095 0211 0C       		.uleb128 0xc
- 1096 0212 66000000 		.4byte	.LASF30
+ 1096 0212 BD000000 		.4byte	.LASF30
  1097 0216 01       		.byte	0x1
  1098 0217 EE01     		.2byte	0x1ee
  1099 0219 6B000000 		.4byte	0x6b
@@ -2390,7 +2390,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1101 021e 50       		.byte	0x50
  1102 021f 00       		.byte	0
  1103 0220 0D       		.uleb128 0xd
- 1104 0221 0C010000 		.4byte	.LASF31
+ 1104 0221 63010000 		.4byte	.LASF31
  1105 0225 01       		.byte	0x1
  1106 0226 5A02     		.2byte	0x25a
  1107 0228 6B000000 		.4byte	0x6b
@@ -2398,12 +2398,12 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1109 0230 0C000000 		.4byte	.LFE15-.LFB15
  1110 0234 01       		.uleb128 0x1
  1111 0235 9C       		.byte	0x9c
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 41
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 41
 
 
  1112 0236 49020000 		.4byte	0x249
  1113 023a 0E       		.uleb128 0xe
- 1114 023b 3D000000 		.4byte	.LASF32
+ 1114 023b 94000000 		.4byte	.LASF32
  1115 023f 01       		.byte	0x1
  1116 0240 5C02     		.2byte	0x25c
  1117 0242 6B000000 		.4byte	0x6b
@@ -2421,7 +2421,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1129 025e 9C       		.byte	0x9c
  1130 025f 72020000 		.4byte	0x272
  1131 0263 0E       		.uleb128 0xe
- 1132 0264 13020000 		.4byte	.LASF34
+ 1132 0264 6A020000 		.4byte	.LASF34
  1133 0268 01       		.byte	0x1
  1134 0269 9C02     		.2byte	0x29c
  1135 026b 6B000000 		.4byte	0x6b
@@ -2429,7 +2429,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1137 0270 50       		.byte	0x50
  1138 0271 00       		.byte	0
  1139 0272 0D       		.uleb128 0xd
- 1140 0273 CD000000 		.4byte	.LASF35
+ 1140 0273 24010000 		.4byte	.LASF35
  1141 0277 01       		.byte	0x1
  1142 0278 D702     		.2byte	0x2d7
  1143 027a 6B000000 		.4byte	0x6b
@@ -2439,14 +2439,14 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1147 0287 9C       		.byte	0x9c
  1148 0288 9D020000 		.4byte	0x29d
  1149 028c 0F       		.uleb128 0xf
- 1150 028d 13020000 		.4byte	.LASF34
+ 1150 028d 6A020000 		.4byte	.LASF34
  1151 0291 01       		.byte	0x1
  1152 0292 D902     		.2byte	0x2d9
  1153 0294 6B000000 		.4byte	0x6b
  1154 0298 26000000 		.4byte	.LLST2
  1155 029c 00       		.byte	0
  1156 029d 0A       		.uleb128 0xa
- 1157 029e 29010000 		.4byte	.LASF36
+ 1157 029e 80010000 		.4byte	.LASF36
  1158 02a2 01       		.byte	0x1
  1159 02a3 2603     		.2byte	0x326
  1160 02a5 00000000 		.4byte	.LFB18
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1166 02b4 01       		.byte	0x1
  1167 02b5 5D03     		.2byte	0x35d
  1168 02b7 00000000 		.4byte	.LFB19
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 42
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 42
 
 
  1169 02bb 24000000 		.4byte	.LFE19-.LFB19
@@ -2466,7 +2466,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1171 02c0 9C       		.byte	0x9c
  1172 02c1 E8020000 		.4byte	0x2e8
  1173 02c5 0F       		.uleb128 0xf
- 1174 02c6 8A010000 		.4byte	.LASF18
+ 1174 02c6 E1010000 		.4byte	.LASF18
  1175 02ca 01       		.byte	0x1
  1176 02cb 5F03     		.2byte	0x35f
  1177 02cd 6B000000 		.4byte	0x6b
@@ -2488,19 +2488,19 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1193 02f9 9C       		.byte	0x9c
  1194 02fa 38030000 		.4byte	0x338
  1195 02fe 10       		.uleb128 0x10
- 1196 02ff 53000000 		.4byte	.LASF39
+ 1196 02ff AA000000 		.4byte	.LASF39
  1197 0303 01       		.byte	0x1
  1198 0304 C203     		.2byte	0x3c2
  1199 0306 38030000 		.4byte	0x338
  1200 030a 62000000 		.4byte	.LLST4
  1201 030e 10       		.uleb128 0x10
- 1202 030f 80010000 		.4byte	.LASF40
+ 1202 030f D7010000 		.4byte	.LASF40
  1203 0313 01       		.byte	0x1
  1204 0314 C203     		.2byte	0x3c2
  1205 0316 6B000000 		.4byte	0x6b
  1206 031a 8E000000 		.4byte	.LLST5
  1207 031e 0F       		.uleb128 0xf
- 1208 031f 2E020000 		.4byte	.LASF41
+ 1208 031f 85020000 		.4byte	.LASF41
  1209 0323 01       		.byte	0x1
  1210 0324 C503     		.2byte	0x3c5
  1211 0326 6B000000 		.4byte	0x6b
@@ -2515,10 +2515,10 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1220 033e 12       		.uleb128 0x12
  1221 033f 6B000000 		.4byte	0x6b
  1222 0343 0B       		.uleb128 0xb
- 1223 0344 B4030000 		.4byte	.LASF42
+ 1223 0344 C0030000 		.4byte	.LASF42
  1224 0348 01       		.byte	0x1
  1225 0349 E303     		.2byte	0x3e3
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 43
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 43
 
 
  1226 034b 00000000 		.4byte	.LFB21
@@ -2527,7 +2527,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1229 0354 9C       		.byte	0x9c
  1230 0355 7C030000 		.4byte	0x37c
  1231 0359 0F       		.uleb128 0xf
- 1232 035a 8A010000 		.4byte	.LASF18
+ 1232 035a E1010000 		.4byte	.LASF18
  1233 035e 01       		.byte	0x1
  1234 035f E503     		.2byte	0x3e5
  1235 0361 6B000000 		.4byte	0x6b
@@ -2540,7 +2540,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1242 0377 87040000 		.4byte	0x487
  1243 037b 00       		.byte	0
  1244 037c 06       		.uleb128 0x6
- 1245 037d AB030000 		.4byte	.LASF43
+ 1245 037d B7030000 		.4byte	.LASF43
  1246 0381 01       		.byte	0x1
  1247 0382 3F       		.byte	0x3f
  1248 0383 00000000 		.4byte	.LFB2
@@ -2575,10 +2575,10 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1277 03d0 AB000000 		.4byte	0xab
  1278 03d4 00       		.byte	0
  1279 03d5 0A       		.uleb128 0xa
- 1280 03d6 E7000000 		.4byte	.LASF45
+ 1280 03d6 3E010000 		.4byte	.LASF45
  1281 03da 01       		.byte	0x1
  1282 03db 1104     		.2byte	0x411
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 44
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 44
 
 
  1283 03dd 00000000 		.4byte	.LFB22
@@ -2586,7 +2586,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1285 03e5 01       		.uleb128 0x1
  1286 03e6 9C       		.byte	0x9c
  1287 03e7 0A       		.uleb128 0xa
- 1288 03e8 9C030000 		.4byte	.LASF46
+ 1288 03e8 A8030000 		.4byte	.LASF46
  1289 03ec 01       		.byte	0x1
  1290 03ed 2904     		.2byte	0x429
  1291 03ef 00000000 		.4byte	.LFB23
@@ -2594,7 +2594,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1293 03f7 01       		.uleb128 0x1
  1294 03f8 9C       		.byte	0x9c
  1295 03f9 0B       		.uleb128 0xb
- 1296 03fa 5C010000 		.4byte	.LASF47
+ 1296 03fa B3010000 		.4byte	.LASF47
  1297 03fe 01       		.byte	0x1
  1298 03ff 4204     		.2byte	0x442
  1299 0401 00000000 		.4byte	.LFB24
@@ -2603,7 +2603,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1302 040a 9C       		.byte	0x9c
  1303 040b 1E040000 		.4byte	0x41e
  1304 040f 0C       		.uleb128 0xc
- 1305 0410 CD010000 		.4byte	.LASF25
+ 1305 0410 24020000 		.4byte	.LASF25
  1306 0414 01       		.byte	0x1
  1307 0415 4204     		.2byte	0x442
  1308 0417 6B000000 		.4byte	0x6b
@@ -2611,7 +2611,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1310 041c 50       		.byte	0x50
  1311 041d 00       		.byte	0
  1312 041e 0D       		.uleb128 0xd
- 1313 041f 44000000 		.4byte	.LASF48
+ 1313 041f 9B000000 		.4byte	.LASF48
  1314 0423 01       		.byte	0x1
  1315 0424 6504     		.2byte	0x465
  1316 0426 6B000000 		.4byte	0x6b
@@ -2621,14 +2621,14 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1320 0433 9C       		.byte	0x9c
  1321 0434 49040000 		.4byte	0x449
  1322 0438 0F       		.uleb128 0xf
- 1323 0439 2F030000 		.4byte	.LASF26
+ 1323 0439 86030000 		.4byte	.LASF26
  1324 043d 01       		.byte	0x1
  1325 043e 6704     		.2byte	0x467
  1326 0440 6B000000 		.4byte	0x6b
  1327 0444 F4000000 		.4byte	.LLST8
  1328 0448 00       		.byte	0
  1329 0449 13       		.uleb128 0x13
- 1330 044a 5A000000 		.4byte	.LASF49
+ 1330 044a B1000000 		.4byte	.LASF49
  1331 044e 01       		.byte	0x1
  1332 044f 22       		.byte	0x22
  1333 0450 6B000000 		.4byte	0x6b
@@ -2636,9 +2636,9 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1335 0455 03       		.byte	0x3
  1336 0456 00000000 		.4byte	spi_initVar
  1337 045a 13       		.uleb128 0x13
- 1338 045b 71010000 		.4byte	.LASF50
+ 1338 045b C8010000 		.4byte	.LASF50
  1339 045f 01       		.byte	0x1
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 45
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 45
 
 
  1340 0460 24       		.byte	0x24
@@ -2647,7 +2647,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1343 0466 03       		.byte	0x3
  1344 0467 00000000 		.4byte	spi_swStatusTx
  1345 046b 13       		.uleb128 0x13
- 1346 046c 3B010000 		.4byte	.LASF51
+ 1346 046c 92010000 		.4byte	.LASF51
  1347 0470 01       		.byte	0x1
  1348 0471 25       		.byte	0x25
  1349 0472 98000000 		.4byte	0x98
@@ -2655,13 +2655,13 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1351 0477 03       		.byte	0x3
  1352 0478 00000000 		.4byte	spi_swStatusRx
  1353 047c 14       		.uleb128 0x14
- 1354 047d EF010000 		.4byte	.LASF52
- 1355 0481 EF010000 		.4byte	.LASF52
+ 1354 047d 46020000 		.4byte	.LASF52
+ 1355 0481 46020000 		.4byte	.LASF52
  1356 0485 03       		.byte	0x3
  1357 0486 E5       		.byte	0xe5
  1358 0487 14       		.uleb128 0x14
- 1359 0488 18020000 		.4byte	.LASF53
- 1360 048c 18020000 		.4byte	.LASF53
+ 1359 0488 6F020000 		.4byte	.LASF53
+ 1360 048c 6F020000 		.4byte	.LASF53
  1361 0490 03       		.byte	0x3
  1362 0491 E6       		.byte	0xe6
  1363 0492 00       		.byte	0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1394 001c 00       		.byte	0
  1395 001d 00       		.byte	0
  1396 001e 03       		.uleb128 0x3
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 46
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 46
 
 
  1397 001f 24       		.uleb128 0x24
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1451 0056 00       		.byte	0
  1452 0057 07       		.uleb128 0x7
  1453 0058 34       		.uleb128 0x34
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 47
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 47
 
 
  1454 0059 00       		.byte	0
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1508 0092 3B       		.uleb128 0x3b
  1509 0093 05       		.uleb128 0x5
  1510 0094 27       		.uleb128 0x27
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 48
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 48
 
 
  1511 0095 19       		.uleb128 0x19
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1565 00cd 3F       		.uleb128 0x3f
  1566 00ce 19       		.uleb128 0x19
  1567 00cf 03       		.uleb128 0x3
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 49
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 49
 
 
  1568 00d0 0E       		.uleb128 0xe
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1622 0107 03       		.uleb128 0x3
  1623 0108 0E       		.uleb128 0xe
  1624 0109 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 50
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 50
 
 
  1625 010a 0B       		.uleb128 0xb
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1679 0140 0B       		.uleb128 0xb
  1680 0141 3B       		.uleb128 0x3b
  1681 0142 0B       		.uleb128 0xb
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 51
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 51
 
 
  1682 0143 00       		.byte	0
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1736 0083 01       		.uleb128 0x1
  1737 0084 50       		.byte	0x50
  1738 0085 9F       		.byte	0x9f
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 52
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 52
 
 
  1739 0086 00000000 		.4byte	0
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1793 0006 00000000 		.4byte	.Ldebug_info0
  1794 000a 04       		.byte	0x4
  1795 000b 00       		.byte	0
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 53
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 53
 
 
  1796 000c 0000     		.2byte	0
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1850 0000 00000000 		.4byte	.LFB3
  1851 0004 3C000000 		.4byte	.LFE3
  1852 0008 00000000 		.4byte	.LFB5
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 54
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 54
 
 
  1853 000c 28000000 		.4byte	.LFE5
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1903              	.LASF44:
  1904 0000 7370695F 		.ascii	"spi_Start\000"
  1904      53746172 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 55
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 55
 
 
  1904      7400
@@ -3259,285 +3259,285 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 1
  1910      72547842 
  1910      75666665 
  1910      7200
- 1911              	.LASF32:
- 1912 003d 72784461 		.ascii	"rxData\000"
- 1912      746100
- 1913              	.LASF48:
- 1914 0044 7370695F 		.ascii	"spi_ReadStatus\000"
- 1914      52656164 
- 1914      53746174 
- 1914      757300
- 1915              	.LASF39:
- 1916 0053 62756666 		.ascii	"buffer\000"
- 1916      657200
- 1917              	.LASF49:
- 1918 005a 7370695F 		.ascii	"spi_initVar\000"
- 1918      696E6974 
- 1918      56617200 
- 1919              	.LASF30:
- 1920 0066 74784461 		.ascii	"txData\000"
- 1920      746100
- 1921              	.LASF3:
- 1922 006d 73686F72 		.ascii	"short unsigned int\000"
- 1922      7420756E 
- 1922      7369676E 
- 1922      65642069 
- 1922      6E7400
- 1923              	.LASF29:
- 1924 0080 7370695F 		.ascii	"spi_WriteTxData\000"
- 1924      57726974 
- 1924      65547844 
- 1924      61746100 
- 1925              	.LASF22:
- 1926 0090 7370695F 		.ascii	"spi_DisableRxInt\000"
- 1926      44697361 
- 1926      626C6552 
- 1926      78496E74 
- 1926      00
- 1927              	.LASF2:
- 1928 00a1 73686F72 		.ascii	"short int\000"
- 1928      7420696E 
- 1928      7400
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 56
+ 1911              	.LASF56:
+ 1912 003d 433A5C55 		.ascii	"C:\\Users\\dmr85\\Documents\\PSoC Creator\\EEG_Work"
+ 1912      73657273 
+ 1912      5C646D72 
+ 1912      38355C44 
+ 1912      6F63756D 
+ 1913 006b 73706163 		.ascii	"space\\EEGfirmware\\EEG_Project_Demo.cydsn\000"
+ 1913      655C4545 
+ 1913      47666972 
+ 1913      6D776172 
+ 1913      655C4545 
+ 1914              	.LASF32:
+ 1915 0094 72784461 		.ascii	"rxData\000"
+ 1915      746100
+ 1916              	.LASF48:
+ 1917 009b 7370695F 		.ascii	"spi_ReadStatus\000"
+ 1917      52656164 
+ 1917      53746174 
+ 1917      757300
+ 1918              	.LASF39:
+ 1919 00aa 62756666 		.ascii	"buffer\000"
+ 1919      657200
+ 1920              	.LASF49:
+ 1921 00b1 7370695F 		.ascii	"spi_initVar\000"
+ 1921      696E6974 
+ 1921      56617200 
+ 1922              	.LASF30:
+ 1923 00bd 74784461 		.ascii	"txData\000"
+ 1923      746100
+ 1924              	.LASF3:
+ 1925 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 1925      7420756E 
+ 1925      7369676E 
+ 1925      65642069 
+ 1925      6E7400
+ 1926              	.LASF29:
+ 1927 00d7 7370695F 		.ascii	"spi_WriteTxData\000"
+ 1927      57726974 
+ 1927      65547844 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 56
 
 
- 1929              	.LASF27:
- 1930 00ab 7370695F 		.ascii	"spi_ReadTxStatus\000"
- 1930      52656164 
- 1930      54785374 
- 1930      61747573 
- 1930      00
- 1931              	.LASF28:
- 1932 00bc 7370695F 		.ascii	"spi_ReadRxStatus\000"
- 1932      52656164 
- 1932      52785374 
- 1932      61747573 
- 1932      00
- 1933              	.LASF35:
- 1934 00cd 7370695F 		.ascii	"spi_GetTxBufferSize\000"
- 1934      47657454 
- 1934      78427566 
- 1934      66657253 
- 1934      697A6500 
- 1935              	.LASF9:
- 1936 00e1 666C6F61 		.ascii	"float\000"
- 1936      7400
- 1937              	.LASF45:
- 1938 00e7 7370695F 		.ascii	"spi_EnableInt\000"
- 1938      456E6162 
- 1938      6C65496E 
- 1938      7400
- 1939              	.LASF7:
- 1940 00f5 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1940      206C6F6E 
- 1940      6720756E 
- 1940      7369676E 
- 1940      65642069 
- 1941              	.LASF31:
- 1942 010c 7370695F 		.ascii	"spi_ReadRxData\000"
- 1942      52656164 
- 1942      52784461 
- 1942      746100
- 1943              	.LASF17:
- 1944 011b 7370695F 		.ascii	"spi_Stop\000"
- 1944      53746F70 
- 1944      00
- 1945              	.LASF13:
- 1946 0124 72656738 		.ascii	"reg8\000"
- 1946      00
- 1947              	.LASF36:
- 1948 0129 7370695F 		.ascii	"spi_ClearRxBuffer\000"
- 1948      436C6561 
- 1948      72527842 
- 1948      75666665 
- 1948      7200
- 1949              	.LASF51:
- 1950 013b 7370695F 		.ascii	"spi_swStatusRx\000"
- 1950      73775374 
- 1950      61747573 
- 1950      527800
- 1951              	.LASF5:
- 1952 014a 6C6F6E67 		.ascii	"long unsigned int\000"
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 57
+ 1927      61746100 
+ 1928              	.LASF22:
+ 1929 00e7 7370695F 		.ascii	"spi_DisableRxInt\000"
+ 1929      44697361 
+ 1929      626C6552 
+ 1929      78496E74 
+ 1929      00
+ 1930              	.LASF2:
+ 1931 00f8 73686F72 		.ascii	"short int\000"
+ 1931      7420696E 
+ 1931      7400
+ 1932              	.LASF27:
+ 1933 0102 7370695F 		.ascii	"spi_ReadTxStatus\000"
+ 1933      52656164 
+ 1933      54785374 
+ 1933      61747573 
+ 1933      00
+ 1934              	.LASF28:
+ 1935 0113 7370695F 		.ascii	"spi_ReadRxStatus\000"
+ 1935      52656164 
+ 1935      52785374 
+ 1935      61747573 
+ 1935      00
+ 1936              	.LASF35:
+ 1937 0124 7370695F 		.ascii	"spi_GetTxBufferSize\000"
+ 1937      47657454 
+ 1937      78427566 
+ 1937      66657253 
+ 1937      697A6500 
+ 1938              	.LASF9:
+ 1939 0138 666C6F61 		.ascii	"float\000"
+ 1939      7400
+ 1940              	.LASF45:
+ 1941 013e 7370695F 		.ascii	"spi_EnableInt\000"
+ 1941      456E6162 
+ 1941      6C65496E 
+ 1941      7400
+ 1942              	.LASF7:
+ 1943 014c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1943      206C6F6E 
+ 1943      6720756E 
+ 1943      7369676E 
+ 1943      65642069 
+ 1944              	.LASF31:
+ 1945 0163 7370695F 		.ascii	"spi_ReadRxData\000"
+ 1945      52656164 
+ 1945      52784461 
+ 1945      746100
+ 1946              	.LASF17:
+ 1947 0172 7370695F 		.ascii	"spi_Stop\000"
+ 1947      53746F70 
+ 1947      00
+ 1948              	.LASF13:
+ 1949 017b 72656738 		.ascii	"reg8\000"
+ 1949      00
+ 1950              	.LASF36:
+ 1951 0180 7370695F 		.ascii	"spi_ClearRxBuffer\000"
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 57
 
 
- 1952      20756E73 
- 1952      69676E65 
- 1952      6420696E 
- 1952      7400
- 1953              	.LASF47:
- 1954 015c 7370695F 		.ascii	"spi_SetInterruptMode\000"
- 1954      53657449 
- 1954      6E746572 
- 1954      72757074 
- 1954      4D6F6465 
- 1955              	.LASF50:
- 1956 0171 7370695F 		.ascii	"spi_swStatusTx\000"
- 1956      73775374 
- 1956      61747573 
- 1956      547800
- 1957              	.LASF40:
- 1958 0180 62797465 		.ascii	"byteCount\000"
- 1958      436F756E 
- 1958      7400
- 1959              	.LASF18:
- 1960 018a 656E6162 		.ascii	"enableInterrupts\000"
- 1960      6C65496E 
- 1960      74657272 
- 1960      75707473 
- 1960      00
- 1961              	.LASF1:
- 1962 019b 756E7369 		.ascii	"unsigned char\000"
- 1962      676E6564 
- 1962      20636861 
- 1962      7200
- 1963              	.LASF55:
- 1964 01a9 47656E65 		.ascii	"Generated_Source\\PSoC4\\spi.c\000"
- 1964      72617465 
- 1964      645F536F 
- 1964      75726365 
- 1964      5C50536F 
- 1965              	.LASF10:
- 1966 01c6 646F7562 		.ascii	"double\000"
- 1966      6C6500
- 1967              	.LASF25:
- 1968 01cd 696E7453 		.ascii	"intSrc\000"
- 1968      726300
- 1969              	.LASF19:
- 1970 01d4 7370695F 		.ascii	"spi_EnableTxInt\000"
- 1970      456E6162 
- 1970      6C655478 
- 1970      496E7400 
- 1971              	.LASF16:
- 1972 01e4 7370695F 		.ascii	"spi_Enable\000"
- 1972      456E6162 
- 1972      6C6500
- 1973              	.LASF52:
- 1974 01ef 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1974      74657243 
- 1974      72697469 
- 1974      63616C53 
- 1974      65637469 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 58
+ 1951      436C6561 
+ 1951      72527842 
+ 1951      75666665 
+ 1951      7200
+ 1952              	.LASF51:
+ 1953 0192 7370695F 		.ascii	"spi_swStatusRx\000"
+ 1953      73775374 
+ 1953      61747573 
+ 1953      527800
+ 1954              	.LASF5:
+ 1955 01a1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1955      20756E73 
+ 1955      69676E65 
+ 1955      6420696E 
+ 1955      7400
+ 1956              	.LASF47:
+ 1957 01b3 7370695F 		.ascii	"spi_SetInterruptMode\000"
+ 1957      53657449 
+ 1957      6E746572 
+ 1957      72757074 
+ 1957      4D6F6465 
+ 1958              	.LASF50:
+ 1959 01c8 7370695F 		.ascii	"spi_swStatusTx\000"
+ 1959      73775374 
+ 1959      61747573 
+ 1959      547800
+ 1960              	.LASF40:
+ 1961 01d7 62797465 		.ascii	"byteCount\000"
+ 1961      436F756E 
+ 1961      7400
+ 1962              	.LASF18:
+ 1963 01e1 656E6162 		.ascii	"enableInterrupts\000"
+ 1963      6C65496E 
+ 1963      74657272 
+ 1963      75707473 
+ 1963      00
+ 1964              	.LASF1:
+ 1965 01f2 756E7369 		.ascii	"unsigned char\000"
+ 1965      676E6564 
+ 1965      20636861 
+ 1965      7200
+ 1966              	.LASF55:
+ 1967 0200 47656E65 		.ascii	"Generated_Source\\PSoC4\\spi.c\000"
+ 1967      72617465 
+ 1967      645F536F 
+ 1967      75726365 
+ 1967      5C50536F 
+ 1968              	.LASF10:
+ 1969 021d 646F7562 		.ascii	"double\000"
+ 1969      6C6500
+ 1970              	.LASF25:
+ 1971 0224 696E7453 		.ascii	"intSrc\000"
+ 1971      726300
+ 1972              	.LASF19:
+ 1973 022b 7370695F 		.ascii	"spi_EnableTxInt\000"
+ 1973      456E6162 
+ 1973      6C655478 
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 58
 
 
- 1975              	.LASF8:
- 1976 0206 756E7369 		.ascii	"unsigned int\000"
- 1976      676E6564 
- 1976      20696E74 
- 1976      00
- 1977              	.LASF34:
- 1978 0213 73697A65 		.ascii	"size\000"
- 1978      00
- 1979              	.LASF53:
- 1980 0218 43794578 		.ascii	"CyExitCriticalSection\000"
- 1980      69744372 
- 1980      69746963 
- 1980      616C5365 
- 1980      6374696F 
- 1981              	.LASF41:
- 1982 022e 62756649 		.ascii	"bufIndex\000"
- 1982      6E646578 
- 1982      00
- 1983              	.LASF54:
- 1984 0237 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1984      43313120 
- 1984      352E342E 
- 1984      31203230 
- 1984      31363036 
- 1985 026a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 1985      20726576 
- 1985      6973696F 
- 1985      6E203233 
- 1985      37373135 
- 1986 029d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1986      66756E63 
- 1986      74696F6E 
- 1986      2D736563 
- 1986      74696F6E 
- 1987              	.LASF21:
- 1988 02c5 7370695F 		.ascii	"spi_DisableTxInt\000"
- 1988      44697361 
- 1988      626C6554 
- 1988      78496E74 
- 1988      00
- 1989              	.LASF15:
- 1990 02d6 73697A65 		.ascii	"sizetype\000"
- 1990      74797065 
- 1990      00
- 1991              	.LASF6:
- 1992 02df 6C6F6E67 		.ascii	"long long int\000"
- 1992      206C6F6E 
- 1992      6720696E 
- 1992      7400
- 1993              	.LASF11:
- 1994 02ed 63686172 		.ascii	"char\000"
- 1994      00
- 1995              	.LASF23:
- 1996 02f2 7370695F 		.ascii	"spi_SetTxInterruptMode\000"
- 1996      53657454 
- 1996      78496E74 
- 1996      65727275 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 59
+ 1973      496E7400 
+ 1974              	.LASF16:
+ 1975 023b 7370695F 		.ascii	"spi_Enable\000"
+ 1975      456E6162 
+ 1975      6C6500
+ 1976              	.LASF52:
+ 1977 0246 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1977      74657243 
+ 1977      72697469 
+ 1977      63616C53 
+ 1977      65637469 
+ 1978              	.LASF8:
+ 1979 025d 756E7369 		.ascii	"unsigned int\000"
+ 1979      676E6564 
+ 1979      20696E74 
+ 1979      00
+ 1980              	.LASF34:
+ 1981 026a 73697A65 		.ascii	"size\000"
+ 1981      00
+ 1982              	.LASF53:
+ 1983 026f 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1983      69744372 
+ 1983      69746963 
+ 1983      616C5365 
+ 1983      6374696F 
+ 1984              	.LASF41:
+ 1985 0285 62756649 		.ascii	"bufIndex\000"
+ 1985      6E646578 
+ 1985      00
+ 1986              	.LASF54:
+ 1987 028e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1987      43313120 
+ 1987      352E342E 
+ 1987      31203230 
+ 1987      31363036 
+ 1988 02c1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1988      20726576 
+ 1988      6973696F 
+ 1988      6E203233 
+ 1988      37373135 
+ 1989 02f4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1989      66756E63 
+ 1989      74696F6E 
+ 1989      2D736563 
+ 1989      74696F6E 
+ 1990              	.LASF21:
+ 1991 031c 7370695F 		.ascii	"spi_DisableTxInt\000"
+ 1991      44697361 
+ 1991      626C6554 
+ 1991      78496E74 
+ 1991      00
+ 1992              	.LASF15:
+ 1993 032d 73697A65 		.ascii	"sizetype\000"
+ 1993      74797065 
+ 1993      00
+ 1994              	.LASF6:
+ 1995 0336 6C6F6E67 		.ascii	"long long int\000"
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 59
 
 
- 1996      70744D6F 
- 1997              	.LASF24:
- 1998 0309 7370695F 		.ascii	"spi_SetRxInterruptMode\000"
- 1998      53657452 
- 1998      78496E74 
- 1998      65727275 
- 1998      70744D6F 
- 1999              	.LASF12:
- 2000 0320 75696E74 		.ascii	"uint8\000"
- 2000      3800
- 2001              	.LASF4:
- 2002 0326 6C6F6E67 		.ascii	"long int\000"
- 2002      20696E74 
- 2002      00
- 2003              	.LASF26:
- 2004 032f 746D7053 		.ascii	"tmpStatus\000"
- 2004      74617475 
- 2004      7300
- 2005              	.LASF14:
- 2006 0339 6C6F6E67 		.ascii	"long double\000"
- 2006      20646F75 
- 2006      626C6500 
- 2007              	.LASF0:
- 2008 0345 7369676E 		.ascii	"signed char\000"
- 2008      65642063 
- 2008      68617200 
- 2009              	.LASF56:
- 2010 0351 433A5C55 		.ascii	"C:\\Users\\dmr85\\Documents\\PSoC Creator\\EEG_Work"
- 2010      73657273 
- 2010      5C646D72 
- 2010      38355C44 
- 2010      6F63756D 
- 2011 037f 73706163 		.ascii	"space\\EEG_Project_Demo.cydsn\000"
- 2011      655C4545 
- 2011      475F5072 
- 2011      6F6A6563 
- 2011      745F4465 
+ 1995      206C6F6E 
+ 1995      6720696E 
+ 1995      7400
+ 1996              	.LASF11:
+ 1997 0344 63686172 		.ascii	"char\000"
+ 1997      00
+ 1998              	.LASF23:
+ 1999 0349 7370695F 		.ascii	"spi_SetTxInterruptMode\000"
+ 1999      53657454 
+ 1999      78496E74 
+ 1999      65727275 
+ 1999      70744D6F 
+ 2000              	.LASF24:
+ 2001 0360 7370695F 		.ascii	"spi_SetRxInterruptMode\000"
+ 2001      53657452 
+ 2001      78496E74 
+ 2001      65727275 
+ 2001      70744D6F 
+ 2002              	.LASF12:
+ 2003 0377 75696E74 		.ascii	"uint8\000"
+ 2003      3800
+ 2004              	.LASF4:
+ 2005 037d 6C6F6E67 		.ascii	"long int\000"
+ 2005      20696E74 
+ 2005      00
+ 2006              	.LASF26:
+ 2007 0386 746D7053 		.ascii	"tmpStatus\000"
+ 2007      74617475 
+ 2007      7300
+ 2008              	.LASF14:
+ 2009 0390 6C6F6E67 		.ascii	"long double\000"
+ 2009      20646F75 
+ 2009      626C6500 
+ 2010              	.LASF0:
+ 2011 039c 7369676E 		.ascii	"signed char\000"
+ 2011      65642063 
+ 2011      68617200 
  2012              	.LASF46:
- 2013 039c 7370695F 		.ascii	"spi_DisableInt\000"
+ 2013 03a8 7370695F 		.ascii	"spi_DisableInt\000"
  2013      44697361 
  2013      626C6549 
  2013      6E7400
  2014              	.LASF43:
- 2015 03ab 7370695F 		.ascii	"spi_Init\000"
+ 2015 03b7 7370695F 		.ascii	"spi_Init\000"
  2015      496E6974 
  2015      00
  2016              	.LASF42:
- 2017 03b4 7370695F 		.ascii	"spi_ClearFIFO\000"
+ 2017 03c0 7370695F 		.ascii	"spi_ClearFIFO\000"
  2017      436C6561 
  2017      72464946 
  2017      4F00
  2018              	.LASF20:
- 2019 03c2 7370695F 		.ascii	"spi_EnableRxInt\000"
+ 2019 03ce 7370695F 		.ascii	"spi_EnableRxInt\000"
  2019      456E6162 
  2019      6C655278 
  2019      496E7400 
  2020              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccCINe9D.s 			page 60
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccMNH2OI.s 			page 60
 
 

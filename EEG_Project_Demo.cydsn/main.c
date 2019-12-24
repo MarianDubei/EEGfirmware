@@ -134,8 +134,6 @@ int main()
 {
     CyGlobalIntEnable; 
     
-    capsense_Start();
-    capsense_InitializeEnabledBaselines();
     spi_Start();
     Clock_1_Start();
     Clock_2_Start();
@@ -147,12 +145,8 @@ int main()
     {        
         /* if Capsense scan is done, read the value and start another scan */
         counter += 1;
-        if(!capsense_IsBusy())
-        {
-            capsense_UpdateEnabledBaselines();
-            capsense_ScanEnabledWidgets();
-            updateNumber();
-        }
+        updateNumber();
+        
   
         if (counter > 50000) {
             generated_number = (uint16) gaussrand();
