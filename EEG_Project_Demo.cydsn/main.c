@@ -13,12 +13,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <ads1299.h>
 
 #define NSUM 25
 
 uint16 generated_number = 0xFFFF;
 
-int capsenseNotify;
+int numberNotify;
 
 /***************************************************************
  * Function to update the LED state in the GATT database
@@ -56,7 +57,7 @@ void updateLed()
 /***************************************************************
  * Function to update the CapSesnse state in the GATT database
  **************************************************************/
-void updateCapsense()
+void updateNumber()
 {
     if(CyBle_GetState() != CYBLE_STATE_CONNECTED)
         return;
@@ -69,7 +70,7 @@ void updateCapsense()
     CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED );  
     
     /* send notification to client if notifications are enabled and finger location has changed */
-    if (capsenseNotify)
+    if (numberNotify)
         CyBle_GattsNotification(cyBle_connHandle,&tempHandle);
 }
 
@@ -85,7 +86,7 @@ void BleCallBack(uint32 event, void* eventParam)
         /* if there is a disconnect or the stack just turned on from a reset then start the advertising and turn on the LED blinking */
         case CYBLE_EVT_STACK_ON:
         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED:
-            capsenseNotify = 0;
+            numberNotify = 0;
             CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
             pwm_Start();
         break;
@@ -93,7 +94,7 @@ void BleCallBack(uint32 event, void* eventParam)
         /* when a connection is made, update the LED and Capsense states in the GATT database and stop blinking the LED */    
         case CYBLE_EVT_GATT_CONNECT_IND:
             updateLed();
-            updateCapsense();  
+            updateNumber();  
             pwm_Stop();
 		break;
 
@@ -116,7 +117,7 @@ void BleCallBack(uint32 event, void* eventParam)
             if(wrReqParam->handleValPair.attrHandle == CYBLE_LEDCAPSENSE_CAPSENSE_CAPSENSECCCD_DESC_HANDLE) 
             {
                 CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair, 0, &cyBle_connHandle, CYBLE_GATT_DB_PEER_INITIATED);
-                capsenseNotify = wrReqParam->handleValPair.value.val[0] & 0x01;
+                numberNotify = wrReqParam->handleValPair.value.val[0] & 0x01;
                 CyBle_GattsWriteRsp(cyBle_connHandle);
             }		
 			break;  
@@ -150,9 +151,9 @@ int main()
         {
             capsense_UpdateEnabledBaselines();
             capsense_ScanEnabledWidgets();
-            updateCapsense();
+            updateNumber();
         }
-        
+  
         if (counter > 50000) {
             generated_number = (uint16) gaussrand();
             counter = 0;
