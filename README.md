@@ -12,5 +12,5 @@ We had to write firmware, which will be able to:
 1) receive data from ADS1299 using SPI;
 2) send data to mobile phone using BLE;
 
-To get data from our ADC, we used finished driver with functions, which allows to communicate with other microcontroller, and adapted it to our PSoC 6.
+To get data from our ADC, we used [finished driver](https://github.com/gskelly/eeg/tree/master/firmware/at32uc3l064/brainboard_fw/brainboard_fw/src) with functions, which allows to communicate with other microcontroller, and adapted it to our PSoC 6.
 Our firmware also allows us to use BLE to send data to another device. In order to do that we had write functions, which will be able to update our characteristics with new data and to react to different BLE events.
