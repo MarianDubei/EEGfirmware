@@ -15,29 +15,19 @@
 #include <math.h>
 #include <ads1299.h>
 
+
 #define NSUM 25
 
 uint16 generated_number = 0xFFFF;
-
+uint16 generated_numberOld = 0xFFFF;
+volatile uint8_t spi_rx_ads1299_status[3];
+volatile uint8_t spi_rx_data_buffer[DSP_PREBUFFER_NB_SAMPLES][MAX_EEG_CHANNELS][3];
 int numberNotify;
 
 /***************************************************************
  * Function to update the LED state in the GATT database
  **************************************************************/
 
-
-double gaussrand()
-{
-	double x = 0;
-	int i;
-	for(i = 0; i < NSUM; i++)
-		x += (double)rand() / RAND_MAX;
-
-	x -= NSUM / 2.0;
-	x /= sqrt(NSUM / 12.0);
-
-	return x;
-}
 
 void updateLed()
 {
@@ -70,8 +60,12 @@ void updateNumber()
     CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED );  
     
     /* send notification to client if notifications are enabled and finger location has changed */
+    //if (numberNotify && (generated_numberOld != generated_number))
     if (numberNotify)
+    {
         CyBle_GattsNotification(cyBle_connHandle,&tempHandle);
+        generated_numberOld = generated_number;
+    }    
 }
 
 /***************************************************************
@@ -138,21 +132,37 @@ int main()
     Clock_1_Start();
     Clock_2_Start();
     /* Start BLE stack and register the callback function */
+    
     CyBle_Start(BleCallBack);
 
+    ads1299_device_init(SPI_ADS1299_MAIN_CHIPNUM, 0);
+    ads1299_send_byte(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_OPC_RDATAC);
+ 	ads1299_soft_start_conversion(SPI_ADS1299_MAIN_CHIPNUM);
+    
     int counter = 0;
+    
+    uint8_t* num;
+    
+    for (int m = 0; m < DSP_PREBUFFER_NB_SAMPLES; m++) {
+		for (int n = 0; n < MAX_EEG_CHANNELS; n++) {
+            for (int j=0; j<3; j++){
+                spi_rx_data_buffer[m][n][j] = 0;
+            }
+		}
+	}
+    
     for(;;)
     {        
-        /* if Capsense scan is done, read the value and start another scan */
-        counter += 1;
-        updateNumber();
+               
+        ads1299_send_byte(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_OPC_RDATA);
+        ads1299_soft_start_conversion(SPI_ADS1299_MAIN_CHIPNUM);
+        CyDelay(5);
+        ads1299_rdata24_generic(SPI_ADS1299_MAIN_CHIPNUM, 0, spi_rx_ads1299_status, spi_rx_data_buffer);
         
-  
-        if (counter > 50000) {
-            generated_number = (uint16) gaussrand();
-            counter = 0;
-        }
-        spi_WriteTxData(generated_number);
+
+        generated_number = (uint16) (spi_rx_data_buffer[0][3][1] << 8) | (spi_rx_data_buffer[0][3][0]);
+        updateNumber();       
+
         CyBle_ProcessEvents();
         CyBle_EnterLPM(CYBLE_BLESS_DEEPSLEEP);
         

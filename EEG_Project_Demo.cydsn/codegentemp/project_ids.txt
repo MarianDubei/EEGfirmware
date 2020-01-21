@@ -1,6 +1,6 @@
-C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\EEG_Project_Demo.cyprj|d083f20a-a68d-4666-a0ec-3ec65c49c04a
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|9c3e166f-7747-4894-9d9e-5b6d95b44f58
-C:\Users\dmr85\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|5a52eb4a-a6e4-4ca2-abc5-2ae88e2eac63
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|9e7bf37f-5f88-415b-9931-34f081dc3765
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b00856ab-1ec3-410d-8e5b-3261e4a830e9
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|b6757aed-656a-48fb-8dfb-876ceb62cc38
+C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\EEG_Project_Demo.cyprj|c38ad3cd-f5c3-411f-9dff-0c3abad7f9a0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|7191cc20-957e-4bef-ae6b-62c2fa1d1294
+C:\Users\dmr85\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|e6ea51dd-16e0-4d92-aa15-7c99212669ae
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|9eeeb14b-da1d-4331-9c85-4cbe93f5243d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|472ce3f8-5339-45cf-9482-85d5744ec7e1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|b961ca3e-8ba8-43d7-ab07-ddae6c2673f0

@@ -79,6 +79,18 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\ble_eventHandler.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\ble_custom.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\ble_custom.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_CSHL.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_CSHL.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_TunerHelper.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_TunerHelper.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_SMS.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_SMS.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_PVT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_IP.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\red.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\red.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\red_aliases.h</File>
@@ -94,6 +106,11 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Clock_1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\ble_bless_isr.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\ble_bless_isr.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_SampleClk.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_SampleClk.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_Sns_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_SenseClk.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\capsense_SenseClk.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cy_em_eeprom.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cy_em_eeprom.h</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">Generated_Source\PSoC4\cm0gcc.ld</File>
@@ -150,6 +167,38 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Pin_MISO.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Pin_MISO_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Pin_MISO_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_RESET.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_RESET.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_RESET_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_RESET_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_START.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_START.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_START_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_START_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_PWDN.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_PWDN.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_PWDN_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_PWDN_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_DRDY.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_DRDY.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_DRDY_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_DRDY_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_2_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_2_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_3.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_3.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_3_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_3_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_4.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_4.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_4_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\PIN_ADS1299_GPIO_4_PM.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\Export\ARM_GCC_Generic\BLE_v3_50">
@@ -157,14 +206,29 @@
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\BLE_v3_50\gccCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
         </Files>
       </Folder>
+      <Folder BuildType="STRICT" Path="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\Export\ARM_GCC_Generic\CapSense_CSD_P4_v2_60">
+        <Files Root="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn">
+          <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\CapSense_CSD_P4_v2_60\CapsenseP4Library_GCC.a</File>
+        </Files>
+      </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\Export\ARM_MDK_Generic\BLE_v3_50">
         <Files Root="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn">
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\BLE_v3_50\mdkCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
         </Files>
       </Folder>
+      <Folder BuildType="STRICT" Path="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\Export\ARM_MDK_Generic\CapSense_CSD_P4_v2_60">
+        <Files Root="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn">
+          <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\CapSense_CSD_P4_v2_60\CapsenseP4Library_MDK.a</File>
+        </Files>
+      </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\Export\ARM_IAR_Generic\BLE_v3_50">
         <Files Root="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn">
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\BLE_v3_50\gccCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
+        </Files>
+      </Folder>
+      <Folder BuildType="STRICT" Path="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\Export\ARM_IAR_Generic\CapSense_CSD_P4_v2_60">
+        <Files Root="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn">
+          <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\CapSense_CSD_P4_v2_60\CapsenseP4Library_IAR.a</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">

@@ -69,8 +69,57 @@
   <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\Pin_MISO_PM.c" value="SOURCE_C;CortexM0;;;;Pin_MISO" />
   <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\Clock_2.c" value="SOURCE_C;CortexM0;;;;Clock_2" />
   <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\Clock_2.h" value="HEADER;;;;;Clock_2" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_RESET.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_RESET" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_RESET.h" value="HEADER;;;;;PIN_ADS1299_RESET" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_RESET_aliases.h" value="HEADER;;;;;PIN_ADS1299_RESET" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_RESET_PM.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_RESET" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_START.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_START" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_START.h" value="HEADER;;;;;PIN_ADS1299_START" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_START_aliases.h" value="HEADER;;;;;PIN_ADS1299_START" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_START_PM.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_START" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_PWDN.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_PWDN" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_PWDN.h" value="HEADER;;;;;PIN_ADS1299_PWDN" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_PWDN_aliases.h" value="HEADER;;;;;PIN_ADS1299_PWDN" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_PWDN_PM.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_PWDN" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_DRDY.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_DRDY" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_DRDY.h" value="HEADER;;;;;PIN_ADS1299_DRDY" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_DRDY_aliases.h" value="HEADER;;;;;PIN_ADS1299_DRDY" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_DRDY_PM.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_DRDY" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_1.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_GPIO_1" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_1.h" value="HEADER;;;;;PIN_ADS1299_GPIO_1" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_1_aliases.h" value="HEADER;;;;;PIN_ADS1299_GPIO_1" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_1_PM.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_GPIO_1" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_2.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_GPIO_2" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_2.h" value="HEADER;;;;;PIN_ADS1299_GPIO_2" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_2_aliases.h" value="HEADER;;;;;PIN_ADS1299_GPIO_2" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_2_PM.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_GPIO_2" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_3.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_GPIO_3" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_3.h" value="HEADER;;;;;PIN_ADS1299_GPIO_3" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_3_aliases.h" value="HEADER;;;;;PIN_ADS1299_GPIO_3" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_3_PM.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_GPIO_3" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_4.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_GPIO_4" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_4.h" value="HEADER;;;;;PIN_ADS1299_GPIO_4" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_4_aliases.h" value="HEADER;;;;;PIN_ADS1299_GPIO_4" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\PIN_ADS1299_GPIO_4_PM.c" value="SOURCE_C;CortexM0;;;;PIN_ADS1299_GPIO_4" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense.c" value="SOURCE_C;CortexM0;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense.h" value="HEADER;;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_PM.c" value="SOURCE_C;CortexM0;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_CSHL.c" value="SOURCE_C;CortexM0;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_CSHL.h" value="HEADER;;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_INT.c" value="SOURCE_C;CortexM0;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_TunerHelper.c" value="SOURCE_C;CortexM0;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_TunerHelper.h" value="HEADER;;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_SMS.c" value="SOURCE_C;CortexM0;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_SMS.h" value="HEADER;;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_PVT.h" value="HEADER;;;;;capsense" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_IP.h" value="HEADER;;;;;capsense" />
   <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\ble_bless_isr.c" value="SOURCE_C;CortexM0;;;;ble_bless_isr" />
   <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\ble_bless_isr.h" value="HEADER;;;;;ble_bless_isr" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_SampleClk.c" value="SOURCE_C;CortexM0;;;;capsense_SampleClk" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_SampleClk.h" value="HEADER;;;;;capsense_SampleClk" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_Sns_aliases.h" value="HEADER;;;;;capsense_Sns" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_SenseClk.c" value="SOURCE_C;CortexM0;;;;capsense_SenseClk" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\capsense_SenseClk.h" value="HEADER;;;;;capsense_SenseClk" />
   <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM0;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\cy_em_eeprom.h" value="HEADER;;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG_Workspace\EEGfirmware\EEG_Project_Demo.cydsn\codegentemp\cm0gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />

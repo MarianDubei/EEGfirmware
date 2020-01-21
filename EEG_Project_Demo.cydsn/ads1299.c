@@ -181,7 +181,7 @@ ads1299_error_t ads1299_wreg(uint8_t chip_select, uint8_t reg_addr, uint8_t reg_
 	
 	/* Second byte: number of registers to write (1) */
 	ads1299_send_byte_no_cs(0x00);
-	
+
 	/* Third byte: write register value */
 	ads1299_send_byte_no_cs(reg_val_to_write);
 		
@@ -268,7 +268,7 @@ ads1299_error_t ads1299_rdata24_packet(uint8_t chip_select, volatile uint32_t sa
 
 ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint8_t status_array[], volatile uint8_t data_array[][MAX_EEG_CHANNELS][3])
 {
-	#if UC3
+	//#if UC3
 	volatile uint8_t channel_idx;
 	uint8_t sigtemp[3];
 	
@@ -291,14 +291,14 @@ ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t s
 	
 	spi_unselectChip(SPI_ADDRESS, chip_select);
 	
-	#else
-	#endif	/* #if UC3 */
+	//#else
+	//#endif	/* #if UC3 */
 	return ADS1299_STATUS_OK;
 }
 
 ads1299_error_t ads1299_rdata32_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint32_t status, volatile int32_t data_array[][MAX_EEG_CHANNELS])
 {
-	#if UC3
+	//#if UC3
 	volatile uint8_t channel_idx;
 	union {
 		uint32_t raw;
@@ -330,8 +330,8 @@ ads1299_error_t ads1299_rdata32_generic(uint8_t chip_select, volatile uint32_t s
 	
 	spi_unselectChip(SPI_ADDRESS, chip_select);
 	
-	#else
-	#endif	/* #if UC3 */
+	//#else
+	//#endif	/* #if UC3 */
 	return ADS1299_STATUS_OK;
 }
 

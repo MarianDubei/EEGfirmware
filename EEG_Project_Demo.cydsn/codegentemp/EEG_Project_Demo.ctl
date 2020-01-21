@@ -1,6 +1,6 @@
 -- ======================================================================
 -- EEG_Project_Demo.ctl generated from EEG_Project_Demo
--- 12/24/2019 at 23:53
+-- 01/21/2020 at 02:31
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 
