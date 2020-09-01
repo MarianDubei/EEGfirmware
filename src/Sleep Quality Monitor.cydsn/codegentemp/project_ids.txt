@@ -1,0 +1,6 @@
+C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj|6a7aaa41-a541-4d67-8738-20c6e42dbdce
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|3116fbdb-8967-4fc9-819c-311100667460
+C:\Users\dmr85\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|2dd74bc2-0c59-4df7-a15f-531dadfb5b93
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|36b8f1ee-65bd-41e7-9fc2-a9c5bcc3c2f0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|c79b84f8-1ad6-472f-af67-c857bde51c99
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|d3aa4c95-de39-4847-8b73-e30cd9d46633

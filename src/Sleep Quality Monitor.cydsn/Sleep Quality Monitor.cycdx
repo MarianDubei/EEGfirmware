@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
+  <block name="SPI_CLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="UART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+    <block name="rx_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="rx" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="cts_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="SCB" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="SCB_IRQ" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="clock_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="SCBCLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="ZeroTerminal_7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="tx" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="or_sclk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  </block>
+  <block name="PIN_ADS1299_RESET" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="PIN_ADS1299_START" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="PIN_ADS1299_CLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cydff_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="not_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="PIN_ADS1299_CLKSEL" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="CLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="PIN_ADS1299_SCLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="PIN_ADS1299_DIN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="BLE" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+    <block name="IncludeBleLibs" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="bless_isr" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="cy_mxs40_ble" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  </block>
+  <block name="SPI" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+    <block name="mosi_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="sclk_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="SCB_IRQ" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="miso_m_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="select_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="ZeroTerminal_7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="clock_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="SCB" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="or_sclk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  </block>
+  <block name="PIN_ADS1299_DOUT" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="PIN_ADS1299_GPIO" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="PIN_ADS1299_PWDN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="PIN_ADS1299_CS" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="PIN_ADS1299_DRDY" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+</blockRegMap>

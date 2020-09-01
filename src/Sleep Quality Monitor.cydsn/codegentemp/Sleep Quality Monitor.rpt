@@ -1,0 +1,235 @@
+Loading plugins phase: Elapsed time ==> 0s.213ms
+<CYPRESSTAG name="CyDsfit arguments...">
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj -d CYBLE-416045-02 -s C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Generated_Source\PSoC6 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+</CYPRESSTAG>
+<CYPRESSTAG name="Design elaboration results...">
+</CYPRESSTAG>
+Elaboration phase: Elapsed time ==> 2s.191ms
+<CYPRESSTAG name="HDL generation results...">
+</CYPRESSTAG>
+HDL generation phase: Elapsed time ==> 0s.088ms
+<CYPRESSTAG name="Synthesis results...">
+
+     | | | | | | |
+   _________________
+  -|               |-
+  -|               |-
+  -|               |-
+  -|    CYPRESS    |-
+  -|               |-
+  -|               |-   Warp Verilog Synthesis Compiler: Version 6.3 IR 41
+  -|               |-   Copyright (C) 1991-2001 Cypress Semiconductor
+   |_______________|
+     | | | | | | |
+
+======================================================================
+Compiling:  Sleep Quality Monitor.v
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj -dcpsoc3 Sleep Quality Monitor.v -verilog
+======================================================================
+
+======================================================================
+Compiling:  Sleep Quality Monitor.v
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj -dcpsoc3 Sleep Quality Monitor.v -verilog
+======================================================================
+
+======================================================================
+Compiling:  Sleep Quality Monitor.v
+Program  :   vlogfe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj -dcpsoc3 -verilog Sleep Quality Monitor.v
+======================================================================
+
+vlogfe V6.3 IR 41:  Verilog parser
+Tue Sep 01 23:10:34 2020
+
+
+======================================================================
+Compiling:  Sleep Quality Monitor.v
+Program  :   vpp
+Options  :    -yv2 -q10 Sleep Quality Monitor.v
+======================================================================
+
+vpp V6.3 IR 41:  Verilog Pre-Processor
+Tue Sep 01 23:10:34 2020
+
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cydff_v1_30\cydff_v1_30.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'
+
+vpp:  No errors.
+
+Library 'work' => directory 'lcpsoc3'
+General_symbol_table
+General_symbol_table
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Using control file 'Sleep Quality Monitor.ctl'.
+
+vlogfe:  No errors.
+
+
+======================================================================
+Compiling:  Sleep Quality Monitor.v
+Program  :   tovif
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj -dcpsoc3 -verilog Sleep Quality Monitor.v
+======================================================================
+
+tovif V6.3 IR 41:  High-level synthesis
+Tue Sep 01 23:10:35 2020
+
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\Sleep Quality Monitor.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\Sleep Quality Monitor.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cydff_v1_30\cydff_v1_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'.
+
+tovif:  No errors.
+
+
+======================================================================
+Compiling:  Sleep Quality Monitor.v
+Program  :   topld
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj -dcpsoc3 -verilog Sleep Quality Monitor.v
+======================================================================
+
+topld V6.3 IR 41:  Synthesis and optimization
+Tue Sep 01 23:10:35 2020
+
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\Sleep Quality Monitor.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\Sleep Quality Monitor.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cydff_v1_30\cydff_v1_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+
+----------------------------------------------------------
+Detecting unused logic.
+----------------------------------------------------------
+    User names
+	\SPI:Net_28\
+	\SPI:Net_29\
+	Net_108
+	Net_119
+	Net_120
+	Net_121
+	Net_122
+	\UART:Net_22\
+	\UART:Net_23\
+	Net_124
+	Net_125
+	Net_126
+	Net_131
+	Net_132
+
+
+Deleted 14 User equations/components.
+Deleted 0 Synthesized equations/components.
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+Aliasing \SPI:sclk_s_wire\ to zero
+Aliasing \SPI:select_s_wire\ to zero
+Aliasing \SPI:mosi_s_wire\ to zero
+Aliasing \UART:cts_wire\ to zero
+Removing Lhs of wire \SPI:clock_wire\[6] = Net_100[7]
+Removing Lhs of wire \SPI:sclk_s_wire\[19] = zero[12]
+Removing Lhs of wire \SPI:select_s_wire\[24] = zero[12]
+Removing Lhs of wire \SPI:miso_m_wire\[26] = Net_11[33]
+Removing Lhs of wire \SPI:mosi_s_wire\[27] = zero[12]
+Removing Rhs of wire Net_12[36] = \SPI:mosi_m_wire\[25]
+Removing Rhs of wire Net_13[37] = \SPI:sclk_m_wire\[18]
+Removing Rhs of wire Net_14[38] = \SPI:select_m_wire_0\[23]
+Removing Lhs of wire \UART:clock_wire\[88] = \UART:Net_847\[87]
+Removing Lhs of wire \UART:rx_wire\[100] = \UART:Net_1172\[97]
+Removing Lhs of wire \UART:cts_wire\[101] = zero[12]
+Removing Rhs of wire Net_142[125] = cydff_1[135]
+Removing Lhs of wire cydff_1D[137] = Net_136[136]
+
+------------------------------------------------------
+Aliased 0 equations, 13 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+Substituting virtuals - pass 1:
+
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 0 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 3.
+----------------------------------------------------------
+
+topld:  No errors.
+
+CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp
+Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj" -dcpsoc3 "Sleep Quality Monitor.v" -verilog
+</CYPRESSTAG>
+Warp synthesis phase: Elapsed time ==> 1s.419ms
+<CYPRESSTAG name="Fitter results...">
+<CYPRESSTAG name="Fitter startup details...">
+cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Tuesday, 01 September 2020 23:10:36
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj -d CYBLE-416045-02 Sleep Quality Monitor.v -verilog
+</CYPRESSTAG>
+<CYPRESSTAG name="Design parsing">
+Design parsing phase: Elapsed time ==> 0s.765ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Tech Mapping">
+<CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
+<CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
+    Digital Clock 0: Automatic-assigning  clock 'CLK'. Fanout=1, Signal=Net_133_digital
+    Fixed Function Clock 0: Automatic-assigning  clock 'SPI_CLK'. Signal=Net_100_ff0
+    Fixed Function Clock 1: Automatic-assigning  clock 'UART_SCBCLK'. Signal=\UART:Net_847_ff1\
+<CYPRESSTAG name="UDB Clock/Enable Remapping Results">
+</CYPRESSTAG>
+</CYPRESSTAG>
+Warning: pft.M0127: When a BLE component is configured for DeepSleep, either the WCO or the PILO must be enabled and selected as the source of LFCLK. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: SCB[6].uart_cts. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: SCB[6].spi_select[0]. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWCLK_TCLK(0) at location P6[7] prevents usage of special purposes: SCB[8].spi_select[0]. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWDIO_TMS(0) at location P6[6] prevents usage of special purposes: SCB[6].uart_rts. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWDIO_TMS(0) at location P6[6] prevents usage of special purposes: SCB[6].spi_clk. (App=cydsfit)
+Info: plm.M0038: The pin named CY_CPUSS_SWJ_SWDIO_TMS(0) at location P6[6] prevents usage of special purposes: SCB[8].spi_clk. (App=cydsfit)
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+<CYPRESSTAG name="Duplicate Macrocell detection">
+</CYPRESSTAG>
