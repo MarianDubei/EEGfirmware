@@ -28,7 +28,8 @@ Functions we used:
  - main() - main loop, where we get data, update it in infinite loop and process BLE events;
 ___
 ## Components used in our PSoC Creator Project
-![TopDesign.cysch](https://raw.githubusercontent.com/MarianDubei/EEGfirmware/master/TopDesign.png)
+ - BLE 5.0
+ - SPI Master
 ___
 ## References
 [ADS1299 Datasheet](http://www.ti.com/lit/ds/symlink/ads1299.pdf) |
