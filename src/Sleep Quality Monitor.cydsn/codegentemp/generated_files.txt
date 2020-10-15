@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<fileSet version="1" anchorPath="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp" xsi:schemaLocation="http://cypress.com/xsd/cypathdictionary cypathdictionary.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cypress.com/xsd/cypathdictionary">
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cyfitter_cfg.h" value="HEADER;;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cyfitter_sysint_cfg.h" value="HEADER;;;;;Pins and Interrupts" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cyfitter_sysint_cfg.c" value="SOURCE_C;CortexM0p,CortexM4;;;;Pins and Interrupts" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cyfitter_cfg.c" value="SOURCE_C;CortexM0p;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cymetadata.c" value="SOURCE_C;CortexM0p,CortexM4;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cydevice_trm.h" value="HEADER;;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cydevicegnu_trm.inc" value="HEADER;;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cydevicerv_trm.inc" value="HEADER;;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cydeviceiar_trm.inc" value="HEADER;;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cyfitter.h" value="HEADER;;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cyfitter_gpio.h" value="HEADER;;;;;Pins and Interrupts" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cyfitter_sysint.h" value="HEADER;;;;;Pins and Interrupts" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cydisabledsheets.h" value="HEADER;;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\BLE.h" value="HEADER;;;;;BLE" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\BLE.c" value="SOURCE_C;CortexM0p,CortexM4;;;;BLE" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\BLE_config.c" value="SOURCE_C;CortexM0p,CortexM4;;;;BLE" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\BLE_config.h" value="HEADER;;;;;BLE" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\BLE_custom_config.c" value="SOURCE_C;CortexM0p,CortexM4;;;;BLE" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\SPI.c" value="SOURCE_C;CortexM0p,CortexM4;;;;SPI" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\SPI.h" value="HEADER;;;;;SPI" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\UART.c" value="SOURCE_C;CortexM0p,CortexM4;;;;UART" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\UART.h" value="HEADER;;;;;UART" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\CLK.h" value="HEADER;;;;;CLK" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\CLK_1.h" value="HEADER;;;;;CLK_1" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\UART_SCBCLK.h" value="HEADER;;;;;UART_SCBCLK" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\project.h" value="OTHER;;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cycodeshareimport.ld" value="OTHER;;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cycodeshareexport.ld" value="OTHER;;;;;" />
+  <file name="C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\codegentemp\cycodeshareimport.scat" value="OTHER;;;;;" />
+</fileSet>

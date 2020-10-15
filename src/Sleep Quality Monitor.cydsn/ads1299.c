@@ -51,28 +51,44 @@ extern "C" {
 ads1299_error_t	ads1299_device_init(uint8_t chip_select, uint8_t init_regs)
 {
 	#if UC3
-	/* Power cycle ADS1299 */
-	gpio_clr_gpio_pin(ADS1299_PIN_PWDN);
-	delay_us(20);
-	gpio_set_gpio_pin(ADS1299_PIN_PWDN);
+        
+    gpio_set_gpio_pin(ADS1299_PIN_CLKSEL);
     
+	/* Power cycle ADS1299 */
+	//gpio_clr_gpio_pin(ADS1299_PIN_PWDN);
+	//CyDelay(1000);
+	gpio_set_gpio_pin(ADS1299_PIN_PWDN);
+    //CyDelay(1);
+    
+    gpio_set_gpio_pin(ADS1299_PIN_RESET);
+	CyDelay(1000);
     gpio_clr_gpio_pin(ADS1299_PIN_RESET);
-	delay_us(20);
+	CyDelay(1000);
 	gpio_set_gpio_pin(ADS1299_PIN_RESET);
-	
+    CyDelay(10);
+    //gpio_clr_gpio_pin(ADS1299_PIN_RESET);
+	//CyDelay(1);
+    
 	/* Allow oscillator warm-up */
-	delay_ms(1000);
+	CyDelay(1000);
 	
+    spi_selectChip(SPI_ADDRESS, chip_select);
+    CyDelay(1000);
+	spi_unselectChip(SPI_ADDRESS, chip_select);
+    CyDelay(500);
     
 	/* Tell chip to exit continuous data mode */
 	ads1299_send_byte(chip_select, ADS1299_OPC_SDATAC);
-
+    CyDelay(10);
+    ads1299_send_byte(chip_select, ADS1299_OPC_STOP);
+    //ads1299_hard_stop_conversion();
+    CyDelay(10);
     /* Stop taking conversions; apparently not done automatically */
-	//ads1299_send_byte(chip_select, ADS1299_OPC_STOP);
- 	
+ 	    
+    
 	if (init_regs) 
 	{
-		/* Write to GPIO register, set all pins to driven-low output */
+        /* Write to GPIO register, set all pins to driven-low output */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_GPIO, ADS1299_REG_GPIO_GPIOC4_OUTPUT |
 		ADS1299_REG_GPIO_GPIOD4_LOW    |
 		ADS1299_REG_GPIO_GPIOC3_OUTPUT |
@@ -127,12 +143,12 @@ ads1299_error_t	ads1299_device_init(uint8_t chip_select, uint8_t init_regs)
 		ADS1299_REG_CHNSET_GAIN_24			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
-		/* Write to CH7 settings register, set as normal input, gain 24 */
+		/* Write to CH5 settings register, set as normal input, gain 24 */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH7SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
 		ADS1299_REG_CHNSET_GAIN_24			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
-		/* Write to CH8 settings register, set as normal input, gain 24 */
+		/* Write to CH6 settings register, set as normal input, gain 24 */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH8SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
 		ADS1299_REG_CHNSET_GAIN_24			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
@@ -141,6 +157,11 @@ ads1299_error_t	ads1299_device_init(uint8_t chip_select, uint8_t init_regs)
 		/* Write to MISC1 register, SRB1 on (ref electrode) */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_MISC1, ADS1299_REG_MISC1_SRB1_ON);
 	} 		
+    CyDelay(100);
+    uint8_t reg_val[1];
+    ads1299_rreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CONFIG3, reg_val);
+    printf("regval %x ", reg_val[0]);
+    
 	return ADS1299_STATUS_OK;
 	#else
 	#endif /* #if UC3 */
@@ -150,53 +171,64 @@ ads1299_error_t	ads1299_device_init(uint8_t chip_select, uint8_t init_regs)
 
 /* REGISTER READ/WRITE FUNCTIONS *****************************************************************************************************************/
 
-ads1299_error_t ads1299_rreg(uint8_t chip_select, uint8_t reg_addr, uint8_t* read_reg_val_ptr)
+ads1299_error_t ads1299_rreg(uint8_t chip_select, uint8_t reg_addr, uint8_t read_reg_val_arr[])
 {
-	#if UC3
-	uint8_t read_data[1];
 		
+	ads1299_send_byte(chip_select, ADS1299_OPC_SDATAC);
+    //ads1299_hard_stop_conversion();
+    ads1299_soft_stop_conversion(chip_select);
 	spi_selectChip(SPI_ADDRESS, chip_select);
-	
+    
+    //CyDelay(1);
+    
+    /*SPI_Write(ADS1299_OPC_RREG | reg_addr);
+    SPI_Write(0x00);
+    SPI_Write(0x00);
+    *read_reg_val_arr = SPI_Read();*/
+    
+    uint8_t tx_buf[] = {ADS1299_OPC_RREG | reg_addr, 0x00, 0xFF};
+    spi_write_packet(tx_buf, 3);
 	/* First byte: read command for specified register */
-	ads1299_send_byte_no_cs(ADS1299_OPC_RREG | reg_addr);
-	
+	//ads1299_send_byte(chip_select, ADS1299_OPC_RREG | reg_addr);
+	    
+    //CyDelay(1);
+        
 	/* Second byte: Read only 1 register (send n-1, where n is number of registers to read) */
-	ads1299_send_byte_no_cs(0x00);
+	//ads1299_send_byte(chip_select, 0x00);
+    
+    //CyDelay(1);
 	
-	/* Dummy byte to clock in data */
-	ads1299_send_byte_no_cs(DUMMY_BYTE);
-	
-	delay_us(10);
-	spi_unselectChip(SPI_ADDRESS, chip_select);
-	
-	/* Read SPI RX register */
-	spi_get(SPI_ADDRESS, read_data);
-	*read_reg_val_ptr = (uint8_t) read_data;	
-		
+    //uint8_t tx_buf[] = {ADS1299_OPC_RREG | reg_addr, 0x00};
+    //spi_write_packet(tx_buf, 2);
+	/* Dummy byte to clock in data and read RX register */
+    //spi_read_packet(read_reg_val_arr, 1);
+    
+    spi_unselectChip(SPI_ADDRESS, chip_select);
+    
 	return ADS1299_STATUS_OK;
-	#else
-	#endif /* #if UC3 */
 }
 
 ads1299_error_t ads1299_wreg(uint8_t chip_select, uint8_t reg_addr, uint8_t reg_val_to_write)
 {
-	#if UC3
-	spi_selectChip(SPI_ADDRESS, chip_select);
 	
+	//spi_selectChip(SPI_ADDRESS, chip_select);
+    uint8_t tx_buf[] = {ADS1299_OPC_WREG | reg_addr, 0x00, reg_val_to_write};
+    spi_write_packet(tx_buf, 3);
 	/* First byte: write command for specified register */
-	ads1299_send_byte_no_cs(ADS1299_OPC_WREG | reg_addr);
-	
+    //ads1299_send_byte(chip_select, ADS1299_OPC_WREG | reg_addr);
+    
+	//CyDelay(100);
 	/* Second byte: number of registers to write (1) */
-	ads1299_send_byte_no_cs(0x01);
-
+	//ads1299_send_byte(chip_select, 0x00);
+    
+    //CyDelay(100);
 	/* Third byte: write register value */
-	ads1299_send_byte_no_cs(reg_val_to_write);
+	//ads1299_send_byte(chip_select, reg_val_to_write);
 		
-	spi_unselectChip(SPI_ADDRESS, chip_select);
+	//spi_unselectChip(SPI_ADDRESS, chip_select);
 		
 	return ADS1299_STATUS_OK;
-	#else
-	#endif /* #if UC3 */
+	
 }
 
 /* DATA RETRIEVAL FUNCTIONS **********************************************************************************************************************/
@@ -222,13 +254,13 @@ ads1299_error_t ads1299_rdata32_packet(uint8_t chip_select, volatile uint32_t sa
 	/* Function assumes we've already sent RDATA command or are in RDATAC mode */
 		
 	/* Read in status word first (24 bits) */
-	spi_read_packet(SPI_ADDRESS, &statustemp.status[1]);
+	spi_read_packet(&statustemp.status[1], 3);
 	packet_ptr->eegstatus = statustemp.raw;
 	
 	/* Begin reading in data */	
 	for (channel_idx = 0; channel_idx < MAX_EEG_CHANNELS; channel_idx++)
 	{
-		spi_read_packet(SPI_ADDRESS, &sigtemp.data[1]);				
+		spi_read_packet(&sigtemp.data[1], 3);
 		packet_ptr->eegdata[sample_idx][channel_idx] = SIGN_EXT_24(sigtemp.raw);
 	}
 		
@@ -244,7 +276,7 @@ ads1299_error_t ads1299_rdata24_packet(uint8_t chip_select, volatile uint32_t sa
 	#if UC3
 	volatile uint8_t channel_idx;
 	
-	uint8_t temp[3];
+	uint8_t temp[27];
 	
 	/* Begin SPI comms */
 	spi_selectChip(SPI_ADDRESS, chip_select);
@@ -252,7 +284,7 @@ ads1299_error_t ads1299_rdata24_packet(uint8_t chip_select, volatile uint32_t sa
 	/* Function assumes we've already sent RDATA command or are in RDATAC mode */
 	
 	/* Read in status word first (24 bits) */
-	spi_read_packet(SPI_ADDRESS, temp);
+	spi_read_packet(temp, 3);
 	packet_ptr->eegstatus[0] = temp[0];
 	packet_ptr->eegstatus[1] = temp[1];
 	packet_ptr->eegstatus[2] = temp[2];
@@ -260,7 +292,7 @@ ads1299_error_t ads1299_rdata24_packet(uint8_t chip_select, volatile uint32_t sa
 	/* Begin reading in data */
 	for (channel_idx = 0; channel_idx < MAX_EEG_CHANNELS; channel_idx++)
 	{
-		spi_read_packet(SPI_ADDRESS, temp);
+		spi_read_packet(temp, 3);
 		packet_ptr->eegdata[sample_idx][channel_idx][0] = temp[0];
 		packet_ptr->eegdata[sample_idx][channel_idx][1] = temp[1];
 		packet_ptr->eegdata[sample_idx][channel_idx][2] = temp[2];
@@ -275,37 +307,43 @@ ads1299_error_t ads1299_rdata24_packet(uint8_t chip_select, volatile uint32_t sa
 
 ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t sample_idx, volatile uint8_t status_array[], volatile uint8_t data_array[][MAX_EEG_CHANNELS][3])
 {
-	//#if UC3
+	uint32_t transfer_status;
 	volatile uint8_t channel_idx;
-	uint8_t sigtemp[MAX_EEG_CHANNELS+1][3];
+	uint8_t sigtemp[27];
 	
 	/* Begin SPI comms */
 	spi_selectChip(SPI_ADDRESS, chip_select);
 	
 	/* Function assumes we've already sent RDATA command or are in RDATAC mode */
-	
 	// check if DRDY
-    while (spi_data_ready(SPI_ADDRESS)) {
-        
+    
+    
+    int j = 0;
+    while (spi_data_ready(SPI_ADDRESS) == 0) {
+        j++;
     }
-    printf("reading... ");
-	spi_read_packet(SPI_ADDRESS, *sigtemp);
-	
+    ads1299_soft_stop_conversion(chip_select);
+    
+	transfer_status = spi_read_packet(sigtemp, 27);
+    	
 	spi_unselectChip(SPI_ADDRESS, chip_select);
 	
+    ads1299_soft_start_conversion(chip_select);
+    
     // split data
     
-    status_array = sigtemp[0];
-    for (channel_idx = 0; channel_idx < MAX_EEG_CHANNELS+1; channel_idx++)
+    status_array[0] = sigtemp[0];
+    status_array[1] = sigtemp[1];
+    status_array[2] = sigtemp[2];
+    
+    
+    for (channel_idx = 0; channel_idx < MAX_EEG_CHANNELS; channel_idx++)
 	{
-		data_array[sample_idx][channel_idx][0] = sigtemp[channel_idx+1][0];
-		data_array[sample_idx][channel_idx][1] = sigtemp[channel_idx+1][1];
-		data_array[sample_idx][channel_idx][2] = sigtemp[channel_idx+1][2];
+		data_array[sample_idx][channel_idx][0] = sigtemp[3+channel_idx*3];
+		data_array[sample_idx][channel_idx][1] = sigtemp[3+channel_idx*3+1];
+		data_array[sample_idx][channel_idx][2] = sigtemp[3+channel_idx*3+2];
 	}
 	
-    
-	//#else
-	//#endif	/* #if UC3 */
 	return ADS1299_STATUS_OK;
 }
 
@@ -330,14 +368,14 @@ ads1299_error_t ads1299_rdata32_generic(uint8_t chip_select, volatile uint32_t s
 	/* Function assumes we've already sent RDATA command or are in RDATAC mode */
 	
 	/* Read in status word first (24 bits) */
-	spi_read_packet(SPI_ADDRESS, &statustemp.status[1]);
+	spi_read_packet(&statustemp.status[1], 3);
 	status = statustemp.raw;
 	
 	/* Begin reading in data */
 	/* Begin reading in data */
 	for (channel_idx = 0; channel_idx < MAX_EEG_CHANNELS; channel_idx++)
 	{
-		spi_read_packet(SPI_ADDRESS, &sigtemp.data[1]);
+		spi_read_packet(&sigtemp.data[1], 3);
 		data_array[sample_idx][channel_idx] = SIGN_EXT_24(sigtemp.raw);
 	}
 	

@@ -49,6 +49,7 @@ extern "C" {
 #include <project.h>
 #include "ads1299_spi_adapt.h"
 #include "comms.h"
+#include <stdio.h>
 
 /*************************************************************************************************************************************************
  *               Sampling Config                                                                                                       *
@@ -698,6 +699,23 @@ ads1299_error_t ads1299_rdata24_generic(uint8_t, volatile uint32_t, volatile uin
 /* INLINE FUNCTIONS ******************************************************************************************************************************/
 
 /**
+ *	\brief Send a single byte to the ADS1299 without manipulating chip select.
+ *
+ *	Use this function when multiple bytes need to be sent and you want the chip to remain selected
+ *	throughout the process.
+ *
+ * \pre Requires spi.h from the Atmel Software Framework and ads1299_spi_adapt.h.
+ * \param opcode The opcode to send.
+ * \return Zero if successful, or an error code if unsuccessful.
+ */
+
+static inline uint32_t ads1299_send_byte_no_cs(uint8_t opcode)
+{
+    uint8_t tx_buf[1] = {opcode};
+    return spi_write_packet(tx_buf, 1);
+}
+
+/**
  *	\brief Send a single opcode to the ADS1299.
  *
  * This function sends the specified byte to the ADS1299. Chip select is cleared (activated) and set
@@ -712,9 +730,7 @@ static inline ads1299_error_t ads1299_send_byte(uint8_t chip_select, uint8_t opc
 {
 	//#if UC3
 	spi_selectChip(SPI_ADDRESS, chip_select);
-	
 	ads1299_send_byte_no_cs(opcode);
-	
 	spi_unselectChip(SPI_ADDRESS, chip_select);
 	
 	return ADS1299_STATUS_OK;
@@ -776,12 +792,7 @@ static inline ads1299_error_t ads1299_wake(uint8_t chip_select)
  */
 static inline void ads1299_hard_start_conversion(void)
 {
-	//#if UC3
-	#ifdef ADS1299_PIN_START
 	gpio_set_gpio_pin(ADS1299_PIN_START);
-	#endif
-	//#else
-	//#endif
 }
 
 /**
@@ -863,12 +874,8 @@ static inline ads1299_error_t ads1299_soft_stop_conversion(uint8_t chip_select)
  */
 static inline ads1299_error_t ads1299_start_rdatac(uint8_t chip_select)
 {
-	//#if UC3
 	ads1299_send_byte(chip_select, ADS1299_OPC_RDATAC);
-	
 	return ADS1299_STATUS_OK;
-	//#else
-	//#endif
 }
 
 /**

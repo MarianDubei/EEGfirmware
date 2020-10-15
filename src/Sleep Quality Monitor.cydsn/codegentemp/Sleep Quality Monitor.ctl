@@ -1,6 +1,6 @@
 -- ======================================================================
 -- Sleep Quality Monitor.ctl generated from Sleep Quality Monitor
--- 09/01/2020 at 23:10
+-- 10/10/2020 at 11:57
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 
@@ -1158,7 +1158,7 @@ attribute port_location of *_[pP]20_4(0) : label is "PORT(20,4)";
 attribute port_location of *_[pP]20_5(0) : label is "PORT(20,5)";
 attribute port_location of *_[pP]20_6(0) : label is "PORT(20,6)";
 attribute port_location of *_[pP]20_7(0) : label is "PORT(20,7)";
--- PIN_ADS1299_SCLK
+-- sclk_m
 attribute port_location of [pP]0_0(0) : label is "PORT(0,0)";
 attribute port_location of [pP]0_1(0) : label is "PORT(0,1)";
 attribute port_location of [pP]0_2(0) : label is "PORT(0,2)";
@@ -1735,7 +1735,7 @@ attribute port_location of *_[pP]20_4(0) : label is "PORT(20,4)";
 attribute port_location of *_[pP]20_5(0) : label is "PORT(20,5)";
 attribute port_location of *_[pP]20_6(0) : label is "PORT(20,6)";
 attribute port_location of *_[pP]20_7(0) : label is "PORT(20,7)";
--- PIN_ADS1299_DIN
+-- ss0_m
 attribute port_location of [pP]0_0(0) : label is "PORT(0,0)";
 attribute port_location of [pP]0_1(0) : label is "PORT(0,1)";
 attribute port_location of [pP]0_2(0) : label is "PORT(0,2)";
@@ -2312,7 +2312,7 @@ attribute port_location of *_[pP]20_4(0) : label is "PORT(20,4)";
 attribute port_location of *_[pP]20_5(0) : label is "PORT(20,5)";
 attribute port_location of *_[pP]20_6(0) : label is "PORT(20,6)";
 attribute port_location of *_[pP]20_7(0) : label is "PORT(20,7)";
--- PIN_ADS1299_DOUT
+-- mosi_m
 attribute port_location of [pP]0_0(0) : label is "PORT(0,0)";
 attribute port_location of [pP]0_1(0) : label is "PORT(0,1)";
 attribute port_location of [pP]0_2(0) : label is "PORT(0,2)";
@@ -2889,7 +2889,7 @@ attribute port_location of *_[pP]20_4(0) : label is "PORT(20,4)";
 attribute port_location of *_[pP]20_5(0) : label is "PORT(20,5)";
 attribute port_location of *_[pP]20_6(0) : label is "PORT(20,6)";
 attribute port_location of *_[pP]20_7(0) : label is "PORT(20,7)";
--- PIN_ADS1299_CS
+-- miso_m
 attribute port_location of [pP]0_0(0) : label is "PORT(0,0)";
 attribute port_location of [pP]0_1(0) : label is "PORT(0,1)";
 attribute port_location of [pP]0_2(0) : label is "PORT(0,2)";

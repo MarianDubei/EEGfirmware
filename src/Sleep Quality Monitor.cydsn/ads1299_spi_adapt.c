@@ -14,7 +14,7 @@
 
 #include "ads1299_spi_adapt.h"
 
-#define RX_PACKET_SIZE  25
+#define RX_PACKET_SIZE  27
 #define ONE_PACKET_SIZE  1
 #define TRANSFER_ERROR        (0xFFUL)
 
@@ -57,23 +57,31 @@ cy_en_scb_spi_status_t spi_put(volatile uint8_t *spi, uint8_t opcode)
     uint8_t txBuffer[ONE_PACKET_SIZE];
     txBuffer[0] = opcode;
     printf("%x ", opcode);
-    return SPI_Transfer(txBuffer, NULL, ONE_PACKET_SIZE);
+    cy_en_scb_spi_status_t transfer_status;
+    transfer_status = SPI_Transfer(txBuffer, NULL, ONE_PACKET_SIZE);
+    //CyDelay(10);
+    return transfer_status;
 }
 
 cy_en_scb_spi_status_t spi_get(volatile uint8_t *spi, uint8_t rxBuffer[])
 {
     cy_en_scb_spi_status_t transferStatus;
     transferStatus = SPI_Transfer(NULL, rxBuffer, ONE_PACKET_SIZE);
+    //CyDelay(10);
     printf("%x ", rxBuffer[0]);
     return transferStatus;
 }
 
 void spi_selectChip(volatile uint8_t *spi, uint8_t chip_select)
 {   
+    gpio_clr_gpio_pin(ADS1299_PIN_CS);
+    // CyDelayUs(1);
 }
 
 void spi_unselectChip(volatile uint8_t *spi, uint8_t chip_select)
 {   
+    // CyDelayUs(1);
+    gpio_set_gpio_pin(ADS1299_PIN_CS);
 }
 
 void delay_s(int delay)
@@ -107,6 +115,12 @@ void gpio_set_gpio_pin(uint32_t pin)
         case ADS1299_PIN_RESET:
             Cy_GPIO_Set(PIN_ADS1299_RESET_0_PORT, PIN_ADS1299_RESET_0_NUM);
         break;
+        case ADS1299_PIN_CS:
+            Cy_GPIO_Set(SPI_ss0_m_0_PORT, SPI_ss0_m_0_NUM);
+        break;
+        case ADS1299_PIN_CLKSEL:
+            Cy_GPIO_Set(PIN_ADS1299_CLKSEL_0_PORT, PIN_ADS1299_CLKSEL_0_NUM);
+        break;
     }
 }
 
@@ -126,125 +140,150 @@ void gpio_clr_gpio_pin(uint32_t pin)
         case ADS1299_PIN_RESET:
             Cy_GPIO_Clr(PIN_ADS1299_RESET_0_PORT, PIN_ADS1299_RESET_0_NUM);
         break;
+        case ADS1299_PIN_CS:
+            Cy_GPIO_Clr(SPI_ss0_m_0_PORT, SPI_ss0_m_0_NUM);
+        break;
     }
 }
 
-uint32_t spi_read_packet(volatile uint8_t *spi, uint8_t data[])
-{
-	uint32_t count = 0;
-    uint8_t tempVar;
-    uint32_t timeOutStatusCheck = 1000UL; /* Timeout 1 sec */
-    uint8_t statusRxBuf[RX_PACKET_SIZE];
-    cy_en_scb_spi_status_t errorStatus;
-    uint32_t status = TRANSFER_ERROR;
 
-	do
+uint32_t spi_write_packet(uint8_t txBuffer[], uint8_t packet_size)
+{
+ 
+    uint32_t status = TRANSFER_ERROR;
+    cy_en_scb_spi_status_t errorStatus;
+    uint8_t statusRxBuf[packet_size];
+    
+    do
     {
-        errorStatus = spi_get(spi, &tempVar);
-        printf("data received");
+        
+                
+        // Initiate SPI Master write and read transaction.
+        //printf(" %x ", txBuffer[0]);
+        errorStatus = SPI_Transfer(txBuffer, statusRxBuf, packet_size);
+        
+        /* If no error wait till master sends data in Tx FIFO */
         if(errorStatus == CY_SCB_SPI_SUCCESS)
         {
-            
-            uint32_t masterStatus;         
-            /* Timeout 1 sec */
+            uint32_t masterStatus;        
+            // Timeout 1 sec
             uint32_t timeOut = 1000UL;
             
-            /* Wait until master complete read transfer or time out has occured */
+            // Wait until master complete read transfer or time out has occured
             do
             {
                 masterStatus  = SPI_GetTransferStatus();
-                CyDelay(CY_SCB_WAIT_1_UNIT);
+                Cy_SysLib_Delay(CY_SCB_WAIT_1_UNIT);
                 timeOut--;
                 
-            } while ((0UL != (masterStatus & CY_SCB_SPI_TRANSFER_ACTIVE)) && (timeOut > 0UL) );
+            } while ((0UL != (masterStatus & CY_SCB_SPI_TRANSFER_ACTIVE)) && (timeOut > 0UL));
+            
+            if ((0UL == (MASTER_ERROR_MASK & masterStatus)) &&
+                (packet_size == SPI_GetNumTransfered()))
+            {
+                status = TRANSFER_CMPLT;
                 
-            if ((0UL == (MASTER_ERROR_MASK & masterStatus)) && (tempVar != 0xFF) )
-            {  
-                statusRxBuf[count] = (uint8_t)tempVar;
-                count++;
-         
-                if(count == RX_PACKET_SIZE)
-                {
-                    /* Check packet structure and set status */
-                    /*if((PACKET_SOP   == statusRxBuf[RX_PACKET_SOP_POS]) &&
-                        (PACKET_EOP   == statusRxBuf[RX_PACKET_EOP_POS]) &&
-                        (STS_CMD_DONE == statusRxBuf[RX_PACKET_STS_POS]) )
-                    {*/
-                        status = TRANSFER_CMPLT;
-                    
-                    //}
-                }
             }
             else 
             {
                 HandleError();
-            }
-        }     
+            } 
+        }
         
-        Cy_SysLib_Delay(CY_SCB_WAIT_1_UNIT);
-        timeOutStatusCheck--;
-        
-    }while((count < RX_PACKET_SIZE) && (timeOutStatusCheck > 0));
+    } while (status != TRANSFER_CMPLT);
     
-    if(timeOutStatusCheck == (0UL))
-    {
-        HandleError();       
-    }
-    
-    return status;
-}
-
-/**
- *	\brief Send a single byte to the ADS1299 without manipulating chip select.
- *
- *	Use this function when multiple bytes need to be sent and you want the chip to remain selected
- *	throughout the process.
- *
- * \pre Requires spi.h from the Atmel Software Framework and ads1299_spi_adapt.h.
- * \param opcode The opcode to send.
- * \return Zero if successful, or an error code if unsuccessful.
- */
-uint32_t ads1299_send_byte_no_cs(uint8_t opcode)
-{
-    
-    uint32_t status = TRANSFER_ERROR;
-    cy_en_scb_spi_status_t errorStatus;
-    
-    /* Initiate SPI Master write and read transaction. */
-    errorStatus = spi_put(SPI_ADDRESS, opcode);
-    
-    /* If no error wait till master sends data in Tx FIFO */
-    if(errorStatus == CY_SCB_SPI_SUCCESS)
-    {
-        uint32_t masterStatus;        
-        uint32_t timeOut = 1000UL;
-       
-        do
-        {
-            masterStatus  = SPI_GetTransferStatus();
-            Cy_SysLib_Delay(CY_SCB_WAIT_1_UNIT);
-            timeOut--;
-            //printf("test");
-        } while ((0UL != (masterStatus & CY_SCB_SPI_TRANSFER_ACTIVE)) && (timeOut > 0UL));
-    
-    }
-    
-    printf("%#08x ", errorStatus);   
     return (status);
 }
 
-            
-        /*
-        if ((0UL == (MASTER_ERROR_MASK & masterStatus)) &&
-            (TX_PACKET_SIZE == SPI_GetNumTransfered()))
+
+uint32_t spi_read_packet(uint8_t data[], uint8_t packet_size)
+{
+    uint32_t status = TRANSFER_ERROR;
+    
+    /*printf("in_s ");
+    for (int i = 0; i<packet_size; i++) {
+        printf("%x ", data[i]);
+    }
+    printf("in_end ");*/
+    
+    do
+    {
+    	uint8_t count = -1;
+        uint8_t tempVar = 0;
+        uint32_t timeOutStatusCheck = 1000UL; /* Timeout 1 sec */
+        cy_en_scb_spi_status_t errorStatus;
+        
+        
+        /* Initiate SPI Master write and read transaction. Master will send one byte and receives one byte.
+           Received byte is checked whether valid status byte is received. Till valid 5 bytes are received or timeout
+           occurs, master will be sending dummy byte to slave. Valid bytes received is checked and status is set. */
+        do
         {
-            status = TRANSFER_CMPLT;
+            /*uint8_t tx_buf[packet_size];
+            for (int i=0;i<packet_size;i++){
+                tx_buf[i] = 0xFF;
+            }
+            errorStatus = SPI_Transfer(tx_buf, data, packet_size);*/
+            uint8_t tx = 0x00;
+            //SPI_Transfer(NULL, NULL, ONE_PACKET_SIZE);
+            errorStatus = SPI_Transfer(&tx, &tempVar, ONE_PACKET_SIZE);
             
-        }
-        else 
+            if(errorStatus == CY_SCB_SPI_SUCCESS)
+            {
+                uint32_t masterStatus;         
+                // Timeout 1 sec
+                uint32_t timeOut = 1000UL;
+                
+                // Wait until master complete read transfer or time out has occured
+                do
+                {
+                    masterStatus  = SPI_GetTransferStatus();
+                    Cy_SysLib_Delay(CY_SCB_WAIT_1_UNIT);
+                    timeOut--;
+                    
+                } while ((0UL != (masterStatus & CY_SCB_SPI_TRANSFER_ACTIVE)) && (timeOut > 0UL) );
+                
+                //if ((0UL == (MASTER_ERROR_MASK & masterStatus)) && (tempVar != 0xFF) )
+                if ((0UL == (MASTER_ERROR_MASK & masterStatus)))
+                {  
+                    /*if (count == 0){
+                        printf("out_s ");
+                    }
+                    printf("%x ", tempVar);*/
+                    data[count] = tempVar;
+                    count += 1;
+             
+                    if(count == packet_size)
+                    {  
+                        status = TRANSFER_CMPLT; 
+                        //UART_PutString(" got it ");
+                    }
+                }
+                else 
+                {
+                    HandleError();
+                }
+            }     
+            
+            Cy_SysLib_Delay(CY_SCB_WAIT_1_UNIT);
+            timeOutStatusCheck--;
+            
+        }while((count < packet_size) && (timeOutStatusCheck > 0));
+        
+        /*if(timeOutStatusCheck == (0UL))
         {
-            HandleError();
-        }  */
+            HandleError();       
+        }*/
+    } while (status != TRANSFER_CMPLT);
+    
+    printf("out_s ");
+    for (int i = 0; i<packet_size; i++) {
+        printf("%x ", data[i]);
+    }
+    printf("out_end     ");
+    
+    return status;
+}
 
 
 void HandleError(void)

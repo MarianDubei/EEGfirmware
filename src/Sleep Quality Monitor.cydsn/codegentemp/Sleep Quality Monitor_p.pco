@@ -1,0 +1,31 @@
+dont_use_location p4usbcell -1 -1 0
+dont_use_location USB -1 -1 0
+dont_use_location usbcell -1 -1 0
+set_location "Net_142" macrocell 1 2 0 0
+set_io "PIN_ADS1299_GPIO(3)" iocell 10 3
+set_io "\UART:rx(0)\" iocell 5 0
+set_location "\UART:SCB_IRQ\" interrupt -1 -1 46
+set_location "\BLE:bless_isr\" interrupt -1 -1 24
+set_location "\SPI:SCB_IRQ\" interrupt -1 -1 43
+set_io "\SPI:miso_m(0)\" iocell 9 1
+set_io "PIN_ADS1299_GPIO(2)" iocell 10 2
+set_location "\BLE:cy_mxs40_ble\" BLE -1 -1 0
+set_location "ClockBlock" Clock -1 -1 0
+set_location "ClockGenBlock" CLK_GEN -1 -1 0
+set_location "\UART:SCB\" SCB -1 -1 5
+set_io "\SPI:mosi_m(0)\" iocell 9 0
+set_io "\SPI:sclk_m(0)\" iocell 9 2
+set_io "CY_CPUSS_SWJ_SWCLK_TCLK(0)" iocell 6 7
+set_io "\SPI:ss0_m(0)\" iocell 9 3
+set_io "PIN_ADS1299_GPIO(0)" iocell 10 0
+set_io "PIN_ADS1299_GPIO(1)" iocell 10 1
+set_io "PIN_ADS1299_CLK(0)" iocell 5 5
+set_io "CY_CPUSS_SWJ_SWDIO_TMS(0)" iocell 6 6
+set_io "\UART:tx(0)\" iocell 5 1
+set_io "PIN_ADS1299_PWDN(0)" iocell 10 4
+set_io "PIN_ADS1299_RESET(0)" iocell 10 5
+set_io "PIN_ADS1299_START(0)" iocell 10 6
+set_io "PIN_ADS1299_CLKSEL(0)" iocell 5 6
+set_location "CPUSS" CPUSS -1 -1 0
+set_location "\SPI:SCB\" SCB -1 -1 2
+set_io "PIN_ADS1299_DRDY(0)" iocell 5 4
