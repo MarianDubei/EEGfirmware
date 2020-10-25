@@ -107,9 +107,7 @@ ads1299_error_t	ads1299_device_init(uint8_t chip_select, uint8_t init_regs)
 		ADS1299_REG_CONFIG2_CAL_PULSE_FCLK_DIV_2_21);
 			
 		/* Write to CONFIG3, enable internal reference buffer, bias internally generated, bias buffer enabled */
-		ads1299_wreg(chip_select, ADS1299_REGADDR_CONFIG3, ADS1299_REG_CONFIG3_REFBUF_ENABLED |
-		ADS1299_REG_CONFIG3_BIASREF_INT    |
-		ADS1299_REG_CONFIG3_BIASBUF_ENABLED);
+		ads1299_wreg(chip_select, ADS1299_REGADDR_CONFIG3, ADS1299_REG_CONFIG3_REFBUF_ENABLED);
 		/* Reference settling time */
 		delay_ms(150);
 			
@@ -325,7 +323,8 @@ ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t s
     ads1299_soft_stop_conversion(chip_select);
     
 	transfer_status = spi_read_packet(sigtemp, 27);
-    	
+    
+    
 	spi_unselectChip(SPI_ADDRESS, chip_select);
 	
     ads1299_soft_start_conversion(chip_select);

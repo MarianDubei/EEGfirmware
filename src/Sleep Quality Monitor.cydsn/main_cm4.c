@@ -174,7 +174,7 @@ int main(void)
             // change 0 to idx for saving samples
         //ads1299_send_byte(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_OPC_RDATA);
         //UART_PutString(" reading ");    
-        //ads1299_rdata24_generic(SPI_ADS1299_MAIN_CHIPNUM, 0, spi_rx_ads1299_status, spi_rx_data_buffer);
+        ads1299_rdata24_generic(SPI_ADS1299_MAIN_CHIPNUM, 0, spi_rx_ads1299_status, spi_rx_data_buffer);
         
         /*int k = 0;
         while (spi_data_ready(SPI_ADS1299_MAIN_CHIPNUM) == 0) {
@@ -205,13 +205,13 @@ int main(void)
             
             // CRC
             //
-            
+        
             updateNumber(); 
 
             Cy_BLE_ProcessEvents();
             Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
-        
         }
+        
     }
 }
 

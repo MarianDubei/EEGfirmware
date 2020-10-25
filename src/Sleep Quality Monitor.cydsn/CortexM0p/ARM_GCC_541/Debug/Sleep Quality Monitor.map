@@ -290,21 +290,21 @@ Discarded input sections
  .text.spi_write_packet
                 0x00000000       0x7c .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .text.spi_read_packet
-                0x00000000       0xd4 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
+                0x00000000       0xc8 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .text.HandleError
                 0x00000000        0x4 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .rodata.str1.4
                 0x00000000       0x19 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
- .debug_info    0x00000000     0x163b .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
+ .debug_info    0x00000000     0x1628 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .debug_abbrev  0x00000000      0x2b6 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .debug_loc     0x00000000      0x687 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .debug_aranges
                 0x00000000       0x78 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .debug_ranges  0x00000000       0x68 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
- .debug_line    0x00000000      0x52f .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
+ .debug_line    0x00000000      0x529 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .debug_str     0x00000000      0xf6f .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .comment       0x00000000       0x6f .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
- .debug_frame   0x00000000      0x168 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
+ .debug_frame   0x00000000      0x164 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .ARM.attributes
                 0x00000000       0x32 .\CortexM0p\ARM_GCC_541\Debug\ads1299_spi_adapt.o
  .text          0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\stdio_user.o

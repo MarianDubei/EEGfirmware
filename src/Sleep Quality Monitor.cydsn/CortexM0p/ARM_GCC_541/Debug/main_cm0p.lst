@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
   13:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
   14:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * You may obtain a copy of the License at
   15:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 2
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 2
 
 
   16:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
   70:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
   71:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   72:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 3
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 3
 
 
   73:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  127:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  128:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
  129:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 4
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 4
 
 
  130:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** {
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
   88 0028 21060000 		.4byte	.LASF0
   89 002c 02       		.uleb128 0x2
   90 002d 01       		.byte	0x1
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 5
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 5
 
 
   91 002e 08       		.byte	0x8
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  145 0097 03       		.uleb128 0x3
  146 0098 1F080000 		.4byte	.LASF13
  147 009c 04       		.byte	0x4
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 6
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 6
 
 
  148 009d 18       		.byte	0x18
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  202 0109 B8000000 		.4byte	0xb8
  203 010d 0C       		.byte	0xc
  204 010e 07       		.uleb128 0x7
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 7
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 7
 
 
  205 010f B0010000 		.4byte	.LASF23
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  259 017b 6A050000 		.4byte	.LASF32
  260 017f 05       		.byte	0x5
  261 0180 46       		.byte	0x46
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 8
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 8
 
 
  262 0181 97000000 		.4byte	0x97
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  316 01ed 97000000 		.4byte	0x97
  317 01f1 34       		.byte	0x34
  318 01f2 07       		.uleb128 0x7
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 9
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 9
 
 
  319 01f3 AD070000 		.4byte	.LASF42
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  373 025f 86040000 		.4byte	.LASF51
  374 0263 05       		.byte	0x5
  375 0264 5B       		.byte	0x5b
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 10
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 10
 
 
  376 0265 97000000 		.4byte	0x97
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  430 02d1 97000000 		.4byte	0x97
  431 02d5 54       		.byte	0x54
  432 02d6 07       		.uleb128 0x7
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 11
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 11
 
 
  433 02d7 4E010000 		.4byte	.LASF61
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  487 0343 45050000 		.4byte	.LASF70
  488 0347 05       		.byte	0x5
  489 0348 72       		.byte	0x72
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 12
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 12
 
 
  490 0349 97000000 		.4byte	0x97
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  544 03b5 97000000 		.4byte	0x97
  545 03b9 73       		.byte	0x73
  546 03ba 07       		.uleb128 0x7
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 13
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 13
 
 
  547 03bb 78020000 		.4byte	.LASF80
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  601 0427 B6040000 		.4byte	.LASF89
  602 042b 05       		.byte	0x5
  603 042c 8D       		.byte	0x8d
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 14
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 14
 
 
  604 042d B8000000 		.4byte	0xb8
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  658 0499 AD000000 		.4byte	0xad
  659 049d A6       		.byte	0xa6
  660 049e 07       		.uleb128 0x7
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 15
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 15
 
 
  661 049f BE050000 		.4byte	.LASF99
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  715 0508 04       		.byte	0x4
  716 0509 02       		.uleb128 0x2
  717 050a 01       		.byte	0x1
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 16
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 16
 
 
  718 050b 02       		.byte	0x2
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  772 0581 7E02     		.2byte	0x27e
  773 0583 B8000000 		.4byte	0xb8
  774 0587 14       		.byte	0x14
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 17
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 17
 
 
  775 0588 0E       		.uleb128 0xe
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  829 05fd 75070000 		.4byte	.LASF127
  830 0601 07       		.byte	0x7
  831 0602 7C02     		.2byte	0x27c
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 18
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 18
 
 
  832 0604 B8000000 		.4byte	0xb8
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  886 0679 BC050000 		.4byte	0x5bc
  887 067d 30       		.byte	0x30
  888 067e 0E       		.uleb128 0xe
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 19
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 19
 
 
  889 067f CB070000 		.4byte	.LASF119
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  943 06f1 04       		.byte	0x4
  944 06f2 F6060000 		.4byte	0x6f6
  945 06f6 16       		.uleb128 0x16
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 20
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 20
 
 
  946 06f7 E7040000 		.4byte	0x4e7
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1000 0023 3A       		.uleb128 0x3a
  1001 0024 0B       		.uleb128 0xb
  1002 0025 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 21
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 21
 
 
  1003 0026 0B       		.uleb128 0xb
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1057 005c 0B       		.uleb128 0xb
  1058 005d 0B       		.uleb128 0xb
  1059 005e 00       		.byte	0
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 22
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 22
 
 
  1060 005f 00       		.byte	0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1114 0095 0E       		.uleb128 0xe
  1115 0096 0D       		.uleb128 0xd
  1116 0097 00       		.byte	0
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 23
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 23
 
 
  1117 0098 03       		.uleb128 0x3
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1171 00d0 00       		.byte	0
  1172 00d1 00       		.byte	0
  1173 00d2 11       		.uleb128 0x11
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 24
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 24
 
 
  1174 00d3 34       		.uleb128 0x34
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1228 010e 49       		.uleb128 0x49
  1229 010f 13       		.uleb128 0x13
  1230 0110 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 25
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 25
 
 
  1231 0111 19       		.uleb128 0x19
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1281      01010101 
  1282              	.LASF54:
  1283 0000 70726F74 		.ascii	"protBusMasterMask\000"
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 26
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 26
 
 
  1283      4275734D 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1305      6E74385F 
  1305      7400
  1306              	.LASF83:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 27
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 27
 
 
  1307 00aa 70657269 		.ascii	"periDiv24_5CtlOffset\000"
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1327      57733046 
  1327      72657100 
  1328              	.LASF14:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 28
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 28
 
 
  1329 0162 696E7431 		.ascii	"int16_t\000"
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1351      20696E74 
  1351      00
  1352              	.LASF55:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 29
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 29
 
 
  1353 0219 63727970 		.ascii	"cryptoMemSize\000"
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1376              	.LASF50:
  1377 02b4 70617373 		.ascii	"passSarChannels\000"
  1377      53617243 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 30
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 30
 
 
  1377      68616E6E 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1399      69676E65 
  1399      6420696E 
  1399      7400
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 31
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 31
 
 
  1400              	.LASF121:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1420      00
  1421              	.LASF140:
  1422 0441 43795F53 		.ascii	"Cy_SysEnableCM4\000"
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 32
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 32
 
 
  1422      7973456E 
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1443              	.LASF17:
  1444 04fb 73697A65 		.ascii	"sizetype\000"
  1444      74797065 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 33
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 33
 
 
  1444      00
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1466      00
  1467              	.LASF107:
  1468 059d 666C6F61 		.ascii	"float\000"
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 34
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 34
 
 
  1468      7400
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1491              	.LASF47:
  1492 063f 73727373 		.ascii	"srssNumHfroot\000"
  1492      4E756D48 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 35
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 35
 
 
  1492      66726F6F 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1514 0743 70657269 		.ascii	"periDiv16CtlOffset\000"
  1514      44697631 
  1514      3643746C 
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 36
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 36
 
 
  1514      4F666673 
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1536      6172745F 
  1536      636F6E74 
  1537              	.LASF111:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 37
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 37
 
 
  1538 07f3 73746174 		.ascii	"status\000"
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 1
  1560      44697653 
  1560      656C506F 
  1561              	.LASF123:
-ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccEid53u.s 			page 38
+ARM GAS  C:\Users\dmr85\AppData\Local\Temp\ccQyNAON.s 			page 38
 
 
  1562 08a6 63795F73 		.ascii	"cy_stc_scb_uart_context\000"

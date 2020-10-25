@@ -259,6 +259,7 @@ extern "C" {
 
 #define CY_BLE_ADV_PKT_0_INDEX_FLAGS   (0x00u)
 #define CY_BLE_ADV_PKT_0_INDEX_LOCAL_NAME   (0x03u)
+#define CY_BLE_ADV_PKT_0_INDEX_SERVICE_UUID_128   (0x08u)
 #define CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX   (0x00u)
 
 
@@ -274,7 +275,7 @@ extern "C" {
 #define CY_BLE_CONFIG_GATT_MTU                      (0x0017u)
 
 /** The GATT Maximum attribute length. */
-#define CY_BLE_CONFIG_GATT_DB_MAX_VALUE_LEN         (0x0009u)
+#define CY_BLE_CONFIG_GATT_DB_MAX_VALUE_LEN         (0x0008u)
 #define CY_BLE_GATT_DB_INDEX_COUNT                  (0x0014u)
 
 /** The number of characteristics supporting the Reliable Write property. */

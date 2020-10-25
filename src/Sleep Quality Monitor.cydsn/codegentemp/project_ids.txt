@@ -1,6 +1,8 @@
-C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj|f5447c89-e4f4-4938-9abb-1b08878ccdad
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5ccff160-3d99-4e08-9a0d-bd0cafae4ecf
-C:\Users\dmr85\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|a1d52942-2d62-4cc5-9251-50766361a9f7
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|9d122393-62a8-439c-9cb6-72fbc78849fa
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|9cb52fbe-5455-4abb-a154-e57c54247ab2
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|8e5eab11-15fd-47ce-a855-c5a59ae7e58c
+C:\Users\dmr85\Documents\PSoC Creator\EEG\EEGfirmware\src\Sleep Quality Monitor.cydsn\Sleep Quality Monitor.cyprj|c2c76eeb-bd7c-4acd-bb96-9b1b51842cf9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|8a5d0a02-a4ed-4c81-bc3c-50b188b52231
+C:\Users\dmr85\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|c2e741aa-6d3f-44b4-a83b-0e6e18a26dc0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|0f7c8930-73f4-4e7f-9825-3bdd7a1598ad
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|19fe49e9-4079-4de1-8243-47a932c78760
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|abf2999e-65cd-4b5f-ba82-dcdb426a53b1
+C:\Users\dmr85\Documents\PSoC Creator\4.2\Devices\psoc6\PSoC6AnalogDevice\PSoC6AnalogDevice.cydsn\PSoC6AnalogDevice.cyprj|f990e2ab-434b-4c63-b940-5e1d1497986c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|bec286bc-05b0-40d2-a642-3e6ea63b924b

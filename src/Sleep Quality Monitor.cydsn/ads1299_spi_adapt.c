@@ -225,7 +225,7 @@ uint32_t spi_read_packet(uint8_t data[], uint8_t packet_size)
             }
             errorStatus = SPI_Transfer(tx_buf, data, packet_size);*/
             uint8_t tx = 0x00;
-            //SPI_Transfer(NULL, NULL, ONE_PACKET_SIZE);
+            
             errorStatus = SPI_Transfer(&tx, &tempVar, ONE_PACKET_SIZE);
             
             if(errorStatus == CY_SCB_SPI_SUCCESS)
@@ -238,7 +238,7 @@ uint32_t spi_read_packet(uint8_t data[], uint8_t packet_size)
                 do
                 {
                     masterStatus  = SPI_GetTransferStatus();
-                    Cy_SysLib_Delay(CY_SCB_WAIT_1_UNIT);
+                    //Cy_SysLib_Delay(CY_SCB_WAIT_1_UNIT);
                     timeOut--;
                     
                 } while ((0UL != (masterStatus & CY_SCB_SPI_TRANSFER_ACTIVE)) && (timeOut > 0UL) );
@@ -246,10 +246,7 @@ uint32_t spi_read_packet(uint8_t data[], uint8_t packet_size)
                 //if ((0UL == (MASTER_ERROR_MASK & masterStatus)) && (tempVar != 0xFF) )
                 if ((0UL == (MASTER_ERROR_MASK & masterStatus)))
                 {  
-                    /*if (count == 0){
-                        printf("out_s ");
-                    }
-                    printf("%x ", tempVar);*/
+                    
                     data[count] = tempVar;
                     count += 1;
              
@@ -259,17 +256,17 @@ uint32_t spi_read_packet(uint8_t data[], uint8_t packet_size)
                         //UART_PutString(" got it ");
                     }
                 }
-                else 
+                /*else 
                 {
                     HandleError();
-                }
-            }     
+                }*/
+            }   
             
             Cy_SysLib_Delay(CY_SCB_WAIT_1_UNIT);
             timeOutStatusCheck--;
-            
-        }while((count < packet_size) && (timeOutStatusCheck > 0));
         
+        }while((count < packet_size) && (timeOutStatusCheck > 0));
+         
         /*if(timeOutStatusCheck == (0UL))
         {
             HandleError();       
