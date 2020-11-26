@@ -245,26 +245,28 @@ Discarded input sections
                 0x00000000       0x20 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
  .text.ads1299_device_init
                 0x00000000      0x160 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
+ .text.ads1299_lead_off
+                0x00000000       0x24 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
  .text.ads1299_rdata32_packet
                 0x00000000       0xc0 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
  .text.ads1299_rdata24_packet
                 0x00000000       0xb0 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
  .text.ads1299_rdata24_generic
-                0x00000000      0x11c .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
+                0x00000000      0x14c .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
  .text.ads1299_rdata32_generic
                 0x00000000       0x84 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
  .rodata.str1.4
                 0x00000000        0xb .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
- .debug_info    0x00000000     0x186d .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
- .debug_abbrev  0x00000000      0x2e0 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
- .debug_loc     0x00000000      0x4c7 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
+ .debug_info    0x00000000     0x18f4 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
+ .debug_abbrev  0x00000000      0x2c6 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
+ .debug_loc     0x00000000      0x4e8 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
  .debug_aranges
-                0x00000000       0x50 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
- .debug_ranges  0x00000000       0x40 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
- .debug_line    0x00000000      0x53f .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
- .debug_str     0x00000000      0xceb .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
+                0x00000000       0x58 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
+ .debug_ranges  0x00000000       0x48 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
+ .debug_line    0x00000000      0x550 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
+ .debug_str     0x00000000      0xcfc .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
  .comment       0x00000000       0x6f .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
- .debug_frame   0x00000000      0x114 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
+ .debug_frame   0x00000000      0x130 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
  .ARM.attributes
                 0x00000000       0x32 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o
  COMMON         0x00000000        0x0 .\CortexM0p\ARM_GCC_541\Debug\ads1299.o

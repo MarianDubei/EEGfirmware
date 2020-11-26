@@ -100,57 +100,59 @@ ads1299_error_t	ads1299_device_init(uint8_t chip_select, uint8_t init_regs)
 			
 		/* Write to CONFIG1, set data rate to 250 Hz */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CONFIG1, ADS1299_REG_CONFIG1_RESERVED_VALUE |
-		ADS1299_REG_CONFIG1_FMOD_DIV_BY_4096);
+		ADS1299_REG_CONFIG1_FMOD_DIV_BY_1024);
 		/* Write to CONFIG2 register, generate test signal internally */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CONFIG2, ADS1299_REG_CONFIG2_RESERVED_VALUE |
 		ADS1299_REG_CONFIG2_CAL_INT        |
 		ADS1299_REG_CONFIG2_CAL_PULSE_FCLK_DIV_2_21);
 			
 		/* Write to CONFIG3, enable internal reference buffer, bias internally generated, bias buffer enabled */
-		ads1299_wreg(chip_select, ADS1299_REGADDR_CONFIG3, ADS1299_REG_CONFIG3_REFBUF_ENABLED);
+		ads1299_wreg(chip_select, ADS1299_REGADDR_CONFIG3, ADS1299_REG_CONFIG3_REFBUF_ENABLED |
+		//ADS1299_REG_CONFIG3_BIASREF_INT    |
+		ADS1299_REG_CONFIG3_BIASBUF_ENABLED);
 		/* Reference settling time */
 		delay_ms(150);
 			
 		/* Write to CH1 settings register, set as normal input, gain 24 */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH1SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
-		ADS1299_REG_CHNSET_GAIN_24			|
+		ADS1299_REG_CHNSET_GAIN_4			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
 		/* Write to CH2 settings register, set as normal input, gain 24 */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH2SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
-		ADS1299_REG_CHNSET_GAIN_24			|
+		ADS1299_REG_CHNSET_GAIN_4			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
 		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
 		/* Write to CH3 settings register, set as normal input, gain 24 */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH3SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
-		ADS1299_REG_CHNSET_GAIN_24			|
+		ADS1299_REG_CHNSET_GAIN_4			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
-		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+		ADS1299_REG_CHNSET_CHANNEL_OFF);
 		/* Write to CH4 settings register, set as normal input, gain 24 */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH4SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
-		ADS1299_REG_CHNSET_GAIN_24			|
+		ADS1299_REG_CHNSET_GAIN_4			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
-		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+		ADS1299_REG_CHNSET_CHANNEL_OFF);
 		/* Write to CH5 settings register, set as normal input, gain 24 */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH5SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
-		ADS1299_REG_CHNSET_GAIN_24			|
+		ADS1299_REG_CHNSET_GAIN_4			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
-		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+		ADS1299_REG_CHNSET_CHANNEL_OFF);
 		/* Write to CH6 settings register, set as normal input, gain 24 */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH6SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
-		ADS1299_REG_CHNSET_GAIN_24			|
+		ADS1299_REG_CHNSET_GAIN_4			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
-		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+		ADS1299_REG_CHNSET_CHANNEL_OFF);
 		/* Write to CH5 settings register, set as normal input, gain 24 */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH7SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
-		ADS1299_REG_CHNSET_GAIN_24			|
+		ADS1299_REG_CHNSET_GAIN_4			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
-		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+		ADS1299_REG_CHNSET_CHANNEL_OFF);
 		/* Write to CH6 settings register, set as normal input, gain 24 */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_CH8SET, ADS1299_REG_CHNSET_CHANNEL_ON			|
-		ADS1299_REG_CHNSET_GAIN_24			|
+		ADS1299_REG_CHNSET_GAIN_4			|
 		ADS1299_REG_CHNSET_SRB2_DISCONNECTED	|
-		ADS1299_REG_CHNSET_NORMAL_ELECTRODE);
+		ADS1299_REG_CHNSET_CHANNEL_OFF);
 			
 		/* Write to MISC1 register, SRB1 on (ref electrode) */
 		ads1299_wreg(chip_select, ADS1299_REGADDR_MISC1, ADS1299_REG_MISC1_SRB1_ON);
@@ -165,6 +167,21 @@ ads1299_error_t	ads1299_device_init(uint8_t chip_select, uint8_t init_regs)
 	#endif /* #if UC3 */
 }
 
+ads1299_error_t	ads1299_lead_off(uint8_t chip_select)
+{
+    ads1299_wreg(chip_select, ADS1299_REGADDR_LOFF, ADS1299_REG_LOFF_95_PERCENT | ADS1299_REG_LOFF_6_NA | ADS1299_REG_LOFF_AC_LEAD_OFF_FDR_DIV_4);
+    ads1299_wreg(chip_select, ADS1299_REGADDR_CONFIG4, ADS1299_REG_CONFIG4_LEAD_OFF_ENABLED);
+    ads1299_wreg(chip_select, ADS1299_REGADDR_LOFF_SENSP, ADS1299_REG_LOFF_SENSP_LOFFP1 |
+    ADS1299_REG_LOFF_SENSP_LOFFP2 |
+    ADS1299_REG_LOFF_SENSP_LOFFP3 |
+    ADS1299_REG_LOFF_SENSP_LOFFP4 |
+    ADS1299_REG_LOFF_SENSP_LOFFP5 |
+    ADS1299_REG_LOFF_SENSP_LOFFP6 |
+    ADS1299_REG_LOFF_SENSP_LOFFP7 |
+    ADS1299_REG_LOFF_SENSP_LOFFP8);
+    
+    return ADS1299_STATUS_OK;
+}
 
 
 /* REGISTER READ/WRITE FUNCTIONS *****************************************************************************************************************/
@@ -331,16 +348,19 @@ ads1299_error_t ads1299_rdata24_generic(uint8_t chip_select, volatile uint32_t s
     
     // split data
     
-    status_array[0] = sigtemp[0];
-    status_array[1] = sigtemp[1];
-    status_array[2] = sigtemp[2];
+    status_array[0] = sigtemp[1];
+    status_array[1] = sigtemp[2];
+    status_array[2] = sigtemp[3];
     
     
     for (channel_idx = 0; channel_idx < MAX_EEG_CHANNELS; channel_idx++)
 	{
-		data_array[sample_idx][channel_idx][0] = sigtemp[3+channel_idx*3];
-		data_array[sample_idx][channel_idx][1] = sigtemp[3+channel_idx*3+1];
-		data_array[sample_idx][channel_idx][2] = sigtemp[3+channel_idx*3+2];
+		data_array[sample_idx][channel_idx][0] = sigtemp[4+channel_idx*3];
+		data_array[sample_idx][channel_idx][1] = sigtemp[4+channel_idx*3+1];
+        if (channel_idx == 7)
+            data_array[sample_idx][channel_idx][2] = 0xff;
+		else
+            data_array[sample_idx][channel_idx][2] = sigtemp[4+channel_idx*3+2];
 	}
 	
 	return ADS1299_STATUS_OK;

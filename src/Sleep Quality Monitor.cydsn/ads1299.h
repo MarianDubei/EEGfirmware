@@ -610,6 +610,9 @@ typedef enum
  */
 ads1299_error_t ads1299_device_init(uint8_t, uint8_t);
 
+
+ads1299_error_t	ads1299_lead_off(uint8_t);
+
 /**
  *	\brief Read a single register from the ADS1299.
  *

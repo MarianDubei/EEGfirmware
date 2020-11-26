@@ -118,7 +118,7 @@ int main(void)
     CLK_Enable();
     CLK_1_Enable();
     UART_Start();
-    UART_PutString("alive");
+    UART_PutString("alive ");
     setvbuf(stdin, NULL, _IONBF, 0);
     
     // Start BLE stack and register the callback function
@@ -126,33 +126,9 @@ int main(void)
 
     UART_PutString("ads started ");
     ads1299_device_init(SPI_ADS1299_MAIN_CHIPNUM, 1);
+    ads1299_lead_off(SPI_ADS1299_MAIN_CHIPNUM);
     ads1299_soft_start_conversion(SPI_ADS1299_MAIN_CHIPNUM);
     ads1299_start_rdatac(SPI_ADS1299_MAIN_CHIPNUM);
-    
-    /*ads1299_rdata24_generic(SPI_ADS1299_MAIN_CHIPNUM, 0, spi_rx_ads1299_status, spi_rx_data_buffer);
-    ads1299_stop_rdatac(SPI_ADS1299_MAIN_CHIPNUM);
-    ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CONFIG2, 0xd0);
-    ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH1SET, 0x05);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH2SET, 0x05);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH3SET, 0x05);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH4SET, 0x05);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH5SET, 0x05);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH6SET, 0x05);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH7SET, 0x05);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH8SET, 0x05);	
-    ads1299_start_rdatac(SPI_ADS1299_MAIN_CHIPNUM);
-    ads1299_rdata24_generic(SPI_ADS1299_MAIN_CHIPNUM, 0, spi_rx_ads1299_status, spi_rx_data_buffer);
-    
-    ads1299_stop_rdatac(SPI_ADS1299_MAIN_CHIPNUM);
-    ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH1SET, 0x00);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH2SET, 0x00);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH3SET, 0x00);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH4SET, 0x00);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH5SET, 0x00);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH6SET, 0x00);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH7SET, 0x00);
-	ads1299_wreg(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_REGADDR_CH8SET, 0x00);	
-    ads1299_start_rdatac(SPI_ADS1299_MAIN_CHIPNUM);*/
     
     for (int m = 0; m < DSP_PREBUFFER_NB_SAMPLES; m++) {
 		for (int n = 0; n < MAX_EEG_CHANNELS; n++) {
@@ -174,6 +150,7 @@ int main(void)
             // change 0 to idx for saving samples
         //ads1299_send_byte(SPI_ADS1299_MAIN_CHIPNUM, ADS1299_OPC_RDATA);
         //UART_PutString(" reading ");    
+        
         ads1299_rdata24_generic(SPI_ADS1299_MAIN_CHIPNUM, 0, spi_rx_ads1299_status, spi_rx_data_buffer);
         
         /*int k = 0;
